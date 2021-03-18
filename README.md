@@ -2,6 +2,12 @@
 
 Dashboard connects authenticated campus users with LibGuides data pertaining to their course and department affiliations. The Dashboard was developed by the Miami University Libraries in Ohio. Much of the code is specific to Miami's own situation; developers are welcome to fork the repo to develop it for their own uses.
 
+## Requirements
+
+- Node.js
+- CAS (Central Authentication Service) -- though you could undoubtedly repurpose much of the code for a different authentication service that also shares user's subject affiliation data
+- A fair amount of local customization -- this project is designed to work with the data structures in place at Miami University; you would undoubtedly need to modify it for your own situation
+
 ## Initial (Test) Setup
 
 To use this repo as-is, with fake/modified data from Miami University's initial instance, do this on the command line:
