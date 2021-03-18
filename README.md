@@ -6,7 +6,12 @@ Dashboard connects authenticated campus users with LibGuides data pertaining to 
 
 - Node.js
 - CAS (Central Authentication Service) -- though you could undoubtedly repurpose much of the code for a different authentication service that also shares user's subject affiliation data
+- LibGuides (subscription required)
 - A fair amount of local customization -- this project is designed to work with the data structures in place at Miami University; you would undoubtedly need to modify it for your own situation
+
+### Additional (optional) ILS integration
+
+- III Sierra
 
 ## Initial (Test) Setup
 
