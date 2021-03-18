@@ -1,0 +1,16 @@
+*~
+.env
+package-lock.json
+config/default.json
+config/fakeUser.json
+config/sandboxConf.js
+config/sierraConf.js
+node_modules/
+misc/
+_site/
+dash_coverage*
+.DS_Store
+SAMPLE_USERS.txt
+temp.json
+test.js
+# include the logs, cache, and cache/subjects dir, but ignore their contents with their own logs/.gitignore

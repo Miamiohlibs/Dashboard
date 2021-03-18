@@ -1,0 +1,53 @@
+<%- include ('header') %>
+  <div class="row mt-3">
+    <!-- Show user's name -->
+    <div class="col-4">
+      <h1 class="text-white">Hello, <%= user.casData.givenName %>
+      </h1>
+    </div>
+
+    <!-- Show user's subject menu -->
+    <div class="col-7">
+      <span class="text-light">Your subjects (based on courses & departmental
+        affiliation): </span>
+      <ul class="nav nav-tabs list-inline" id="myTab" role="tablist">
+        <% if (user.uniqueSubjects) { %>
+          <% user.uniqueSubjects.forEach((s)=> { %>
+            <li class="nav-item list-inline-item">
+              <% let tabId=s.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
+                <a href="#<%= tabId %>" class="nav-link" data-toggle="tab"
+                  role="tab" id="<%= tabId %>-tab" aria-controls="<%= s %>">
+                  <%= s %>
+                </a>
+            </li>
+            <% }); %>
+              <% } %>
+      </ul>
+
+    </div> <!-- End of showing user's subject menu -->
+
+    <!-- Show log-out button -->
+    <div class="col-1">
+      <a href="/logout">
+        <button id="logout" type="button" class="btn btn-light btn-sm">
+          <span class="glyphicon glyphicon-log-out"></span>
+          Log out
+        </button>
+      </a>
+    </div>
+  </div>
+  <!-- End of top info row -->
+
+  <div class="row" style="width:100%">
+
+    <div class="tab-content" id="myTabContent" style="width:100%">
+      <% tabsCreated=[]; %>
+      <% user.subjectData.forEach(m=> { %>
+      <%- include('partials/subject-info', {subj: m}) %>
+      <% tabsCreated.push(m.name) %>
+      <% }); %>
+
+    </div>
+
+  </div>
+  <%- include ('footer') %>

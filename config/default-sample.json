@@ -1,0 +1,15 @@
+{
+    "app": {
+        "port": "9999",
+        "allowed_group_ids": [
+            "0"
+        ],
+        "note": "allowed_group_ids refers to which libguide groups are included in the app; ignore others"
+    },
+    "CAS": {
+        "sessionName": "NSESSIONID",
+        "secret": "This is not really my secret key",
+        "servicePrefix": "https://yourapp.yourdomain.tld:9999",
+        "serverPath": "https://youCAS.yourdomain.tld"
+    }
+}

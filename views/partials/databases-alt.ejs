@@ -1,0 +1,17 @@
+<ul class="allDatabasesLinks">
+    <% if (subjects.length > 0 ) { %>
+    <% subjects.forEach(item => { %>
+    <% if (item !== null) { %>
+    <li>
+        <a href="https://libguides.lib.miamioh.edu/az.php?s=<%= item.id %>">
+            All <%= item.name %> Databases
+        </a>
+    </li>
+    <% } else { %>
+    No relevant databases identified
+    <% } %>
+    <% }) %>
+    <% } else { %>
+
+    <% } %>
+</ul>

@@ -1,0 +1,71 @@
+{
+    "user": "rtr3822",
+    "attributes": {
+        "isFromNewLogin": [
+            "true"
+        ],
+        "authenticationDate": [
+            "2020-11-10T13:49:21.352104-05:00[America/New_York]"
+        ],
+        "eduPersonAffiliation": [
+            "student"
+        ],
+        "muohioeduMajorCode": [
+            "as18",
+            "asjn"
+        ],
+        "displayName": [
+            "RTR3822 Test"
+        ],
+        "givenName": [
+            "RTR3822"
+        ],
+        "muohioeduCurrentCourseSubjectNumber": [
+            "MTH125",
+            "CIT214",
+            "ENG112",
+            "CSE163"
+        ],
+        "successfulAuthenticationHandlers": [
+            "LdapAuthenticationHandler"
+        ],
+        "muohioeduAffiliationCode": [
+            "und"
+        ],
+        "muohioeduMajor": [
+            "English: Literature",
+            "Journalism"
+        ],
+        "credentialType": [
+            "UsernamePasswordCredential"
+        ],
+        "samlAuthenticationStatementAuthMethod": [
+            "urn:oasis:names:tc:SAML:1.0:am:password"
+        ],
+        "uid": [
+            "rtr3822"
+        ],
+        "eduPersonPrimaryAffiliation": [
+            "student"
+        ],
+        "muohioeduPrimaryLocationCode": [
+            "oxf"
+        ],
+        "muohioeduPrimaryLocation": [
+            "Oxford"
+        ],
+        "authenticationMethod": [
+            "LdapAuthenticationHandler"
+        ],
+        "eduPersonPrincipalName": [
+            "rtr3822@miamioh.edu"
+        ],
+        "longTermAuthenticationRequestTokenUsed": [
+            "false"
+        ],
+        "muohioeduPrimaryAffiliationCode": [
+            "frs"
+        ]
+    },
+    "pt": "ST-394031-91j0yM-exwB2gVDmjrvBkpNwkic-mualcasp22"
+}

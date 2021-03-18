@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "code": "AAA",
+            "description": "Psychology\/Type 3\/Business"
+        },
+        {
+            "code": "FANC",
+            "description": "Architecture"
+        },
+        {
+            "code": "AS06",
+            "description": "Anthropology"
+        },
+        {
+            "code": "AS07",
+            "description": "Botany"
+        }
+    ]
+}

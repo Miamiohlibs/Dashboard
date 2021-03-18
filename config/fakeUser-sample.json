@@ -1,0 +1,11 @@
+{
+    "useFakeUser": true,
+    "fakeUserId": "0",
+    "fakeUsers": [
+        "3822.json",
+        "employee-in-class.json",
+        "fac.json",
+        "mjf-fac.json",
+        "engine-undergrad.json"
+    ]
+}

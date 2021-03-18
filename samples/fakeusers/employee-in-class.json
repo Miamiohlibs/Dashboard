@@ -1,0 +1,120 @@
+{
+    "user": "perkinsal",
+    "attributes": {
+        "eduPersonAffiliation": [
+            "student",
+            "staff"
+        ],
+        "authnContextClass": [
+            "mfa-duo"
+        ],
+        "displayName": [
+            "Alvin Perkins"
+        ],
+        "muohioeduCurrentCourseSubjectNumber": [
+            "CSE102",
+            "CSE252"
+        ],
+        "muohioeduAffiliationCode": [
+            "sta",
+            "und"
+        ],
+        "muohioeduCollegeCode": [
+            "00"
+        ],
+        "muohioeduPrimaryAffiliation": [
+            "staff"
+        ],
+        "uid": [
+            "perkinsal"
+        ],
+        "eduPersonPrimaryAffiliation": [
+            "staff"
+        ],
+        "muohioeduClass": [
+            "Non-Matriculated"
+        ],
+        "muohioeduCollege": [
+            "Undeclared"
+        ],
+        "muohioeduEmployeeType": [
+            "Unclassified Staff"
+        ],
+        "muohioeduPrimaryLocationCode": [
+            "oxf"
+        ],
+        "eduPersonPrincipalName": [
+            "perkinsal@miamioh.edu"
+        ],
+        "muohioeduDivisionCode": [
+            "ulb"
+        ],
+        "longTermAuthenticationRequestTokenUsed": [
+            "false"
+        ],
+        "isFromNewLogin": [
+            "true"
+        ],
+        "bypassMultifactorAuthentication": [
+            "false"
+        ],
+        "authenticationDate": [
+            "2020-10-21T10:07:04.883291-04:00[America/New_York]"
+        ],
+        "muohioeduMajorCode": [
+            "0000"
+        ],
+        "givenName": [
+            "Alvin"
+        ],
+        "muohioeduDepartment": [
+            "Library"
+        ],
+        "muohioeduEmployeeTypeCode": [
+            "unc"
+        ],
+        "successfulAuthenticationHandlers": [
+            "LdapAuthenticationHandler",
+            "mfa-duo"
+        ],
+        "muohioeduMajor": [
+            "Non-Matriculated"
+        ],
+        "muohioeduClassCode": [
+            "99"
+        ],
+        "credentialType": [
+            "UsernamePasswordCredential",
+            "DuoCredential"
+        ],
+        "samlAuthenticationStatementAuthMethod": [
+            "urn:oasis:names:tc:SAML:1.0:am:password",
+            "urn:oasis:names:tc:SAML:1.0:am:unspecified"
+        ],
+        "muohioeduAffiliation": [
+            "Staff",
+            "Student"
+        ],
+        "muohioeduDivision": [
+            "University Libraries"
+        ],
+        "muohioeduPrimaryLocation": [
+            "Oxford"
+        ],
+        "authenticationMethod": [
+            "LdapAuthenticationHandler",
+            "mfa-duo"
+        ],
+        "muohioeduDepartmentCode": [
+            "ulb"
+        ],
+        "muohioeduCurrentCourseCRN": [
+            "20211071994",
+            "20211069755"
+        ],
+        "muohioeduPrimaryAffiliationCode": [
+            "sta"
+        ]
+    },
+    "pt": "ST-5209-MAPhDcursIyz8h5spYWKssWok64-mualcasp22"
+}

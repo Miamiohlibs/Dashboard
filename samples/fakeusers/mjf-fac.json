@@ -1,0 +1,97 @@
+{
+    "user": "carterst",
+    "attributes": {
+        "eduPersonAffiliation": [
+            "faculty"
+        ],
+        "authnContextClass": [
+            "mfa-duo"
+        ],
+        "displayName": [
+            "Dr. Carter Stanley"
+        ],
+        "muohioeduAffiliationCode": [
+            "fac"
+        ],
+        "muohioeduPrimaryAffiliation": [
+            "faculty"
+        ],
+        "muohioeduEmployeeSchool": [
+            "College of Arts and Science"
+        ],
+        "uid": [
+            "carterst"
+        ],
+        "eduPersonPrimaryAffiliation": [
+            "faculty"
+        ],
+        "muohioeduEmployeeType": [
+            "Faculty"
+        ],
+        "muohioeduPrimaryLocationCode": [
+            "oxf"
+        ],
+        "eduPersonPrincipalName": [
+            "carterst@miamioh.edu"
+        ],
+        "muohioeduDivisionCode": [
+            "aao"
+        ],
+        "longTermAuthenticationRequestTokenUsed": [
+            "false"
+        ],
+        "isFromNewLogin": [
+            "false"
+        ],
+        "bypassMultifactorAuthentication": [
+            "false"
+        ],
+        "authenticationDate": [
+            "2020-12-09T14:01:20.972143-05:00[America/New_York]"
+        ],
+        "givenName": [
+            "Carter"
+        ],
+        "muohioeduDepartment": [
+            "Media, Journalism and Film"
+        ],
+        "muohioeduEmployeeTypeCode": [
+            "fac"
+        ],
+        "successfulAuthenticationHandlers": [
+            "LdapAuthenticationHandler",
+            "mfa-duo"
+        ],
+        "muohioeduEmployeeSchoolCode": [
+            "as"
+        ],
+        "credentialType": [
+            "UsernamePasswordCredential",
+            "DuoCredential"
+        ],
+        "samlAuthenticationStatementAuthMethod": [
+            "urn:oasis:names:tc:SAML:1.0:am:password",
+            "urn:oasis:names:tc:SAML:1.0:am:unspecified"
+        ],
+        "muohioeduAffiliation": [
+            "Faculty"
+        ],
+        "muohioeduDivision": [
+            "Academic Affairs"
+        ],
+        "muohioeduPrimaryLocation": [
+            "Oxford"
+        ],
+        "authenticationMethod": [
+            "LdapAuthenticationHandler",
+            "mfa-duo"
+        ],
+        "muohioeduDepartmentCode": [
+            "mjf"
+        ],
+        "muohioeduPrimaryAffiliationCode": [
+            "fac"
+        ]
+    },
+    "pt": "ST-292170-kktn-XWDIQIuBxDzDjnI8YNE8sE-mualcasp23"
+}

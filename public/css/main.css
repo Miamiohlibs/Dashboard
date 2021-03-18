@@ -1,0 +1,136 @@
+/* --- Accessibiity focus ---- */
+:focus {
+  outline: auto 2px Highlight !important;
+  outline: auto 5px -webkit-focus-ring-color !important;
+}
+/*---Firefox-only adjustments -----*/
+@supports (-moz-appearance: none) {
+}
+
+/*----Copy from Jekyll Bootstrap----*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1 .h2 .h3 .h4 .h5 .h6 {
+  font-family: 'Cabin Condensed', sans-serif;
+}
+h1:after {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#960018),
+    to(#ff7883)
+  );
+  background: linear-gradient(to right, #960018, #ff7883);
+  border-radius: 2px;
+  bottom: -0.2em;
+  content: '';
+  display: block;
+  height: 0.1em;
+  position: relative;
+  width: 3em;
+}
+
+/*------CUSTOM site-wide CSS STARTS HERE----------*/
+h4 {
+  font-size: 1.15rem;
+}
+.bg-specialDark {
+  background-color: rgba(52, 58, 64, 0.9);
+}
+.addWing {
+  width: 4em;
+  background: repeating-linear-gradient(
+    -45deg,
+    white,
+    white 2px,
+    #b61f2e 1px,
+    #b61f2e 7px
+  );
+  opacity: 0.2;
+}
+
+.dashBoardContainer {
+  border-color: #fabdbd;
+  border-radius: 0px;
+  border-width: 3px;
+}
+
+a:link,
+a:visited {
+  color: #343a40 !important;
+}
+a.nav-link,
+a.libraryAcc {
+  color: white !important;
+}
+a[data-toggle='collapse'] {
+  display: block;
+}
+a[data-toggle='collapse'].collapsed .fas {
+  transform: rotate(-180deg);
+}
+a[data-toggle='collapse'] .fas {
+  transition: 0.2s transform ease-in-out;
+}
+a.nav-link.active {
+  color: #343a40 !important;
+}
+
+.card {
+  background-color: #ffeded;
+}
+
+.bg-MUred {
+  background-color: #c3142d;
+}
+
+.bg-MUlightred {
+  background-color: #ffeded;
+}
+
+.border-MUmidred {
+  border-color: #fabdbd;
+  border-radius: 0px;
+  border-width: 3px;
+}
+
+.lci_chat_load {
+  display: none;
+}
+
+i.fa-lightbulb {
+  padding: 5px 0px 3px 8px;
+}
+
+i.fa-sort-alpha-down,
+i.fa-user {
+  padding: 5px 0px 3px 6px;
+}
+i.fa-lightbulb,
+i.fa-sort-alpha-down,
+i.fa-user {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  border: 2px solid #ffeded;
+}
+
+.mysched {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  color: #333333;
+  font: 14px Arial, Helvetica, Verdana;
+  padding: 8px 20px;
+  cursor: pointer;
+  margin: 4px 0;
+}
+.mysched:hover {
+  opacity: 0.9;
+}

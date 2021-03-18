@@ -1,0 +1,127 @@
+{
+	"user": "littlean",
+	"attributes": {
+		"eduPersonAffiliation": [
+			"student"
+		],
+		"authnContextClass": [
+			"mfa-duo"
+		],
+		"displayName": [
+			"Annie Little"
+		],
+		"muohioeduCurrentCourseSubjectNumber": [
+			"MME313",
+			"MME314",
+			"MME311",
+			"ENG313"
+		],
+		"muohioeduAffiliationCode": [
+			"ste",
+			"und"
+		],
+		"muohioeduCollegeCode": [
+			"ap"
+		],
+		"muohioeduPrimaryAffiliation": [
+			"student"
+		],
+		"uid": [
+			"littlean"
+		],
+		"eduPersonPrimaryAffiliation": [
+			"student"
+		],
+		"muohioeduClass": [
+			"Junior"
+		],
+		"muohioeduCollege": [
+			"Col of Engineering & Computing"
+		],
+		"muohioeduEmployeeType": [
+			"Student Regular"
+		],
+		"muohioeduPrimaryLocationCode": [
+			"oxf"
+		],
+		"eduPersonPrincipalName": [
+			"littlean@miamioh.edu"
+		],
+		"muohioeduDivisionCode": [
+			"fbs",
+			"ulb"
+		],
+		"longTermAuthenticationRequestTokenUsed": [
+			"false"
+		],
+		"isFromNewLogin": [
+			"true"
+		],
+		"bypassMultifactorAuthentication": [
+			"false"
+		],
+		"authenticationDate": [
+			"2020-01-31T16:24:32.318286-05:00[America/New_York]"
+		],
+		"muohioeduMajorCode": [
+			"apme"
+		],
+		"givenName": [
+			"Annie"
+		],
+		"muohioeduDepartment": [
+			"Housing, Dining, Recreation & Business Services",
+			"Library"
+		],
+		"muohioeduEmployeeTypeCode": [
+			"sp"
+		],
+		"successfulAuthenticationHandlers": [
+			"LdapAuthenticationHandler",
+			"mfa-duo"
+		],
+		"muohioeduMajor": [
+			"Mechanical Engineering"
+		],
+		"muohioeduClassCode": [
+			"03"
+		],
+		"credentialType": [
+			"UsernamePasswordCredential",
+			"DuoCredential"
+		],
+		"samlAuthenticationStatementAuthMethod": [
+			"urn:oasis:names:tc:SAML:1.0:am:password",
+			"urn:oasis:names:tc:SAML:1.0:am:unspecified"
+		],
+		"muohioeduAffiliation": [
+			"Student Employee",
+			"Student"
+		],
+		"muohioeduDivision": [
+			"Finance and Business Services",
+			"University Libraries"
+		],
+		"muohioeduPrimaryLocation": [
+			"Oxford"
+		],
+		"authenticationMethod": [
+			"LdapAuthenticationHandler",
+			"mfa-duo"
+		],
+		"muohioeduDepartmentCode": [
+			"hdg",
+			"ulb"
+		],
+		"muohioeduCurrentCourseCRN": [
+			"20202074503",
+			"20202076109",
+			"20202025663",
+			"20202082244"
+		],
+		"muohioeduPrimaryAffiliationCode": [
+			"und"
+		]
+	},
+	"pt": "ST-412-cy8u5WCcLhnTebDWoLUnW-CFIzo-mualcast22"
+}

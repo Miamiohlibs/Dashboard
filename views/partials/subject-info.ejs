@@ -1,0 +1,90 @@
+<% subj.id=subj.name.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
+  <div class="tab-pane" id="<%= subj.id %>" role="tabpanel"
+    aria-labelledby="<%= subj.id %>-tab">
+    <h3 class="text-white">
+      <%= subj.name %>
+    </h3>
+    <div class="row">
+
+      <% if (! subj.resources.hasOwnProperty('metadata')) { %>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <div class="card">
+            <div class="card-header bg-MUred text-white">No Resources Found
+            </div>
+            <div class="card-body">No resources found for <%= subj.name %>
+            </div>
+          </div>
+        </div>
+        <% } else { %>
+
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="card mb-3 border-MUmidred">
+              <div class="card-header bg-MUred text-white">
+                <h4><i class="far fa-lightbulb"></i>&nbsp;Subject Guides</h4>
+              </div>
+              <div class="card-body">
+                <% if ( parseInt (subj.resources.metadata.sizeof.guides)> 0) {
+                  %>
+                  <%- include('guides', {guides: subj.resources.guides}) %>
+                    <% } %>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="card mb-3 border-MUmidred">
+              <div class="card-header bg-MUred text-white">
+                <h4><i class="fas fa-sort-alpha-down"></i>&nbsp;Databases</h4>
+              </div>
+              <div class="card-body">
+                <% if ( parseInt (subj.resources.metadata.sizeof.databases)> 0)
+                  { %>
+                  <%- include('databases', {databases:
+                    subj.resources.databases}) %>
+                    <% } %>
+                      <% if (subj.resources.subjects &&
+                        subj.resources.subjects.length> 0) { %>
+                        <%- include('databases-alt', {subjects:
+                          subj.resources.subjects}); %>
+                          <% }%>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="card mb-3 border-MUmidred">
+              <div class="card-header bg-MUred text-white">
+                <h4><i class="far fa-user"></i>&nbsp;My Librarian</h4>
+              </div>
+              <div class="card-body">
+                <% if ( parseInt (subj.resources.metadata.sizeof.librarians)> 0)
+                  { %>
+                  <%- include('librarian', {libn: subj.resources.librarians[0]})
+                    %>
+                    <% } %>
+              </div>
+            </div>
+          </div>
+          <% } %>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+              <div class="card mb-3 border-MUmidred">
+                <div class="card-header bg-MUred">
+                  <a class="libraryAcc collapsed" data-toggle="collapse"
+                    href="#collapseCirc" role="button" aria-expanded="false"
+                    aria-controls="collapseCirc">
+                    <h4>My Library Account&nbsp;<i
+                        class="fas fa-chevron-down"></i></h4>
+                  </a>
+                </div>
+                <div class="card-body d-print-none">
+                  <% if (user.sierraInfo !=undefined) { %>
+                    <%- include('circulation', {data: user.sierraInfo}) %>
+                      <% } else { %>
+                        <p>No data avalable</p>
+                        <% } %>
+                </div>
+              </div>
+            </div>
+
+    </div>
+  </div>
