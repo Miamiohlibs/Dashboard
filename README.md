@@ -34,7 +34,9 @@ To use this repo as-is, with fake/modified data from Miami University's initial 
 
 To use the app with your own data, you'll need to do some additional setup, and have appropriate API keys for your LibGuides instance.
 
-- create a `.env file in the top level directory of the app
+- run `npm update` to install dependencies
+- create a `.env` file in the top level directory of the app
+- copy `config/default-sample.json` to `config/default.json` and add your organization's CAS server details and secret key
 - add the LibGuides API v 1.1 KEY and SITE_ID to the `.env` file (see below)
 - using `cron` or similar, run the `./getData.sh` periodically; this will:
   - create needed cache and cache/subjects directories
