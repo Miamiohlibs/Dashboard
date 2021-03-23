@@ -1,10 +1,6 @@
 const SierraApi = require('../classes/SierraApi');
-try {
-  const conf = require('../config/sierraConf');
-  const sierra = new SierraApi(conf);
-} catch (e) {
-  console.log('Unable to include circulation info - no SierraConf');
-}
+const conf = require('../config/sierraConf');
+const sierra = new SierraApi(conf);
 
 async function getData(userId = conf.defaultUser) {
   //default to ken info if no userid given (test accts)
