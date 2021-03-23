@@ -16,7 +16,7 @@ module.exports = (user) => {
   /* for dev purposes, write the original user input to a file */
   try {
     const data = fs.writeFileSync(
-      '/Users/irwinkr/Documents/GitHub/Dashboard/logs/userInput.json',
+      '../logs/userInput.json',
       JSON.stringify(user, null, 2)
     );
     //file written successfully
