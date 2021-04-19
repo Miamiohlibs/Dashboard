@@ -6,7 +6,7 @@
       <li id="circ-holds">Items Requested: <%= data.numHolds %>
       </li>
       <li id="money-owed" class="hideable">
-        <% if (data.moneyOwed == '$0.00') { %>
+        <% if (data.moneyOwed == '0') { %>
           Money Owed: <%- data.moneyOwed %>
         <% } else { %>
           <% moneyClass = 'danger'; moneyButtonText = 'Money Owed' %>
