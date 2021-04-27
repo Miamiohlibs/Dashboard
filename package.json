@@ -6,7 +6,7 @@
   "scripts": {
     "prod": "node app",
     "server": "node app --name=Dashboard > logs/app.log 2>&1 &",
-    "dev" : "nodemon --exec './restart' ",
+    "dev": "nodemon app",
     "test": "mocha || true",
     "check": "node ./utilities/preflightCheck"
   },

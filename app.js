@@ -55,7 +55,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 */
 
 app.use(express.static(path.resolve(__dirname, 'public')));
-app.use('/js', express.static(path.join(__dirname, 'public')));
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.json());
