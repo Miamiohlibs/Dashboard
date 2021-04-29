@@ -7,7 +7,7 @@
     <div class="row">
 
       <% if (! subj.resources.hasOwnProperty('metadata')) { %>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <div class="col-md-4 col-12">
           <div class="card">
             <div class="card-header bg-MUred text-white">No Resources Found
             </div>
@@ -17,10 +17,10 @@
         </div>
         <% } else { %>
 
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <div class="col-md-4 col-12">
             <div class="card mb-3 border-MUmidred">
               <div class="card-header bg-MUred text-white">
-                <h4><i class="far fa-lightbulb"></i>&nbsp;Subject Guides</h4>
+                <h4><i class="bi bi-lightbulb"></i>&nbsp;Subject Guides</h4>
               </div>
               <div class="card-body">
                 <% if ( parseInt (subj.resources.metadata.sizeof.guides)> 0) {
@@ -31,10 +31,10 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <div class="col-md-4 col-12">
             <div class="card mb-3 border-MUmidred">
               <div class="card-header bg-MUred text-white">
-                <h4><i class="fas fa-sort-alpha-down"></i>&nbsp;Databases</h4>
+                <h4><i class="bi bi-sort-alpha-down"></i>&nbsp;Databases</h4>
               </div>
               <div class="card-body">
                 <% if ( parseInt (subj.resources.metadata.sizeof.databases)> 0)
@@ -51,10 +51,10 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <div class="col-md-4 col-12">
             <div class="card mb-3 border-MUmidred">
               <div class="card-header bg-MUred text-white">
-                <h4><i class="far fa-user"></i>&nbsp;My Librarian</h4>
+                <h4><i class="bi bi-person"></i>&nbsp;My Librarian</h4>
               </div>
               <div class="card-body">
                 <% if ( parseInt (subj.resources.metadata.sizeof.librarians)> 0)
@@ -66,41 +66,7 @@
             </div>
           </div>
           <% } %>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-              <div class="card mb-3 border-MUmidred">
-                <div class="card-header bg-MUred">
-                  <a class="libraryAcc collapsed" data-toggle="collapse"
-                    href="#collapseCirc" role="button" aria-expanded="false"
-                    aria-controls="collapseCirc">
-                    <h4>My Library Account</h4>
-                  </a>
-                </div>
-                <div class="card-body d-print-none">
-                  <% fakeCirc = false %>
-                  <% if (fakeCirc == true) { %>
-                  <%- include('circulation', {data: {moneyOwed: '$1.00',numHolds:4,numCheckouts:4}}) %>
-                  <% } else { %>
-                  <% if (user.sierraInfo !=undefined) { %>
-                    <%- include('circulation', {data: user.sierraInfo}) %>
-                      <% } else { %>
-                        <p>No data avalable</p>
-                        <% } %>
-                  <% } %>
-                </div>
-              </div>
 
-              <div class="card mb-3 border-MUmidred">
-                <div class="card-header bg-MUred text-white">
-                  <h4>Featured Content</h4>
-                </div>
-                <div class="card-body">
-                  <a href="https://libguides.lib.miamioh.edu/librarylife">
-                    <img src="/img/life-guide.png" id="life-guide" class="card-img" alt="Your Life and the Library: Resouces for Leisure and Learning, Interests and Information, Fun and Facts, and Education and Entertainment">
-                    <p class="mt-3">The L.I.F.E. guide suggests library resources for non-academic purposes.</p>
-                  </a>
-                </div>
-              </div>
-            </div>
 
     </div>
   </div>
