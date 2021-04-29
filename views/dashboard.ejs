@@ -13,12 +13,9 @@
       <ul class="nav nav-tabs list-inline" id="myTab" role="tablist">
         <% if (user.uniqueSubjects) { %>
           <% user.uniqueSubjects.forEach((s)=> { %>
-            <li class="nav-item list-inline-item">
+            <li class="nav-item list-inline-item" role="presentation">
               <% let tabId=s.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
-                <a href="#<%= tabId %>" class="nav-link" data-toggle="tab"
-                  role="tab" id="<%= tabId %>-tab" aria-controls="<%= s %>">
-                  <%= s %>
-                </a>
+                <button class="nav-link" id="<%= tabId %>-tab" data-bs-toggle="tab" data-bs-target="#<%= tabId %>" type="button" role="tab" aria-controls="<%= s %>"><%= s %></button>
             </li>
             <% }); %>
               <% } %>

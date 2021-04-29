@@ -1,5 +1,5 @@
 <% subj.id=subj.name.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
-  <div class="tab-pane" id="<%= subj.id %>" role="tabpanel"
+  <div class="tab-pane show" id="<%= subj.id %>" role="tabpanel"
     aria-labelledby="<%= subj.id %>-tab">
     <h3 class="text-white">
       <%= subj.name %>
@@ -91,7 +91,7 @@
 
               <div class="card mb-3 border-MUmidred">
                 <div class="card-header bg-MUred text-white">
-                  Content for Everyone
+                  <h4>Featured Content</h4>
                 </div>
                 <div class="card-body">
                   <a href="https://libguides.lib.miamioh.edu/librarylife">

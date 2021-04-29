@@ -43,17 +43,6 @@ h4 {
 .bg-specialDark {
   background-color: rgba(52, 58, 64, 0.9);
 }
-.addWing {
-  width: 4em;
-  background: repeating-linear-gradient(
-    -45deg,
-    white,
-    white 2px,
-    #b61f2e 1px,
-    #b61f2e 7px
-  );
-  opacity: 0.2;
-}
 
 .dashBoardContainer {
   border-color: #fabdbd;
