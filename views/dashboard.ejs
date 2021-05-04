@@ -14,9 +14,9 @@
         <ul class="navbar-nav nav nav-tabs " id="myTab" role="tablist">
           <% if (user.uniqueSubjects) { %>
             <% user.uniqueSubjects.forEach((s)=> { %>
-              <li class="nav-item" role="presentation">
+              <li class="nav-item m-2" role="presentation">
                 <% let tabId=s.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
-                  <button class="text-start nav-link text-primary ps-3" id="<%= tabId %>-tab" data-bs-toggle="tab"
+                  <button class="text-start nav-link text-light ps-3" id="<%= tabId %>-tab" data-bs-toggle="tab"
                     data-bs-target="#<%= tabId %>" role="tab" aria-controls="<%= s %>">
                     <%= s %>
                   </button>
@@ -26,9 +26,9 @@
         </ul>
         <div>
           <a href="/logout">
-            <button id="logout" type="button" class="mt-2 btn btn-light btn-sm">
+            <button id="logout" type="button" class="mt-3 btn btn-light btn-sm p-2">
               <span class="glyphicon glyphicon-log-out"></span>
-              <i class="bi bi-power"></i>Log out
+              <i class="bi bi-power me-2"></i>Log out
             </button>
           </a>
         </div>
@@ -55,15 +55,15 @@
 
   <!-- Show user's name -->
   <div class="col-lg-2 col-sm-6 col-12">
-    <h1 class="">Hello, <%= user.casData.givenName %>
+    <h1 class="text-break text-wrap">Hello, <%= user.casData.givenName %>
     </h1>
 
     <div class="">
-      <div class="card mb-3 border-MUmidred">
-        <div class="card-header ">
-          <a class="libraryAcc collapsed" data-bs-toggle="collapse" href="#collapseCirc" role="button"
-            aria-expanded="false" aria-controls="collapseCirc">
-            <h4>My Library Account</h4>
+      <div class="card mb-3">
+        <div class="card-header px-4 py-3">
+          <a class="libraryAcc collapsed" data-bs-toggle="collapse" href="#collapseCirc" aria-expanded="false"
+            aria-controls="collapseCirc">
+            <h4 class="mb-0">My Library Account</h4>
           </a>
         </div>
         <div class="card-body d-print-none">
@@ -79,9 +79,8 @@
                           <% } %>
         </div>
       </div>
-
-      <div class="card mb-3 border-MUmidred">
-        <div class="card-header ">
+      <div class="card mb-3">
+        <div class="card-header px-4 py-3">
           <h4>Featured Content</h4>
         </div>
         <div class="card-body">

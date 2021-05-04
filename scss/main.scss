@@ -1,3 +1,5 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+
 /* --- Accessibiity focus ---- */
 :focus {
     outline: auto 2px Highlight !important;
@@ -18,23 +20,6 @@
   .h1 .h2 .h3 .h4 .h5 .h6 { 
     font-family: 'Cabin Condensed', sans-serif;
   }
-  h1:after {
-    background: -webkit-gradient(
-      linear,
-      left top,
-      right top,
-      from(#960018),
-      to(#ff7883)
-    );
-    background: linear-gradient(to right, #960018, #ff7883);
-    border-radius: 2px;
-    bottom: -0.2em;
-    content: '';
-    display: block;
-    height: 0.1em;
-    position: relative;
-    width: 3em;
-  }
   
   /*------CUSTOM site-wide CSS STARTS HERE----------*/
   h4 {
@@ -45,36 +30,19 @@
     border-radius: 1rem;
   }
   
-  .dashBoardContainer {
-    border-color: #fabdbd;
-    border-radius: 0px;
-    border-width: 3px;
-  }
-  
-  a{
-      &:link, &:visited{
-    // color: #343a40 !important;
-      }
-  }
-  a.nav-link,
-  a.libraryAcc {
-    // color: white !important;
-  }
-  a[data-toggle='collapse'] {
+  a[data-bs-toggle='collapse'] {
     display: block;
   }
-  a[data-toggle='collapse'].collapsed .fas {
+  a[data-bs-toggle='collapse'].collapsed .fas {
     transform: rotate(-180deg);
   }
-  a[data-toggle='collapse'] .fas {
+  a[data-bs-toggle='collapse'] .fas {
     transition: 0.2s transform ease-in-out;
   }
-  a.nav-link.active {
-    color: #343a40 !important;
+  a.libraryAcc {
   }
   
   .card {
-    background-color: #ffeded;
     border-radius: 1rem;
   }
   
@@ -83,12 +51,14 @@
   }
   
   i {
-    padding: 4px 7px;
+    padding: 5px 7px;
     border-radius: 50%;
     height: 32px;
     width: 32px;
-    border: 2px solid #ffeded;
     font-size: larger;
+    box-shadow: 0px 3px 3px $gray-400;
+    background-color: white;
+    color: $gray-800;
   }
   
   .mysched {
@@ -117,6 +87,7 @@
 
   .nav-link.active{
     border-radius: 1rem;
+    color: $gray-800 !important;
   }
 
   
