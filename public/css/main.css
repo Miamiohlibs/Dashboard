@@ -7317,10 +7317,14 @@ h6,
 
 /*------CUSTOM site-wide CSS STARTS HERE----------*/
 h4 {
-  font-size: 1.15rem; }
+  font-size: 1.25rem; }
 
 nav {
   border-radius: 1rem; }
+
+.navbar.navbar-expand-lg {
+  box-shadow: 0 3px 3px #ced4da;
+  max-width: 350px; }
 
 a[data-bs-toggle='collapse'] {
   display: block; }
@@ -7337,7 +7341,7 @@ a[data-bs-toggle='collapse'] .fas {
 .lci_chat_load {
   display: none; }
 
-i {
+h4 i, #logout i {
   padding: 5px 7px;
   border-radius: 50%;
   height: 32px;
@@ -7346,6 +7350,9 @@ i {
   box-shadow: 0px 3px 3px #ced4da;
   background-color: white;
   color: #343a40; }
+
+button#logout {
+  border-radius: 1rem; }
 
 .mysched {
   background: #ffffff;
@@ -7367,5 +7374,8 @@ i {
   width: 100%; }
 
 .nav-link.active {
-  border-radius: 1rem;
+  border-radius: 1rem 0 0 1rem;
   color: #343a40 !important; }
+
+ul#myTab li {
+  width: 105%; }

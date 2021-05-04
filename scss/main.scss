@@ -23,13 +23,18 @@
   
   /*------CUSTOM site-wide CSS STARTS HERE----------*/
   h4 {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
   }
 
   nav{
     border-radius: 1rem;
   }
-  
+
+  .navbar.navbar-expand-lg{
+    box-shadow: 0 3px 3px $gray-400;
+    max-width: 350px;
+  }
+
   a[data-bs-toggle='collapse'] {
     display: block;
   }
@@ -50,7 +55,7 @@
     display: none;
   }
   
-  i {
+  h4 i, #logout i{
     padding: 5px 7px;
     border-radius: 50%;
     height: 32px;
@@ -59,6 +64,10 @@
     box-shadow: 0px 3px 3px $gray-400;
     background-color: white;
     color: $gray-800;
+  }
+
+  button#logout{
+    border-radius: 1rem;
   }
   
   .mysched {
@@ -86,8 +95,12 @@
   }
 
   .nav-link.active{
-    border-radius: 1rem;
+    border-radius: 1rem 0 0 1rem;
     color: $gray-800 !important;
+  }
+
+  ul#myTab li{
+    width: 105%;
   }
 
   
