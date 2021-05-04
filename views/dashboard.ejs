@@ -1,23 +1,23 @@
 <%- include ('header') %>
 
   <!-- Show user's subject menu -->
-  <nav class="navbar navbar-expand-lg col-lg-1 col-12 d-block navbar-dark bg-dark">
-    <div class="ms-1">
-      <a class="navbar-brand text-light" href="https://www.lib.miamioh.edu">MU Libraries</a>
+  <nav class="navbar navbar-expand-lg col-lg-2 col-12 d-block bg-dark">
+    <div class="">
+      <a class="navbar-brand" href="https://www.lib.miamioh.edu">MU Libraries</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse flex-column" id="navbarTogglerDemo02">
-        <span class="text-light">Your subjects (based on courses & departmental
+        <span class="text-white">Your subjects (based on courses & departmental
           affiliation): </span>
         <ul class="navbar-nav nav nav-tabs " id="myTab" role="tablist">
           <% if (user.uniqueSubjects) { %>
             <% user.uniqueSubjects.forEach((s)=> { %>
               <li class="nav-item" role="presentation">
                 <% let tabId=s.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
-                  <button class="nav-link text-start" id="<%= tabId %>-tab" data-bs-toggle="tab"
-                    data-bs-target="#<%= tabId %>" type="button" role="tab" aria-controls="<%= s %>">
+                  <button class="text-start nav-link text-primary ps-3" id="<%= tabId %>-tab" data-bs-toggle="tab"
+                    data-bs-target="#<%= tabId %>" role="tab" aria-controls="<%= s %>">
                     <%= s %>
                   </button>
               </li>
@@ -40,7 +40,7 @@
   <!-- Show log-out button -->
 
 
-  <div class="col-lg-9 col-12">
+  <div class="col-lg-8 col-12">
 
     <div class="tab-content" id="myTabContent">
       <% tabsCreated=[]; %>
@@ -55,13 +55,13 @@
 
   <!-- Show user's name -->
   <div class="col-lg-2 col-sm-6 col-12">
-    <h1 class="text-white">Hello, <%= user.casData.givenName %>
+    <h1 class="">Hello, <%= user.casData.givenName %>
     </h1>
 
     <div class="">
       <div class="card mb-3 border-MUmidred">
-        <div class="card-header bg-MUred">
-          <a class="libraryAcc collapsed" data-toggle="collapse" href="#collapseCirc" role="button"
+        <div class="card-header ">
+          <a class="libraryAcc collapsed" data-bs-toggle="collapse" href="#collapseCirc" role="button"
             aria-expanded="false" aria-controls="collapseCirc">
             <h4>My Library Account</h4>
           </a>
@@ -81,7 +81,7 @@
       </div>
 
       <div class="card mb-3 border-MUmidred">
-        <div class="card-header bg-MUred text-white">
+        <div class="card-header ">
           <h4>Featured Content</h4>
         </div>
         <div class="card-body">

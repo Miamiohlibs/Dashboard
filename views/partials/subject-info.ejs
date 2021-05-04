@@ -1,7 +1,7 @@
 <% subj.id=subj.name.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
   <div class="tab-pane show" id="<%= subj.id %>" role="tabpanel"
     aria-labelledby="<%= subj.id %>-tab">
-    <h3 class="text-white">
+    <h3 class="">
       <%= subj.name %>
     </h3>
     <div class="row">
@@ -9,7 +9,7 @@
       <% if (! subj.resources.hasOwnProperty('metadata')) { %>
         <div class="col-md-4 col-12">
           <div class="card">
-            <div class="card-header bg-MUred text-white">No Resources Found
+            <div class="card-header ">No Resources Found
             </div>
             <div class="card-body">No resources found for <%= subj.name %>
             </div>
@@ -18,8 +18,8 @@
         <% } else { %>
 
           <div class="col-md-4 col-12">
-            <div class="card mb-3 border-MUmidred">
-              <div class="card-header bg-MUred text-white">
+            <div class="card mb-3 ">
+              <div class="card-header ">
                 <h4><i class="bi bi-lightbulb"></i>&nbsp;Subject Guides</h4>
               </div>
               <div class="card-body">
@@ -32,8 +32,8 @@
           </div>
 
           <div class="col-md-4 col-12">
-            <div class="card mb-3 border-MUmidred">
-              <div class="card-header bg-MUred text-white">
+            <div class="card mb-3 ">
+              <div class="card-header ">
                 <h4><i class="bi bi-sort-alpha-down"></i>&nbsp;Databases</h4>
               </div>
               <div class="card-body">
@@ -52,8 +52,8 @@
           </div>
 
           <div class="col-md-4 col-12">
-            <div class="card mb-3 border-MUmidred">
-              <div class="card-header bg-MUred text-white">
+            <div class="card mb-3 ">
+              <div class="card-header  ">
                 <h4><i class="bi bi-person"></i>&nbsp;My Librarian</h4>
               </div>
               <div class="card-body">

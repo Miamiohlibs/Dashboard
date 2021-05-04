@@ -29,9 +29,6 @@ h1:after {
 h4 {
   font-size: 1.15rem; }
 
-.bg-specialDark {
-  background-color: rgba(52, 58, 64, 0.9); }
-
 nav {
   border-radius: 1rem; }
 
@@ -39,13 +36,6 @@ nav {
   border-color: #fabdbd;
   border-radius: 0px;
   border-width: 3px; }
-
-a:link, a:visited {
-  color: #343a40 !important; }
-
-a.nav-link,
-a.libraryAcc {
-  color: white !important; }
 
 a[data-toggle='collapse'] {
   display: block; }
@@ -60,18 +50,8 @@ a.nav-link.active {
   color: #343a40 !important; }
 
 .card {
-  background-color: #ffeded; }
-
-.bg-MUred {
-  background-color: #c3142d; }
-
-.bg-MUlightred {
-  background-color: #ffeded; }
-
-.border-MUmidred {
-  border-color: #fabdbd;
-  border-radius: 0px;
-  border-width: 3px; }
+  background-color: #ffeded;
+  border-radius: 1rem; }
 
 .lci_chat_load {
   display: none; }
@@ -95,3 +75,13 @@ i {
   margin: 4px 0; }
   .mysched:hover {
     opacity: 0.9; }
+
+@media only screen and (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: column; } }
+
+.nav-link {
+  width: 100%; }
+
+.nav-link.active {
+  border-radius: 1rem; }
