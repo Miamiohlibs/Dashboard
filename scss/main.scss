@@ -1,3 +1,7 @@
+// Tabs with Round Out Borders is from https://css-tricks.com/tabs-with-round-out-borders/
+// Chris Coyier on Sep 4, 2011
+// Editted by Meng Qu on May 4th, 2021
+
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 /* --- Accessibiity focus ---- */
@@ -41,7 +45,7 @@
   a[data-bs-toggle='collapse'].collapsed .fas {
     transform: rotate(-180deg);
   }
-  a[data-bs-toggle='collapse'] .fas {
+  a[data-bs-toggle='collapse'].fas {
     transition: 0.2s transform ease-in-out;
   }
   a.libraryAcc {
@@ -71,7 +75,7 @@
   }
   
   .mysched {
-    background: #ffffff;
+    background: white;
     border: 1px solid #cccccc;
     border-radius: 4px;
     color: #333333;
@@ -100,8 +104,39 @@
   }
 
   ul#myTab li{
-    width: 105%;
+    width: 100%;
   }
 
+
+  button[data-bs-toggle='tab'].active {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+button[data-bs-toggle='tab'].active:before {
+    position: absolute;
+    right: -8px;
+    top:-25px;
+    content: '';
+    display: inline-block;
+    width: 25px;
+    background: $gray-800;
+    height: 25px;
+    border-bottom-right-radius:20px;
+    z-index: 2;
+}
+
+button[data-bs-toggle='tab'].active:after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    top:-25px;
+    right: -10px;
+    width: 20px;
+    height: 65px;
+    background: white;
+    z-index: 1;
+}
   
   
