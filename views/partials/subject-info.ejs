@@ -1,10 +1,10 @@
 <% subj.id=subj.name.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
   <div class="tab-pane show" id="<%= subj.id %>" role="tabpanel"
     aria-labelledby="<%= subj.id %>-tab">
-    <h3 class="h5 text-secondary text-center">
+    <h3 class="h5 text-danger text-center">
       <%= subj.name %>
     </h3>
-    <hr>
+    <hr class="border-danger">
     <div class="row">
 
       <% if (! subj.resources.hasOwnProperty('metadata')) { %>
