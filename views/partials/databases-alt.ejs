@@ -1,8 +1,8 @@
-<ul class="allDatabasesLinks">
+<ul class="allDatabasesLinks  list-unstyled">
     <% if (subjects.length > 0 ) { %>
     <% subjects.forEach(item => { %>
     <% if (item !== null) { %>
-    <li>
+    <li class="my-3">
         <a href="https://libguides.lib.miamioh.edu/az.php?s=<%= item.id %>">
             All <%= item.name %> Databases
         </a>

@@ -1,16 +1,17 @@
 <% subj.id=subj.name.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
   <div class="tab-pane show" id="<%= subj.id %>" role="tabpanel"
     aria-labelledby="<%= subj.id %>-tab">
-    <h3 class="h1">
+    <h3 class="h5 text-secondary text-center">
       <%= subj.name %>
     </h3>
+    <hr>
     <div class="row">
 
       <% if (! subj.resources.hasOwnProperty('metadata')) { %>
         <div class="col-md-4 col-12">
-          <div class="card">
-            <div class="card-header px-4 py-3">
-              <h4 class="mb-0"><i class="bi bi-x-circle me-2"></i>&nbsp;No Resources Found</h4>
+          <div class="card mb-3 shadow-sm">
+            <div class="card-header px-4 py-3 shadow-sm">
+              <h4 class="mb-0"><i class="bi bi-x-circle me-2 shadow"></i>&nbsp;No Resources Found</h4>
             </div>
             <div class="card-body">No resources found for <%= subj.name %>
             </div>
@@ -19,11 +20,11 @@
         <% } else { %>
 
           <div class="col-md-4 col-12">
-            <div class="card mb-3 ">
-              <div class="card-header px-4 py-3">
-                <h4 class="mb-0"><i class="bi bi-lightbulb me-2"></i>&nbsp;Subject Guides</h4>
+            <div class="card mb-3 shadow-sm">
+              <div class="card-header px-4 py-3 shadow-sm">
+                <h4 class="mb-0"><i class="bi bi-lightbulb me-2 shadow"></i>&nbsp;Subject Guides</h4>
               </div>
-              <div class="card-body">
+              <div class="card-body list-unstyled">
                 <% if ( parseInt (subj.resources.metadata.sizeof.guides)> 0) {
                   %>
                   <%- include('guides', {guides: subj.resources.guides}) %>
@@ -33,9 +34,9 @@
           </div>
 
           <div class="col-md-4 col-12">
-            <div class="card mb-3 ">
-              <div class="card-header px-4 py-3">
-                <h4 class="mb-0"><i class="bi bi-sort-alpha-down me-2"></i>&nbsp;Databases</h4>
+            <div class="card mb-3 shadow-sm">
+              <div class="card-header px-4 py-3 shadow-sm">
+                <h4 class="mb-0"><i class="bi bi-sort-alpha-down me-2 shadow"></i>&nbsp;Databases</h4>
               </div>
               <div class="card-body">
                 <% if ( parseInt (subj.resources.metadata.sizeof.databases)> 0)
@@ -53,11 +54,11 @@
           </div>
 
           <div class="col-md-4 col-12">
-            <div class="card mb-3 ">
-              <div class="card-header px-4 py-3">
-                <h4 class="mb-0"><i class="bi bi-person me-2"></i>&nbsp;My Librarian</h4>
+            <div class="card mb-3 shadow-sm">
+              <div class="card-header px-4 py-3 shadow-sm">
+                <h4 class="mb-0"><i class="bi bi-person me-2 shadow"></i>&nbsp;My Librarian</h4>
               </div>
-              <div class="card-body">
+              <div class="card-body list-unstyled">
                 <% if ( parseInt (subj.resources.metadata.sizeof.librarians)> 0)
                   { %>
                   <%- include('librarian', {libn: subj.resources.librarians[0]})

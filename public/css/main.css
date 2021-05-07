@@ -7323,12 +7323,13 @@ nav {
   border-radius: 1rem; }
 
 .navbar.navbar-expand-lg {
-  box-shadow: -1px 4px 5px #ced4da;
   max-width: 350px; }
 
 .card {
-  box-shadow: -1px 2px 3px #ced4da;
   max-width: 450px; }
+
+a, link {
+  color: #343a40 !important; }
 
 a[data-bs-toggle='collapse'] {
   display: block; }
@@ -7342,6 +7343,9 @@ a[data-bs-toggle='collapse'].fas {
 .card {
   border-radius: 1rem; }
 
+.card.shadow-sm:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }
+
 .lci_chat_load {
   display: none; }
 
@@ -7351,7 +7355,6 @@ h4 i, #logout i {
   height: 32px;
   width: 32px;
   font-size: larger;
-  box-shadow: 0px 3px 3px #ced4da;
   background-color: white;
   color: #343a40; }
 
@@ -7400,7 +7403,7 @@ button[data-bs-toggle='tab'].active:before {
   top: -25px;
   content: '';
   display: inline-block;
-  width: 25px;
+  width: 19px;
   background: #343a40;
   height: 25px;
   border-bottom-right-radius: 20px;
