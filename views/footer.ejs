@@ -15,6 +15,13 @@
 
   firstTab.show()
 
+  $('#myTab li:nth-child(2)').addClass('li-gray');
+  $('#myTab li').click(function(){
+    $('li.li-gray').removeClass('li-gray');
+    $(this).addClass('li-gray');
+  });
+
+
 </script>
 </body>
 

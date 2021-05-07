@@ -7385,6 +7385,11 @@ button[data-bs-toggle='tab'].active {
   display: inline-block;
   z-index: 2; }
 
+li.li-gray {
+  position: relative;
+  display: inline-block;
+  z-index: 2; }
+
 button[data-bs-toggle='tab'].active:before {
   position: absolute;
   right: -8px;
@@ -7397,6 +7402,18 @@ button[data-bs-toggle='tab'].active:before {
   border-bottom-right-radius: 20px;
   z-index: 2; }
 
+li.li-gray:before {
+  position: absolute;
+  right: -8px;
+  bottom: -26px;
+  content: '';
+  display: inline-block;
+  width: 25px;
+  background: #343a40;
+  height: 25px;
+  border-top-right-radius: 20px;
+  z-index: 2; }
+
 button[data-bs-toggle='tab'].active:after {
   position: absolute;
   display: inline-block;
@@ -7405,5 +7422,16 @@ button[data-bs-toggle='tab'].active:after {
   right: -10px;
   width: 20px;
   height: 65px;
+  background: white;
+  z-index: 1; }
+
+li.li-gray:after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  right: -10px;
+  bottom: -25px;
+  width: 20px;
+  height: 50px;
   background: white;
   z-index: 1; }
