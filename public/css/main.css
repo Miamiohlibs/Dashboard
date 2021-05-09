@@ -7274,6 +7274,9 @@ button#logout {
 ul#myTab li {
   width: 100%; }
 
+li.nav-item:hover i.bi.bi-caret-right-fill, li.nav-item > button.active i.bi.bi-caret-right-fill {
+  color: #c3142d; }
+
 button[data-bs-toggle='tab'].active {
   position: relative;
   display: inline-block;

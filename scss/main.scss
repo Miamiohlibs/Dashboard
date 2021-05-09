@@ -118,6 +118,13 @@
   }
 
 
+  li.nav-item:hover, li.nav-item > button.active{
+    i.bi.bi-caret-right-fill{
+      color: #c3142d;
+    }
+  }
+
+
 button[data-bs-toggle='tab'].active {
     position: relative;
     display: inline-block;
