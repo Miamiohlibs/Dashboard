@@ -7338,16 +7338,16 @@ li.nav-item.li-gray:after {
   letter-spacing: -3px;
   color: rgba(0, 0, 0, 0.25); }
 
-li.flash i.bi.bi-caret-right:first-child:before {
-  animation: flash 0.3s 1; }
+a:hover ~ span.red-arrows i.bi.bi-caret-right:first-child:before {
+  animation: flash 1s 1; }
 
-li.flash i.bi.bi-caret-right:nth-child(2):before {
-  animation: flash 0.3s 1;
-  animation-delay: 0.25s; }
+a:hover ~ span.red-arrows i.bi.bi-caret-right:nth-child(2):before {
+  animation: flash 0.7s 1;
+  animation-delay: 0.2s; }
 
-li.flash i.bi.bi-caret-right:last-child:before {
+a:hover ~ span.red-arrows i.bi.bi-caret-right:last-child:before {
   animation: flash 0.4s 1;
-  animation-delay: 0.5s; }
+  animation-delay: 0.35s; }
 
 @keyframes flash {
   from {
