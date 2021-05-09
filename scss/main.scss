@@ -175,7 +175,7 @@ li.nav-item.li-gray:after {
     right: -10px;
     bottom:-25px;
     width: 20px;
-    height: 50px;
+    height: 100%;
     background: white;
     z-index: 1;
 }
@@ -191,8 +191,16 @@ li.nav-item.li-gray:after {
 }
 
 li.flash{
-  i.bi.bi-caret-right:before{
-  animation: flash 0.6s 3 steps(2);
+  i.bi.bi-caret-right:first-child:before{
+  animation: flash 0.3s 1;
+  }
+  i.bi.bi-caret-right:nth-child(2):before{
+  animation: flash 0.3s 1;
+  animation-delay: 0.25s;
+  }
+  i.bi.bi-caret-right:last-child:before{
+  animation: flash 0.4s 1;
+  animation-delay: 0.5s;
   }
 }
 @keyframes flash {
