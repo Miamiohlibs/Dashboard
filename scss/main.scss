@@ -32,6 +32,7 @@
 
   nav{
     border-radius: 1rem;
+    background-color: $gray-800;
   }
 
   .navbar.navbar-expand-lg{
@@ -139,11 +140,11 @@ li.nav-item.li-gray {
 
 button[data-bs-toggle='tab'].active:before {
     position: absolute;
-    right: -8px;
+    right: -4px;
     top:-25px;
     content: '';
     display: inline-block;
-    width: 19px;
+    width: 15px;
     background: $gray-800;
     height: 25px;
     border-bottom-right-radius:20px;
@@ -152,11 +153,11 @@ button[data-bs-toggle='tab'].active:before {
 
 li.nav-item.li-gray:before {
     position: absolute;
-    right: -8px;
+    right: -4px;
     bottom:-26px;
     content: '';
     display: inline-block;
-    width: 25px;
+    width: 15px;
     background: $gray-800;
     height: 25px;
     border-top-right-radius:20px;

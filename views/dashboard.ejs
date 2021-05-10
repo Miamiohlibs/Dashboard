@@ -1,7 +1,7 @@
 <%- include ('header') %>
 
   <!-- Show user's subject menu -->
-  <nav class="navbar navbar-expand-lg col-lg-2 col-12 d-block bg-dark shadow-sm">
+  <nav class="navbar navbar-expand-lg col-lg-2 col-12 d-block shadow-sm">
     <a class="navbar-brand p-0 my-3" href="https://www.lib.miamioh.edu"><img class="img-fluid"
         src="https://www.lib.miamioh.edu/images/FSL_REV_186KW_UNLBRYS.png" alt="MU Libraries"></a>
     <div class="">
@@ -45,7 +45,7 @@
   <!-- Show log-out button -->
 
 
-  <div class="col-lg-8 col-12">
+  <div class="col-xl-8 col-lg-9 col-12">
 
     <div class="tab-content" id="myTabContent">
       <% tabsCreated=[]; %>
@@ -59,7 +59,7 @@
   </div>
 
   <!-- Show user's name -->
-  <div class="col-lg-2 col-sm-6 col-12">
+  <div class="col-xl-2  col-sm-6 col-12">
     <h1 class="text-break text-wrap">Hello, <%= user.casData.givenName %>
     </h1>
 
