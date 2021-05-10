@@ -1,3 +1,7 @@
+// Tabs with Round Out Borders is from https://css-tricks.com/tabs-with-round-out-borders/
+// Chris Coyier on Sep 4, 2011
+// Editted by Meng Qu on May 4th, 2021
+
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 /* --- Accessibiity focus ---- */
@@ -23,20 +27,32 @@
   
   /*------CUSTOM site-wide CSS STARTS HERE----------*/
   h4 {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
   }
 
   nav{
     border-radius: 1rem;
   }
-  
+
+  .navbar.navbar-expand-lg{
+    max-width: 350px;
+  }
+
+
+  .card{
+    max-width: 450px;
+  }
+
+  a,link{
+    color: $gray-800 !important;
+  }
   a[data-bs-toggle='collapse'] {
     display: block;
   }
   a[data-bs-toggle='collapse'].collapsed .fas {
     transform: rotate(-180deg);
   }
-  a[data-bs-toggle='collapse'] .fas {
+  a[data-bs-toggle='collapse'].fas {
     transition: 0.2s transform ease-in-out;
   }
   a.libraryAcc {
@@ -45,24 +61,31 @@
   .card {
     border-radius: 1rem;
   }
+
+  .card.shadow-sm:hover{
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15) !important;
+  }
   
   .lci_chat_load {
     display: none;
   }
   
-  i {
+  h4 i, #logout i{
     padding: 5px 7px;
     border-radius: 50%;
     height: 32px;
     width: 32px;
     font-size: larger;
-    box-shadow: 0px 3px 3px $gray-400;
     background-color: white;
     color: $gray-800;
   }
+
+  button#logout{
+    border-radius: 1rem;
+  }
   
   .mysched {
-    background: #ffffff;
+    background: white;
     border: 1px solid #cccccc;
     border-radius: 4px;
     color: #333333;
@@ -86,9 +109,105 @@
   }
 
   .nav-link.active{
-    border-radius: 1rem;
+    border-radius: 1rem 0 0 1rem;
     color: $gray-800 !important;
   }
 
+  ul#myTab li{
+    width: 100%;
+  }
+
+
+button[data-bs-toggle='tab'].active {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+li.nav-item.li-gray {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+button[data-bs-toggle='tab'].active:before {
+    position: absolute;
+    right: -8px;
+    top:-25px;
+    content: '';
+    display: inline-block;
+    width: 19px;
+    background: $gray-800;
+    height: 25px;
+    border-bottom-right-radius:20px;
+    z-index: 2;
+}
+
+li.nav-item.li-gray:before {
+    position: absolute;
+    right: -8px;
+    bottom:-26px;
+    content: '';
+    display: inline-block;
+    width: 25px;
+    background: $gray-800;
+    height: 25px;
+    border-top-right-radius:20px;
+    z-index: 2;
+}
+
+button[data-bs-toggle='tab'].active:after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    top:-25px;
+    right: -10px;
+    width: 20px;
+    height: 65px;
+    background: white;
+    z-index: 1;
+}
+
+li.nav-item.li-gray:after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    right: -10px;
+    bottom:-25px;
+    width: 20px;
+    height: 100%;
+    background: white;
+    z-index: 1;
+}
+
+.red-arrows{
+  min-width:35px;
+}
   
-  
+.bi-caret-right:before {
+  font-size: small;
+  letter-spacing: -3px;
+  color:rgba(0, 0, 0, .25);
+}
+
+a:hover ~ span.red-arrows {
+  i.bi.bi-caret-right:first-child:before{
+  animation: flash 1s 1;
+  }
+  i.bi.bi-caret-right:nth-child(2):before{
+  animation: flash 0.7s 1;
+  animation-delay: 0.2s;
+  }
+  i.bi.bi-caret-right:last-child:before{
+  animation: flash 0.4s 1;
+  animation-delay: 0.35s;
+  }
+}
+@keyframes flash {
+  from{
+    color:rgba(0, 0, 0, .25);
+  }
+  to{
+    color:#c3142d;
+  }
+}
