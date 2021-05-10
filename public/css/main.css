@@ -7492,7 +7492,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,
 h4, .h4 {
   font-size: 1.25rem; }
 
-nav {
+nav, div.offcanvas {
   border-radius: 1rem;
   background-color: #343a40; }
 
@@ -7551,74 +7551,66 @@ button#logout {
   .navbar-expand-lg .navbar-nav {
     flex-direction: column; } }
 
-.nav-link {
-  width: 100%; }
-
 .nav-link.active {
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 1rem;
   color: #343a40 !important; }
 
-ul#myTab li {
+.nav-link, ul#myTab li {
   width: 100%; }
 
 li.nav-item:hover i.bi.bi-caret-right-fill, li.nav-item > button.active i.bi.bi-caret-right-fill {
   color: #c3142d; }
 
-button[data-bs-toggle='tab'].active {
+button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
   position: relative;
   display: inline-block;
   z-index: 2; }
 
-li.nav-item.li-gray {
-  position: relative;
-  display: inline-block;
-  z-index: 2; }
-
-button[data-bs-toggle='tab'].active:before {
-  position: absolute;
-  right: -4px;
-  top: -25px;
-  content: '';
-  display: inline-block;
-  width: 15px;
-  background: #343a40;
-  height: 25px;
-  border-bottom-right-radius: 20px;
-  z-index: 2; }
-
-li.nav-item.li-gray:before {
-  position: absolute;
-  right: -4px;
-  bottom: -26px;
-  content: '';
-  display: inline-block;
-  width: 15px;
-  background: #343a40;
-  height: 25px;
-  border-top-right-radius: 20px;
-  z-index: 2; }
-
-button[data-bs-toggle='tab'].active:after {
-  position: absolute;
-  display: inline-block;
-  content: '';
-  top: -25px;
-  right: -10px;
-  width: 20px;
-  height: 65px;
-  background: white;
-  z-index: 1; }
-
-li.nav-item.li-gray:after {
-  position: absolute;
-  display: inline-block;
-  content: '';
-  right: -10px;
-  bottom: -25px;
-  width: 20px;
-  height: 100%;
-  background: white;
-  z-index: 1; }
+@media only screen and (min-width: 992px) {
+  .nav-link.active {
+    border-radius: 1rem 0 0 1rem; }
+  button[data-bs-toggle='tab'].active:before {
+    position: absolute;
+    right: -4px;
+    top: -25px;
+    content: '';
+    display: inline-block;
+    width: 15px;
+    background: #343a40;
+    height: 25px;
+    border-bottom-right-radius: 20px;
+    z-index: 2; }
+  li.nav-item.li-gray:before {
+    position: absolute;
+    right: -4px;
+    bottom: -26px;
+    content: '';
+    display: inline-block;
+    width: 15px;
+    background: #343a40;
+    height: 25px;
+    border-top-right-radius: 20px;
+    z-index: 2; }
+  button[data-bs-toggle='tab'].active:after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    top: -25px;
+    right: -10px;
+    width: 20px;
+    height: 65px;
+    background: white;
+    z-index: 1; }
+  li.nav-item.li-gray:after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    right: -10px;
+    bottom: -25px;
+    width: 20px;
+    height: 100%;
+    background: white;
+    z-index: 1; } }
 
 .red-arrows {
   min-width: 35px; }
