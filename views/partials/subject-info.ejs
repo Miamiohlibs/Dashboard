@@ -60,11 +60,11 @@
               </div>
               <div class="card-body list-unstyled">
                 <% let numLibns = subj.resources.metadata.sizeof.librarians %>
-                <% if (numLibns > 1 ) { let multipleLibns = true; } else { multipleLibns=false } %>
+                <% if (numLibns > 1 ) { multipleLibns = true; } else { multipleLibns=false } %>
                 <% if ( numLibns > 0) { %>
 
-                  <% subj.resources.librarians.forEach((libn) => { %>
-                  <%- include('librarian', {libn: libn, multipleLibns: multipleLibns}) %>
+                  <% subj.resources.librarians.forEach((libn, index) => { %>
+                  <%- include('librarian', {libn: libn ,multipleLibns: multipleLibns, index: index}) %>
                   <% }) %>
                     %>
                     <% } %>
