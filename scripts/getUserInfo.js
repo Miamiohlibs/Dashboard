@@ -79,7 +79,7 @@ module.exports = (user) => {
       });
     }
   });
-  let allSubjects = u.majors.concat(u.courseDepts);
+  let allSubjects = u.majors.concat(u.courseDepts).sort();
   if (u.primaryAffiliation != 'student') {
     // only add department stuff for non-students
     // otherwise they get junk for their work-study job
