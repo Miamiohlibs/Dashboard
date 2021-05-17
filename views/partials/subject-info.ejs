@@ -64,9 +64,9 @@
                 <% if ( numLibns > 0) { %>
 
                   <% subj.resources.librarians.forEach((libn, index) => { %>
-                  <%- include('librarian', {libn: libn ,multipleLibns: multipleLibns, index: index}) %>
+                  <%- include('librarian', {libn: libn ,multipleLibns: multipleLibns, index: index, subj: subj.name}) %>
                   <% }) %>
-                    %>
+                  %>
                     <% } %>
               </div>
             </div>
