@@ -121,9 +121,9 @@
           </span>
         </div>
         <div class="card-body d-print-none">
-          <% fakeCirc=false %>
-            <% if (fakeCirc==true) { %>
-              <%- include('paritals/circulation', {data: {moneyOwed: '$1.00' ,numHolds:4,numCheckouts:4}}) %>
+          <% fakeCirc=true %>
+            <% if (fakeCirc==false) { %>
+              <%- include('partials/circulation', {data: {moneyOwed: '$1.00' ,numHolds:4,numCheckouts:4}}) %>
                 <% } else { %>
                   <% if (user.sierraInfo != undefined) { %>
                     <%- include('partials/circulation', {data: user.sierraInfo}) %>
