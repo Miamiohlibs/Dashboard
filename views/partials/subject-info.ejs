@@ -56,11 +56,19 @@
           <div class="col-md-4 col-12">
             <div class="card mb-3 shadow-sm">
               <div class="card-header px-4 py-3 shadow-sm">
-                <h4 class="mb-0"><i class="bi bi-person me-2 shadow"></i>&nbsp;My Librarian</h4>
+                <% let numLibns = subj.resources.metadata.sizeof.librarians %>
+                <% if (numLibns > 1 ) { %>
+                  <% multipleLibns = true; %>
+                  <% libnText = "My Librarians"; %>
+                <% } else { %>
+                  <% multipleLibns=false %>
+                  <% libnText = "My Librarian" %>
+                <% } %>
+                <h4 class="mb-0"><i class="bi bi-person me-2 shadow"></i>&nbsp;<%- libnText %></h4>
               </div>
               <div class="card-body list-unstyled">
-                <% let numLibns = subj.resources.metadata.sizeof.librarians %>
-                <% if (numLibns > 1 ) { multipleLibns = true; } else { multipleLibns=false } %>
+                
+
                 <% if ( numLibns > 0) { %>
 
                   <% subj.resources.librarians.forEach((libn, index) => { %>
