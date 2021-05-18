@@ -1,5 +1,15 @@
 <%- include ('header') %>
 
+<script>
+  $(document).ready(function () {
+    $('.collapse').collapse('hide');
+    $('button').click(function() {    
+      $(this).text(function (i,old) {
+          return old=='More' ?  'Less' : 'More';
+      });
+    });
+  });
+</script>
   <!-- Show user's subject menu (mobile version) -->
   <nav class="d-block d-lg-none mb-4 bg-white ">
     <button class="btn btn-dark float-end shadow-sm" type="button" data-bs-toggle="offcanvas"

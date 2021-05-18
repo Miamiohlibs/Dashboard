@@ -59,10 +59,14 @@
                 <h4 class="mb-0"><i class="bi bi-person me-2 shadow"></i>&nbsp;My Librarian</h4>
               </div>
               <div class="card-body list-unstyled">
-                <% if ( parseInt (subj.resources.metadata.sizeof.librarians)> 0)
-                  { %>
-                  <%- include('librarian', {libn: subj.resources.librarians[0]})
-                    %>
+                <% let numLibns = subj.resources.metadata.sizeof.librarians %>
+                <% if (numLibns > 1 ) { multipleLibns = true; } else { multipleLibns=false } %>
+                <% if ( numLibns > 0) { %>
+
+                  <% subj.resources.librarians.forEach((libn, index) => { %>
+                  <%- include('librarian', {libn: libn ,multipleLibns: multipleLibns, index: index, subj: subj.name}) %>
+                  <% }) %>
+                  %>
                     <% } %>
               </div>
             </div>
