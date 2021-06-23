@@ -794,7 +794,7 @@ const subjCodes = [
     name: 'Classical Languages',
     majorCode: 'ASCL',
     majorName: 'Classical Languages',
-    libguides: ['Classics', 'Languages'],
+    libguides: ['Classics'],
   },
   {
     name: 'Classical Studies',
@@ -1751,13 +1751,13 @@ const subjCodes = [
     name: 'English:  Linguistics',
     majorCode: 'ASIL',
     majorName: 'English:  Linguistics',
-    libguides: ['English'],
+    libguides: ['English', 'Linguistics'],
   },
   {
     name: 'English:  Linguistics (Ed)',
     majorCode: 'ELA',
     majorName: 'English:  Linguistics (Ed)',
-    libguides: ['English'],
+    libguides: ['English', 'Linguistics'],
   },
   {
     name: 'English:  Literature (Ed)',
@@ -2146,7 +2146,7 @@ const subjCodes = [
     majorName2: 'French',
     regCode: 'FRE',
     regName: 'French',
-    libguides: ['Languages'],
+    libguides: ['French'],
   },
   {
     name: 'French And Italian - HC',
@@ -2164,13 +2164,13 @@ const subjCodes = [
     name: 'French Education',
     majorCode: 'EAGM',
     majorName: 'French Education',
-    libguides: ['Languages', 'Education'],
+    libguides: ['French', 'Education'],
   },
   {
     name: 'French and Italian',
     deptCode: 'fri',
     deptName: 'French and Italian',
-    libguides: ['Languages'],
+    libguides: ['French', 'Italian'],
   },
   {
     name: 'Games + Simulation',
@@ -2275,7 +2275,7 @@ const subjCodes = [
     majorName2: 'German',
     regCode: 'GER',
     regName: 'German',
-    libguides: ['Languages'],
+    libguides: ['German'],
   },
   {
     name: 'German Education',
@@ -2386,7 +2386,7 @@ const subjCodes = [
     majorName: 'Greek',
     regCode: 'GRK',
     regName: 'Greek Language and Literature',
-    libguides: ['Languages', 'Classics'],
+    libguides: ['Classics'],
   },
   {
     name: 'Greek Affairs',
@@ -2966,7 +2966,7 @@ const subjCodes = [
     name: 'Linguistics',
     majorCode: 'ASIB',
     majorName: 'Linguistics',
-    libguides: ['Languages'],
+    libguides: ['Linguistics'],
   },
   {
     name: 'Literacy and Language',
@@ -3740,7 +3740,7 @@ const subjCodes = [
     name: 'Portuguese',
     regCode: 'POR',
     regName: 'Portuguese',
-    libguides: ['Languages'],
+    libguides: ['Spanish and Portuguese'],
   },
   {
     name: 'Pre Journalism',
@@ -4261,7 +4261,7 @@ const subjCodes = [
     majorName2: 'Spanish',
     regCode: 'SPN',
     regName: 'Spanish',
-    libguides: ['Languages'],
+    libguides: ['Spanish and Portuguese'],
   },
   {
     name: 'Spanish And Portuguese - HC',
@@ -4279,13 +4279,13 @@ const subjCodes = [
     name: 'Spanish Education',
     majorCode: 'EAGQ',
     majorName: 'Spanish Education',
-    libguides: ['Languages', 'Education'],
+    libguides: ['Spanish and Portuguese', 'Education'],
   },
   {
     name: 'Spanish and Portuguese',
     deptCode: 'SPO',
     deptName: 'Spanish and Portuguese',
-    libguides: ['Languages'],
+    libguides: ['Spanish and Portuguese'],
   },
   {
     name: 'Special Education',
