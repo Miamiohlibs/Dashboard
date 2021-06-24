@@ -768,7 +768,7 @@ const subjCodes = [
     name: 'Chinese',
     regCode: 'CHI',
     regName: 'Chinese',
-    libguides: ['Languages', 'Asian Studies'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'Chinese Education',
@@ -1406,7 +1406,7 @@ const subjCodes = [
     name: 'East Asian Languages and Cultures',
     majorCode: 'ASAL',
     majorName: 'East Asian Languages and Cultures',
-    libguides: ['Asian Studies', 'Languages'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'Ecol, Evol & Envir Biology',
@@ -2281,7 +2281,7 @@ const subjCodes = [
     name: 'German Education',
     majorCode: 'EAGN',
     majorName: 'German Education',
-    libguides: ['Languages', 'Education'],
+    libguides: ['German', 'Education'],
   },
   {
     name: 'German, Russian & East Asian - HC',
@@ -2775,13 +2775,13 @@ const subjCodes = [
     majorName: 'Italian Studies',
     regCode: 'ITL',
     regName: 'Italian',
-    libguides: ['Languages'],
+    libguides: ['Italian'],
   },
   {
     name: 'Japanese',
     regCode: 'JPN',
     regName: 'Japanese',
-    libguides: ['Languages'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'Journalism',
@@ -2846,7 +2846,7 @@ const subjCodes = [
     name: 'Korean',
     regCode: 'KOR',
     regName: 'Korean',
-    libguides: ['Languages'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'Languages, Literatures & Writing',
@@ -2862,7 +2862,7 @@ const subjCodes = [
     majorName2: 'Latin',
     regCode: 'LAT',
     regName: 'Latin Language & Literature',
-    libguides: ['Languages'],
+    libguides: ['Classics'],
   },
   {
     name: 'Latin American Studies',
@@ -2878,7 +2878,7 @@ const subjCodes = [
     name: 'Latin Education',
     majorCode: 'EAGO',
     majorName: 'Latin Education',
-    libguides: ['Languages', 'Education'],
+    libguides: ['Classics', 'Education'],
   },
   {
     name: 'Leadership',
@@ -4081,7 +4081,7 @@ const subjCodes = [
     majorName2: 'Russian',
     regCode: 'RUS',
     regName: 'Russian',
-    libguides: ['Russian, Eastern European, and Eurasian Studies', 'Languages'],
+    libguides: ['Russian, Eastern European, and Eurasian Studies'],
   },
   {
     name: 'Russian,East Eur & Eurasian St',
@@ -4089,6 +4089,7 @@ const subjCodes = [
     majorName: 'Russian,East Eur & Eurasian St',
     majorCode2: 'ASRE',
     majorName2: 'Russian,East Eur & Eurasian St',
+    libguides: ['Russian, Eastern European, and Eurasian Studies'],
   },
   {
     name: 'Sales Management',
