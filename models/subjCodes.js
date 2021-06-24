@@ -768,7 +768,7 @@ const subjCodes = [
     name: 'Chinese',
     regCode: 'CHI',
     regName: 'Chinese',
-    libguides: ['Languages', 'Asian Studies'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'Chinese Education',
@@ -794,7 +794,7 @@ const subjCodes = [
     name: 'Classical Languages',
     majorCode: 'ASCL',
     majorName: 'Classical Languages',
-    libguides: ['Classics', 'Languages'],
+    libguides: ['Classics'],
   },
   {
     name: 'Classical Studies',
@@ -1406,7 +1406,7 @@ const subjCodes = [
     name: 'East Asian Languages and Cultures',
     majorCode: 'ASAL',
     majorName: 'East Asian Languages and Cultures',
-    libguides: ['Asian Studies', 'Languages'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'Ecol, Evol & Envir Biology',
@@ -1751,13 +1751,13 @@ const subjCodes = [
     name: 'English:  Linguistics',
     majorCode: 'ASIL',
     majorName: 'English:  Linguistics',
-    libguides: ['English'],
+    libguides: ['English', 'Linguistics'],
   },
   {
     name: 'English:  Linguistics (Ed)',
     majorCode: 'ELA',
     majorName: 'English:  Linguistics (Ed)',
-    libguides: ['English'],
+    libguides: ['English', 'Linguistics'],
   },
   {
     name: 'English:  Literature (Ed)',
@@ -2146,7 +2146,7 @@ const subjCodes = [
     majorName2: 'French',
     regCode: 'FRE',
     regName: 'French',
-    libguides: ['Languages'],
+    libguides: ['French'],
   },
   {
     name: 'French And Italian - HC',
@@ -2164,13 +2164,13 @@ const subjCodes = [
     name: 'French Education',
     majorCode: 'EAGM',
     majorName: 'French Education',
-    libguides: ['Languages', 'Education'],
+    libguides: ['French', 'Education'],
   },
   {
     name: 'French and Italian',
     deptCode: 'fri',
     deptName: 'French and Italian',
-    libguides: ['Languages'],
+    libguides: ['French', 'Italian'],
   },
   {
     name: 'Games + Simulation',
@@ -2275,13 +2275,13 @@ const subjCodes = [
     majorName2: 'German',
     regCode: 'GER',
     regName: 'German',
-    libguides: ['Languages'],
+    libguides: ['German'],
   },
   {
     name: 'German Education',
     majorCode: 'EAGN',
     majorName: 'German Education',
-    libguides: ['Languages', 'Education'],
+    libguides: ['German', 'Education'],
   },
   {
     name: 'German, Russian & East Asian - HC',
@@ -2386,7 +2386,7 @@ const subjCodes = [
     majorName: 'Greek',
     regCode: 'GRK',
     regName: 'Greek Language and Literature',
-    libguides: ['Languages', 'Classics'],
+    libguides: ['Classics'],
   },
   {
     name: 'Greek Affairs',
@@ -2775,13 +2775,13 @@ const subjCodes = [
     majorName: 'Italian Studies',
     regCode: 'ITL',
     regName: 'Italian',
-    libguides: ['Languages'],
+    libguides: ['Italian'],
   },
   {
     name: 'Japanese',
     regCode: 'JPN',
     regName: 'Japanese',
-    libguides: ['Languages'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'Journalism',
@@ -2846,7 +2846,7 @@ const subjCodes = [
     name: 'Korean',
     regCode: 'KOR',
     regName: 'Korean',
-    libguides: ['Languages'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'Languages, Literatures & Writing',
@@ -2862,7 +2862,7 @@ const subjCodes = [
     majorName2: 'Latin',
     regCode: 'LAT',
     regName: 'Latin Language & Literature',
-    libguides: ['Languages'],
+    libguides: ['Classics'],
   },
   {
     name: 'Latin American Studies',
@@ -2878,7 +2878,7 @@ const subjCodes = [
     name: 'Latin Education',
     majorCode: 'EAGO',
     majorName: 'Latin Education',
-    libguides: ['Languages', 'Education'],
+    libguides: ['Classics', 'Education'],
   },
   {
     name: 'Leadership',
@@ -2966,7 +2966,7 @@ const subjCodes = [
     name: 'Linguistics',
     majorCode: 'ASIB',
     majorName: 'Linguistics',
-    libguides: ['Languages'],
+    libguides: ['Linguistics'],
   },
   {
     name: 'Literacy and Language',
@@ -3740,7 +3740,7 @@ const subjCodes = [
     name: 'Portuguese',
     regCode: 'POR',
     regName: 'Portuguese',
-    libguides: ['Languages'],
+    libguides: ['Spanish and Portuguese'],
   },
   {
     name: 'Pre Journalism',
@@ -4081,7 +4081,7 @@ const subjCodes = [
     majorName2: 'Russian',
     regCode: 'RUS',
     regName: 'Russian',
-    libguides: ['Russian, Eastern European, and Eurasian Studies', 'Languages'],
+    libguides: ['Russian, Eastern European, and Eurasian Studies'],
   },
   {
     name: 'Russian,East Eur & Eurasian St',
@@ -4089,6 +4089,7 @@ const subjCodes = [
     majorName: 'Russian,East Eur & Eurasian St',
     majorCode2: 'ASRE',
     majorName2: 'Russian,East Eur & Eurasian St',
+    libguides: ['Russian, Eastern European, and Eurasian Studies'],
   },
   {
     name: 'Sales Management',
@@ -4261,7 +4262,7 @@ const subjCodes = [
     majorName2: 'Spanish',
     regCode: 'SPN',
     regName: 'Spanish',
-    libguides: ['Languages'],
+    libguides: ['Spanish and Portuguese'],
   },
   {
     name: 'Spanish And Portuguese - HC',
@@ -4279,13 +4280,13 @@ const subjCodes = [
     name: 'Spanish Education',
     majorCode: 'EAGQ',
     majorName: 'Spanish Education',
-    libguides: ['Languages', 'Education'],
+    libguides: ['Spanish and Portuguese', 'Education'],
   },
   {
     name: 'Spanish and Portuguese',
     deptCode: 'SPO',
     deptName: 'Spanish and Portuguese',
-    libguides: ['Languages'],
+    libguides: ['Spanish and Portuguese'],
   },
   {
     name: 'Special Education',
