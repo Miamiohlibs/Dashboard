@@ -2468,7 +2468,7 @@ const subjCodes = [
     name: 'Hindi',
     regCode: 'HIN',
     regName: 'Hindi',
-    libguides: ['Languages'],
+    libguides: ['Asian Studies'],
   },
   {
     name: 'History',
