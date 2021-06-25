@@ -18,7 +18,7 @@ const rootdir = path.dirname(__dirname);
 let outputPathMissingGuides = path.join(
   __dirname,
   '..',
-  'cache',
+  'reports',
   'subjectsWithoutLibguides.csv'
 );
 /* reg, dept, and major codes are the three data sources */
@@ -225,7 +225,7 @@ if (verbose || verboseNoLibguides) {
     'Subjects missing libguides: ',
     JSON.stringify(missingGuides, null, 2)
   );
-  // output as CSV to ../cache/missing.csv
+  // output as CSV to ../reports/missing.csv
   fs.writeFileSync(
     outputPathMissingGuides,
     [
