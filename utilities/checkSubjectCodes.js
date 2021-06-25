@@ -12,8 +12,15 @@
  *  -v verbose (explode data for missing info)
  */
 const colors = require('colors');
+const fs = require('fs');
 const path = require('path');
 const rootdir = path.dirname(__dirname);
+let outputPathMissingGuides = path.join(
+  __dirname,
+  '..',
+  'cache',
+  'subjectsWithoutLibguides.csv'
+);
 /* reg, dept, and major codes are the three data sources */
 const regCodes = require(rootdir + '/models/regCodes');
 const deptCodes = require(rootdir + '/models/deptCodes');
@@ -198,15 +205,17 @@ console.log(extantMsg.green);
 
 /* Part 3. Are any subject codes missing a LibGuides assignment (probably lots) */
 
-let { missingGuides, havingGuides } = ms.detectMissingLibguides(
-  includeRegionals
-);
+let { missingGuides, havingGuides } =
+  ms.detectMissingLibguides(includeRegionals);
 
 missingMsg = 'Subjects missing Libguides:' + missingGuides.length;
 extantMsg = 'Subjects have Libguides:' + havingGuides.length;
 
 if (missingGuides.length > 0) {
   console.log(missingMsg.yellow);
+  if (!verbose & !verboseNoLibguides) {
+    console.log('Use -n to list subjects without LibGuides'.yellow);
+  }
 } else {
   console.log(missingMsg.green);
 }
@@ -216,6 +225,26 @@ if (verbose || verboseNoLibguides) {
     'Subjects missing libguides: ',
     JSON.stringify(missingGuides, null, 2)
   );
+  // output as CSV to ../cache/missing.csv
+  fs.writeFileSync(
+    outputPathMissingGuides,
+    [
+      'Name',
+      'Registrar Course Code',
+      'Major/Minor Code',
+      'Department Code',
+    ].join(',') + '\n'
+  );
+  missingGuides.forEach((i) => {
+    fs.appendFileSync(
+      outputPathMissingGuides,
+      [i.name.replace(/,/g, ' '), i.regCode, i.majorCode, i.deptCode].join(
+        ','
+      ) + '\n'
+    );
+  });
+  msg = 'CSV data output to: ' + outputPathMissingGuides + '';
+  console.log(msg.yellow);
 }
 
 let libguideNameErrors = [];
