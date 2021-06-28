@@ -5,6 +5,7 @@
  *
  *  optional flags:
  *  -d verbose for deptCodes
+ *  -f output reports to Files in reports directory
  *  -i include regionals (not included by default)
  *  -m verbose for majorCodes
  *  -n verbose for noLibGuides
@@ -20,6 +21,18 @@ let outputPathMissingGuides = path.join(
   '..',
   'reports',
   'subjectsWithoutLibguides.csv'
+);
+let outputAllLibguides = path.join(
+  __dirname,
+  '..',
+  'reports',
+  'allLibguides.csv'
+);
+let outputAssignedLibguides = path.join(
+  __dirname,
+  '..',
+  'reports',
+  'subjectAssignedLibguides.csv'
 );
 /* reg, dept, and major codes are the three data sources */
 const regCodes = require(rootdir + '/models/regCodes');
@@ -42,6 +55,7 @@ let verboseDept = false;
 let includeRegionals = false;
 let verboseNoLibguides = false;
 let verboseLibGuideNameErrors = false;
+let outputReportFiles = false;
 if (flags) {
   if (flags.includes('v')) {
     verbose = true;
@@ -63,6 +77,9 @@ if (flags) {
   }
   if (flags.includes('l')) {
     verboseLibGuideNameErrors = true;
+  }
+  if (flags.includes('f')) {
+    outputReportFiles = true;
   }
 }
 
@@ -208,7 +225,7 @@ console.log(extantMsg.green);
 let { missingGuides, havingGuides } =
   ms.detectMissingLibguides(includeRegionals);
 
-missingMsg = 'Subjects missing Libguides:' + missingGuides.length;
+missingMsg = 'Subjects missing Libguides: ' + missingGuides.length;
 extantMsg = 'Subjects have Libguides:' + havingGuides.length;
 
 if (missingGuides.length > 0) {
@@ -226,6 +243,9 @@ if (verbose || verboseNoLibguides) {
     JSON.stringify(missingGuides, null, 2)
   );
   // output as CSV to ../reports/missing.csv
+}
+
+if (outputReportFiles) {
   fs.writeFileSync(
     outputPathMissingGuides,
     [
@@ -243,8 +263,25 @@ if (verbose || verboseNoLibguides) {
       ) + '\n'
     );
   });
-  msg = 'CSV data output to: ' + outputPathMissingGuides + '';
-  console.log(msg.yellow);
+  msg = 'Generated report: ' + outputPathMissingGuides + '';
+  console.log(msg.green);
+
+  fs.writeFileSync(outputAllLibguides, '');
+  lgSubjects.forEach((i) => {
+    fs.appendFileSync(outputAllLibguides, i.name + '\n');
+  });
+  msg = 'Generated report: ' + outputAllLibguides + '';
+  console.log(msg.green);
+
+  fs.writeFileSync(outputAssignedLibguides, 'Miami Subject,Libguide(s)\n');
+  havingGuides.forEach((i) => {
+    if (i.hasOwnProperty('libguides') && Array.isArray(i.libguides)) {
+      i.libguidesUpdated = i.libguides.map((x) => x.replace(/,/g, '-'));
+      let line =
+        [i.name.replace(/,/g, ' ')].concat(i.libguidesUpdated).join(',') + '\n';
+      fs.appendFileSync(outputAssignedLibguides, line);
+    }
+  });
 }
 
 let libguideNameErrors = [];
