@@ -1751,13 +1751,13 @@ const subjCodes = [
     name: 'English:  Linguistics',
     majorCode: 'ASIL',
     majorName: 'English:  Linguistics',
-    libguides: ['English', 'Linguistics'],
+    libguides: ['English'],
   },
   {
     name: 'English:  Linguistics (Ed)',
     majorCode: 'ELA',
     majorName: 'English:  Linguistics (Ed)',
-    libguides: ['English', 'Linguistics'],
+    libguides: ['English'],
   },
   {
     name: 'English:  Literature (Ed)',
@@ -1858,11 +1858,13 @@ const subjCodes = [
     majorName4: 'Environ Principles & Practices',
     majorCode5: 'ASEP',
     majorName5: 'Environ Principles & Practices',
+    libguides: ['Environmental Sciences'],
   },
   {
     name: 'Environmental Design',
     majorCode: 'FA57',
     majorName: 'Environmental Design',
+    libguides: ['Art and Architecture', 'Environmental Sciences'],
   },
   {
     name: 'Environmental Earth Science',
@@ -1903,10 +1905,6 @@ const subjCodes = [
     name: 'Environmental Sciences',
     regCode: 'IES',
     regName: 'Environmental Sciences',
-    libguides: ['Environmental Sciences'],
-  },
-  {
-    name: 'Environmental Sciences',
     majorCode: 'IS77',
     majorName: 'Environmental Sciences',
     libguides: ['Environmental Sciences'],
@@ -2081,6 +2079,7 @@ const subjCodes = [
     name: 'Fine Arts - AA',
     majorCode: 'FAZ4',
     majorName: 'Fine Arts - AA',
+    libguides: ['Art and Architecture'],
   },
   {
     name: 'Food Management',
@@ -2192,6 +2191,7 @@ const subjCodes = [
     name: 'General Accounting',
     deptCode: 'gac',
     deptName: 'General Accounting',
+    libguides: ['Accountancy'],
   },
   {
     name: 'General Business',
@@ -2216,6 +2216,7 @@ const subjCodes = [
     majorName: 'Geographic Information Science',
     majorCode2: 'C010',
     majorName2: 'Geographic Information Science',
+    libguides: ['Geography', 'Geology'],
   },
   {
     name: 'Geography',
@@ -2651,6 +2652,7 @@ const subjCodes = [
     name: 'Integrated Eng Lang Arts Edu',
     majorCode: 'EAGF',
     majorName: 'Integrated Eng Lang Arts Edu',
+    libguides: ['Education'],
   },
   {
     name: 'Integrated Mathematics Edu',
@@ -2927,11 +2929,13 @@ const subjCodes = [
     name: 'Library - MC',
     deptCode: 'mlb',
     deptName: 'Library - MC',
+    regional: true,
   },
   {
     name: 'Library/Media Education',
     majorCode: 'E77',
     majorName: 'Library/Media Education',
+    libguides: ['Education'],
   },
   {
     name: 'Library/Media Tech Assistance',
@@ -2966,7 +2970,7 @@ const subjCodes = [
     name: 'Linguistics',
     majorCode: 'ASIB',
     majorName: 'Linguistics',
-    libguides: ['Linguistics'],
+    libguides: ['Languages'],
   },
   {
     name: 'Literacy and Language',
@@ -3206,6 +3210,7 @@ const subjCodes = [
     name: 'Metallurigical EGR Technology',
     majorCode: '3PM',
     majorName: 'Metallurigical EGR Technology',
+    libguides: ['Engineering'],
   },
   {
     name: 'Miami University Bookstore',
@@ -3788,6 +3793,7 @@ const subjCodes = [
     majorName6: 'Premedical Studies',
     regCode: 'PMD',
     regName: 'Premedical Studies',
+    libguides: ['Biology', 'Kinesiology, Nutrition, and Health'],
   },
   {
     name: 'Primary Education PK-5',
@@ -4304,11 +4310,13 @@ const subjCodes = [
     majorName2: 'Speech Communication',
     deptCode: 'spc',
     deptName: 'Speech Communication',
+    libguides: ['Strategic Communication'],
   },
   {
     name: 'Speech Education',
     majorCode: 'ELM',
     majorName: 'Speech Education',
+    libguides: ['Speech Pathology and Audiology'],
   },
   {
     name: 'Speech Lang Path & Audiology',
@@ -4394,6 +4402,7 @@ const subjCodes = [
     name: 'StartUp Entrepreneurship',
     majorCode: 'BU3D',
     majorName: 'StartUp Entrepreneurship',
+    libguides: ['Entrepreneurship'],
   },
   {
     name: 'Statistics',
@@ -4464,6 +4473,7 @@ const subjCodes = [
     name: 'Student Health Services',
     deptCode: 'shs',
     deptName: 'Student Health Services',
+    libguides: ['Biology', 'Kinesiology, Nutrition, and Health'],
   },
   {
     name: 'Student Life',
@@ -4619,6 +4629,7 @@ const subjCodes = [
     name: 'Treasury Services',
     deptCode: 'trs',
     deptName: 'Treasury Services',
+    libguides: ['Accountancy'],
   },
   {
     name: 'Trucking & Special Services',
