@@ -41,12 +41,12 @@
               <div class="card-body">
                 <% if ( parseInt (subj.resources.metadata.sizeof.databases)> 0)
                   { %>
-                  <%- include('databases', {databases:
+                  <%- include('databases-top', {databases:
                     subj.resources.databases}) %>
                     <% } %>
                       <% if (subj.resources.subjects &&
                         subj.resources.subjects.length> 0) { %>
-                        <%- include('databases-alt', {subjects:
+                        <%- include('databases-all', {subjects:
                           subj.resources.subjects}); %>
                           <% }%>
               </div>
