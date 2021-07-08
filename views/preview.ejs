@@ -15,20 +15,24 @@
     <select class="select2" name="subject">
         <% subjects
             .forEach((subj) => { %>
-            <% let code = "" %>
+            <% let code = ""; let suffix = ""; %>
                 <% 
                 if (subj.majorCode) { 
-                    code = 'majorCode---' + subj.majorCode 
+                    code = 'majorCode---' + subj.majorCode;
+                    suffix = 'Major';  
                 } else if (subj.regCode) { 
-                    code = 'regCode---' + subj.regCode
+                    code = 'regCode---' + subj.regCode;
+                    suffix = 'Course'
                 } else if (subj.deptCode) { 
-                    code = 'deptCode---' + subj.deptCode 
+                    code = 'deptCode---' + subj.deptCode;
+                    suffix = 'Department'; 
                 }
                 %>
-            <option value="<%= code %>"><%= subj.name %> <%= subj.majorCode %></option>
+            <option value="<%= code %>"><%= subj.name %> (<%= suffix %>)</option>
             <% }) %>
       </select>
       <input type="submit" />
+      <br><input type="checkbox" name="json">JSON view only (does not render webpage)
 </form>
 
 

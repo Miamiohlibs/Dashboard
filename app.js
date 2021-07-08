@@ -80,23 +80,23 @@ app.get('/preview', async (req, res) => {
       fakeCas: {
         user: subjStr,
         attributes: {
-          uid: 'fakeuid',
-          givenName: subjStr,
-          displayName: subjStr,
+          uid: ['fakeuid'],
+          givenName: [subjStr],
+          displayName: [subjStr],
           muohioeduPrimaryLocation: ['Oxford'],
           muohioeduPrimaryLocationCode: ['oxf'],
         },
       },
     };
     if (codeType == 'majorCode') {
-      subjUser.fakeCas.attributes.eduPersonPrimaryAffiliation = 'student';
+      subjUser.fakeCas.attributes.eduPersonPrimaryAffiliation = ['student'];
       subjUser.fakeCas.attributes.muohioeduPrimaryAffiliationCode = ['stu'];
       subjUser.fakeCas.attributes.muohioeduMajorCode = [codeVal];
     } else {
-      subjUser.fakeCas.attributes.eduPersonPrimaryAffiliation = 'faculty';
+      subjUser.fakeCas.attributes.eduPersonPrimaryAffiliation = ['faculty'];
       subjUser.fakeCas.attributes.muohioeduPrimaryAffiliationCode = ['fac'];
       if (codeType == 'regCode') {
-        subjUser.fakeCas.attributes.muohioeduCurrentTeachingSubjectNumber = [
+        subjUser.fakeCas.attributes.muohioeduCurrentCourseSubjectNumber = [
           codeVal + '101',
         ];
       } else if (codeType == 'deptCode') {
@@ -104,8 +104,11 @@ app.get('/preview', async (req, res) => {
       }
     }
     var userInfo = await handleRequest(subjUser);
-
-    res.render('dashboard', { user: userInfo });
+    if (req.query.json) {
+      res.send(userInfo);
+    } else {
+      res.render('dashboard', { user: userInfo });
+    }
   } else {
     subjects = require('./models/subjCodes');
     res.render('preview', { subjects: subjects });
