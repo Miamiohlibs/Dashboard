@@ -10,6 +10,7 @@ const fs = require('fs');
 const express = require('express');
 const encoder = require('./classes/PercentEncodeString');
 const handleRequest = require('./scripts/handleRequest');
+const createFakeSubjUser = require('./scripts/createFakeSubjUser');
 var bodyParser = require('body-parser');
 var path = require('path');
 
@@ -41,6 +42,7 @@ if (global.onServer === true) {
 
 const casClient = require('./middleware/cas-client');
 const { Html5Entities } = require('html-entities');
+const { userInfo } = require('os');
 app.locals.encoder = new encoder();
 
 if (global.onServer === true) {
@@ -68,6 +70,21 @@ app.get('/', async (req, res) => {
 app.get('/json', async (req, res) => {
   var userInfo = await handleRequest(req);
   res.send(userInfo);
+});
+
+app.get('/preview', async (req, res) => {
+  if (req.query.subject) {
+    subjUser = createFakeSubjUser(req.query.subject);
+    var userInfo = await handleRequest(subjUser);
+    if (req.query.json) {
+      res.send(userInfo);
+    } else {
+      res.render('dashboard', { user: userInfo });
+    }
+  } else {
+    subjects = require('./models/subjCodes');
+    res.render('preview', { subjects: subjects });
+  }
 });
 
 if (global.onServer === true) {
