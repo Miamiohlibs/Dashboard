@@ -1,6 +1,7 @@
 // Tabs with Round Out Borders is from https://css-tricks.com/tabs-with-round-out-borders/
 // Chris Coyier on Sep 4, 2011
 // Editted by Meng Qu on May 4th, 2021
+// When developing, run `npm run scss && npm run dev` in terminal to have real-time watch
 
 @import '../node_modules/bootstrap/scss/bootstrap';
 
@@ -30,12 +31,18 @@
     font-size: 1.25rem;
   }
 
-  nav, div.offcanvas{
-    border-radius: 1rem;
+  div.bg-gray-800{
+    border-radius: 0 0 1rem 1rem;
+    background-color: $gray-800;
+
+  }  
+  div.offcanvas{
+    border-radius: 1 rem;
     background-color: $gray-800;
   }
 
-  .navbar.navbar-expand-lg{
+  nav.navbar.col-xl-2{
+    top:-4.6rem;
     max-width: 350px;
   }
 
@@ -132,7 +139,7 @@ button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
   
   button[data-bs-toggle='tab'].active:before {
       position: absolute;
-      right: -4px;
+      right: -8px;
       top:-25px;
       content: '';
       display: inline-block;
@@ -145,7 +152,7 @@ button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
 
   li.nav-item.li-gray:before {
       position: absolute;
-      right: -4px;
+      right: -8px;
       bottom:-26px;
       content: '';
       display: inline-block;
@@ -161,7 +168,7 @@ button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
       display: inline-block;
       content: '';
       top:-25px;
-      right: -10px;
+      right: -15px;
       width: 20px;
       height: 65px;
       background: white;
@@ -172,7 +179,7 @@ button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
       position: absolute;
       display: inline-block;
       content: '';
-      right: -10px;
+      right: -15px;
       bottom:-25px;
       width: 20px;
       height: 100%;
