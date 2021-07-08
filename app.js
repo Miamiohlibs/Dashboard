@@ -70,6 +70,16 @@ app.get('/json', async (req, res) => {
   res.send(userInfo);
 });
 
+app.get('/preview', async (req, res) => {
+  if (req.query.subj) {
+    var userInfo = await handleRequest(req);
+    res.render('dashboard', { user: userInfo });
+  } else {
+    subjects = require('./models/subjCodes');
+    res.render('preview', { subjects: subjects });
+  }
+});
+
 if (global.onServer === true) {
   app.get('/logout', function (req, res, next) {
     // Do whatever you like here, then call the logout middleware
