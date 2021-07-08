@@ -18,11 +18,11 @@
             <% let code = "" %>
                 <% 
                 if (subj.majorCode) { 
-                    code = 'majorCode-' + subj.majorCode 
+                    code = 'majorCode---' + subj.majorCode 
                 } else if (subj.regCode) { 
-                    code = 'regCode-' + subj.regCode
+                    code = 'regCode---' + subj.regCode
                 } else if (subj.deptCode) { 
-                    code = 'deptCode-' + subj.deptCode 
+                    code = 'deptCode---' + subj.deptCode 
                 }
                 %>
             <option value="<%= code %>"><%= subj.name %> <%= subj.majorCode %></option>

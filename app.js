@@ -41,6 +41,7 @@ if (global.onServer === true) {
 
 const casClient = require('./middleware/cas-client');
 const { Html5Entities } = require('html-entities');
+const { userInfo } = require('os');
 app.locals.encoder = new encoder();
 
 if (global.onServer === true) {
@@ -72,7 +73,38 @@ app.get('/json', async (req, res) => {
 
 app.get('/preview', async (req, res) => {
   if (req.query.subject) {
-    var userInfo = await handleRequest(req);
+    subjStr = req.query.subject;
+    let [codeType, codeVal] = subjStr.split('---');
+
+    subjUser = {
+      fakeCas: {
+        user: subjStr,
+        attributes: {
+          uid: 'fakeuid',
+          givenName: subjStr,
+          displayName: subjStr,
+          muohioeduPrimaryLocation: ['Oxford'],
+          muohioeduPrimaryLocationCode: ['oxf'],
+        },
+      },
+    };
+    if (codeType == 'majorCode') {
+      subjUser.fakeCas.attributes.eduPersonPrimaryAffiliation = 'student';
+      subjUser.fakeCas.attributes.muohioeduPrimaryAffiliationCode = ['stu'];
+      subjUser.fakeCas.attributes.muohioeduMajorCode = [codeVal];
+    } else {
+      subjUser.fakeCas.attributes.eduPersonPrimaryAffiliation = 'faculty';
+      subjUser.fakeCas.attributes.muohioeduPrimaryAffiliationCode = ['fac'];
+      if (code == 'regCode') {
+      }
+    }
+
+    //          muohioeduCurrentTeachingSubjectNumber: [courseNumber],
+    // if eduPersonPrimaryAffiliation: affiliation,
+    // muohioeduDepartmentCode: deptCode,
+    // res.send(subjUser);
+    var userInfo = await handleRequest(subjUser);
+
     res.render('dashboard', { user: userInfo });
   } else {
     subjects = require('./models/subjCodes');

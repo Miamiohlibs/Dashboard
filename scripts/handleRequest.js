@@ -5,7 +5,9 @@ const fakeUserConfig = require('../config/fakeUser.json');
 
 module.exports = async (req) => {
   var user;
-  if (fakeUserConfig.useFakeUser && fakeUserConfig.fakeUserId) {
+  if (req.fakeCas !== undefined) {
+    user = new MiamiUser(req.fakeCas);
+  } else if (fakeUserConfig.useFakeUser && fakeUserConfig.fakeUserId) {
     var fakeUserFile = fakeUserConfig.fakeUsers[fakeUserConfig.fakeUserId];
     var userjson = require('../fakeUsers/' + fakeUserFile);
     user = new MiamiUser(userjson);
