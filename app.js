@@ -71,7 +71,7 @@ app.get('/json', async (req, res) => {
 });
 
 app.get('/preview', async (req, res) => {
-  if (req.query.subj) {
+  if (req.query.subject) {
     var userInfo = await handleRequest(req);
     res.render('dashboard', { user: userInfo });
   } else {
