@@ -9,7 +9,7 @@
     "dev": "nodemon --exec './restart'",
     "test": "mocha || true",
     "check": "node ./utilities/preflightCheck",
-    "scss": "node-sass scss/main.scss public/css/main.css"
+    "scss": "node-sass scss/main.scss public/css/main.css -w"
   },
   "author": "",
   "license": "ISC",
@@ -33,7 +33,7 @@
     "logger": "0.0.1",
     "node-cas-client": "^1.0.0",
     "node-inspect": "^1.11.6",
-    "node-sass": "^5.0.0",
+    "node-sass": "^6.0.1",
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "percentage-encode-char": "^0.1.0",
