@@ -23,7 +23,7 @@
       <div class="offcanvas-header">
         <a class="navbar-brand p-0 my-3" href="https://www.lib.miamioh.edu"><img class="img-fluid"
             src="https://www.lib.miamioh.edu/images/FSL_REV_186KW_UNLBRYS.png" alt="MU Libraries"></a>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
       <div class="offcanvas-body">
@@ -61,11 +61,15 @@
   </nav>
 
   <!-- Show user's subject menu (desktop version) -->
-  <nav class="navbar col-lg-2 col-12 d-lg-block d-none shadow-sm mb-4">
-    <a class="navbar-brand p-0" href="https://www.lib.miamioh.edu"><img class="img-fluid my-3"
-        src="https://www.lib.miamioh.edu/images/FSL_REV_186KW_UNLBRYS.png" alt="MU Libraries"></a>
-      <div class="flex-column mt-4 text-center">
-        <h3 class="text-white" id="subject-title">Your subjects</h3>
+  <nav class="navbar col-xl-2 col-lg-3 d-lg-block d-none p-0">
+    <div class="card flex-column mt-4 text-center shadow-sm">
+      <div class="card-header p-2">
+        <h1 class="h3 text-wrap mt-2">Hello,</br> <%= user.casData.givenName %>
+        </h1>
+      </div>
+      <div class="card-body bg-gray-800">
+        <h3 class="h4 text-white card-title" id="subject-title">Your subjects</h3>
+
         <ul class="navbar-nav nav nav-tabs pb-3" id="myTab" role="tablist">
           <% if (user.uniqueSubjects) { %>
             <% user.uniqueSubjects.forEach((s)=> { %>
@@ -91,7 +95,14 @@
               <i class="bi bi-power me-2 shadow"></i>Log out</button>
           </a>
         </div>
+        <div>
+          <a class="navbar-brand p-0" href="https://www.lib.miamioh.edu"><img class="img-fluid my-3"
+            src="https://www.lib.miamioh.edu/images/FSL_REV_186KW_UNLBRYS.png" alt="MU Libraries"></a>
+        </div>
+        
       </div>
+
+    </div>
   </nav>
   <!-- End of showing user's subject menu -->
 
@@ -105,12 +116,10 @@
     </div>
   </div>
 
-  <!-- Show user's name -->
-  <div class="col-xl-2  col-sm-6 col-12">
-    <h1 class="text-break text-wrap">Hello, <%= user.casData.givenName %>
-    </h1>
-    <div class="">
-      <div class="card mb-3">
+  <!-- Show user's library account and featured content -->
+  <div class="col-xl-2 col-lg-9 offset-lg-3 offset-xl-0">
+    <div class="mt-xl-5 d-md-inline-flex flex-xl-column">
+      <div class="card mx-md-3 mx-xl-2 my-2">
         <div class="card-header px-4 py-3 d-flex">
           <a class="libraryAcc collapsed flex-grow-1" data-bs-toggle="collapse" href="#collapseCirc"
             aria-expanded="false" aria-controls="collapseCirc">
@@ -133,8 +142,8 @@
                           <% } %>
         </div>
       </div>
-      <div class="card mb-3">
-        <div class="card-header px-4 py-3">
+      <div class="card mx-md-3 mx-xl-2 my-2">
+        <div class="card-header px-4 pt-3 pb-2">
           <h4>Featured Content</h4>
         </div>
         <div class="card-body">
