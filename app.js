@@ -95,14 +95,14 @@ app.get('/preview', async (req, res) => {
     } else {
       subjUser.fakeCas.attributes.eduPersonPrimaryAffiliation = 'faculty';
       subjUser.fakeCas.attributes.muohioeduPrimaryAffiliationCode = ['fac'];
-      if (code == 'regCode') {
+      if (codeType == 'regCode') {
+        subjUser.fakeCas.attributes.muohioeduCurrentTeachingSubjectNumber = [
+          codeVal + '101',
+        ];
+      } else if (codeType == 'deptCode') {
+        subjUser.fakeCas.attributes.muohioeduDepartmentCode = codeVal;
       }
     }
-
-    //          muohioeduCurrentTeachingSubjectNumber: [courseNumber],
-    // if eduPersonPrimaryAffiliation: affiliation,
-    // muohioeduDepartmentCode: deptCode,
-    // res.send(subjUser);
     var userInfo = await handleRequest(subjUser);
 
     res.render('dashboard', { user: userInfo });
