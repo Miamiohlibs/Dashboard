@@ -67,7 +67,10 @@ module.exports = class MiamiUser {
   }
 
   getCourseDeptCodes(n) {
-    let codes = n.map((x) => x.substring(0, 3));
+    let codes = n.map((x) => {
+      let dept = x.match(/^[A-Z]+/);
+      return dept[0];
+    });
     //return codes;
     return [...new Set(codes)];
   }
