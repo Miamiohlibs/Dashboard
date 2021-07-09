@@ -5,13 +5,17 @@ const fakeUserConfig = require('../config/fakeUser.json');
 
 module.exports = async (req) => {
   var user;
+
   if (req.fakeCas !== undefined) {
+    // fakeCas is generated using the preview function
     user = new MiamiUser(req.fakeCas);
   } else if (fakeUserConfig.useFakeUser && fakeUserConfig.fakeUserId) {
+    // fakeUser is set in the config/fakeuser file
     var fakeUserFile = fakeUserConfig.fakeUsers[fakeUserConfig.fakeUserId];
     var userjson = require('../fakeUsers/' + fakeUserFile);
     user = new MiamiUser(userjson);
   } else {
+    //otherwise, use real user id
     if (global.onServer === true) {
       user = new MiamiUser(req.session.cas);
     }
