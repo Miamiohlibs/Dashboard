@@ -273,8 +273,6 @@ const subjCodes = [
     name: 'Art & Architecture',
     majorCode: 'FA03',
     majorName: 'Art & Architecture',
-    regCode: 'Art & Architecture',
-    regName: 'Art & Architecture',
     deptCode: 'Art & Architecture',
     deptName: 'Art & Architecture',
     libguides: ['Art and Architecture'],

@@ -8,11 +8,12 @@
     });
 </script>
 <style>
-
 </style>
-<h1>Select a Subject to Preview</h1>
-<div class="col-md-8 col-sm-12">
-    <form action="./preview">
+
+<div class="col-md-8 offset-md-2">
+    <div class=" border border-1 border-secondary rounded p-3">
+        <h1>Select a Subject to Preview</h1>
+        <form action="./preview" class="">
             <select class="select2" name="subject">
                 <% subjects
                     .forEach((subj) => { %>
@@ -29,18 +30,21 @@
                             suffix = 'Department'; 
                         }
                         %>
-                    <option value="<%= code %>"><%= subj.name %> (<%= suffix %>)</option>
-                    <% }) %>
+                            <option value="<%= code %>">
+                                <%= subj.name %> (
+                                    <%= suffix %>)</option>
+                            <% }) %>
             </select>
-       
-
-          <div class="form-check">
-            <input type="checkbox" name="json" class="form-check-input" id="jsonCheckbox">
-            <label class="form-checklabel" for="jsonCheckbox">JSON view only (does not render webpage)</label>
-    
-          </div>
-          <button type="submit" class="btn btn-primary mt-3">Preview Subject</button>
-    </form>
+            <div class="form-check">
+                <input type="checkbox" name="json" class="form-check-input" id="jsonCheckbox">
+                <label class="form-checklabel" for="jsonCheckbox">JSON view only (does not render webpage)</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Preview Subject</button>
+        </form>
+    </div>
+    <div class="pt-5">
+        <a href="/">Return to main dashboard view</a>
+    </div>
 </div>
 
 <%- /* include('partials/subject-info', {subj: subj}) */ %>

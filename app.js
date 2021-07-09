@@ -83,7 +83,8 @@ app.get('/preview', async (req, res) => {
     }
   } else {
     subjects = require('./models/subjCodes');
-    res.render('preview', { subjects: subjects });
+    oxfordSubj = subjects.filter((s) => s.regional != true);
+    res.render('preview', { subjects: oxfordSubj });
   }
 });
 
