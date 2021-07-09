@@ -21,6 +21,9 @@ rm ./cache/subjects/*.json
 # populate subjects cache
 node ./utilities/updateSubjectCache
 
+# copy custom subjects to subject cache
+cp ./cache/custom/*.json ./cache/subjects
+
 # delete and populate tagged guide cache
 rm ./cache/taggedGuides/*
 node ./utilities/updateTaggedGuides

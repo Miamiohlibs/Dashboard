@@ -108,6 +108,10 @@ The service offers two routes:
 - fake users are listed in the `./config/fakeUser-sample.json` file
 - when running on localhost (i.e. not on the production server with CAS integration), you can use a fakeUser to simulate various users. to do so, copy the sample file above to `./config/fakeUser.json`; in that file, set `"useFakeUser": false` and select the "fakeUserId" you wish to simulate; IDs start from 0, referencing the "fakeUsers" array.
 
+## Custom Data
+
+If you have a subject area for which there is no LibGuides subject, you can fake it! (We use this is our library for members of the library -- we link to some internal LibGuides that don't have their own public-facing "department"). Manually build a subject file in `./cache/custom`, e.g. `./cache/custom/Library.json`. The `./compileSubjectCache` script will copy it over to the `./cache/subjects` directory after compiling the other subject guides.
+
 ## Data Structure
 
 ### models/subjCodes.js
