@@ -129,7 +129,7 @@ const subjCodes = [
     regName: 'Aerospace Studies',
     deptCode: 'aes',
     deptName: 'Aerospace Studies',
-    libguides: ['Engineering'],
+    libguides: ['Engineering', 'Military Studies'],
   },
   {
     name: 'Alumni Relations',
@@ -883,7 +883,7 @@ const subjCodes = [
     regName: 'Commerce',
     deptCode: 'rcmr',
     deptName: 'Commerce',
-    libguides: ['Commerce (Small Business)'],
+    libguides: ['Commerce'],
   },
   {
     name: 'Communication',
@@ -1118,7 +1118,7 @@ const subjCodes = [
     name: 'Consumer Service',
     majorCode: 'ELY',
     majorName: 'Consumer Service',
-    libguides: ['Commerce (Small Business)'],
+    libguides: ['Commerce'],
   },
   {
     name: 'Controllers Office',
@@ -1221,7 +1221,7 @@ const subjCodes = [
     name: 'Customer Service',
     majorCode: 'RC1C',
     majorName: 'Customer Service',
-    libguides: ['Commerce (Small Business)'],
+    libguides: ['Commerce'],
   },
   {
     name: 'Data Analytics',
@@ -2916,6 +2916,7 @@ const subjCodes = [
     name: 'Library',
     deptCode: 'ulb',
     deptName: 'Library',
+    libguides: ['Libraries'],
   },
   {
     name: 'Library - HC',
