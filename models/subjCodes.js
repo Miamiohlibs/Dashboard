@@ -121,7 +121,7 @@ const subjCodes = [
     name: 'Aerospace Education',
     majorCode: 'E10',
     majorName: 'Aerospace Education',
-    libguides: ['Engineering'],
+    libguides: ['Engineering', 'Military Studies'],
   },
   {
     name: 'Aerospace Studies',
@@ -129,7 +129,7 @@ const subjCodes = [
     regName: 'Aerospace Studies',
     deptCode: 'aes',
     deptName: 'Aerospace Studies',
-    libguides: ['Engineering', 'Military Studies'],
+    libguides: ['Engineering'],
   },
   {
     name: 'Alumni Relations',
@@ -2574,6 +2574,7 @@ const subjCodes = [
     name: 'Individualized Studies',
     majorCode: 'ASIN',
     majorName: 'Individualized Studies',
+    note: 'This is the major for students in the Western Program',
   },
   {
     name: 'Industrial Education',
@@ -2916,7 +2917,6 @@ const subjCodes = [
     name: 'Library',
     deptCode: 'ulb',
     deptName: 'Library',
-    libguides: ['Libraries'],
   },
   {
     name: 'Library - HC',
@@ -4746,6 +4746,7 @@ const subjCodes = [
     regName: 'Western Program',
     deptCode: 'wcp',
     deptName: 'Western Program',
+    note: 'This should get the same libguides as the "Individualized Studies" major',
   },
   {
     name: 'Wmub',
