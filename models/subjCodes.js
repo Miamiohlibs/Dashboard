@@ -2575,6 +2575,7 @@ const subjCodes = [
     majorCode: 'ASIN',
     majorName: 'Individualized Studies',
     note: 'This is the major for students in the Western Program',
+    libguides: ['Individualized Studies'],
   },
   {
     name: 'Industrial Education',
@@ -4747,6 +4748,7 @@ const subjCodes = [
     deptCode: 'wcp',
     deptName: 'Western Program',
     note: 'This should get the same libguides as the "Individualized Studies" major',
+    libguides: ['Individualized Studies'],
   },
   {
     name: 'Wmub',
