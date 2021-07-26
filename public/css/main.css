@@ -7527,8 +7527,9 @@ nav.navbar.col-xl-2 {
   top: -4.6rem;
   max-width: 350px; }
 
-.card {
-  max-width: 450px; }
+@media only screen and (min-width: 768px) {
+  .card {
+    max-width: 450px; } }
 
 a, link {
   color: #343a40 !important; }
@@ -7575,10 +7576,6 @@ button#logout {
   .mysched:hover {
     opacity: 0.9; }
 
-@media only screen and (min-width: 992px) {
-  .navbar-expand-lg .navbar-nav {
-    flex-direction: column; } }
-
 .nav-link.active {
   border-radius: 1rem;
   color: #343a40 !important; }
@@ -7589,12 +7586,17 @@ button#logout {
 li.nav-item:hover i.bi.bi-caret-right-fill, li.nav-item > button.active i.bi.bi-caret-right-fill {
   color: #c3142d; }
 
+li.nav-item:hover i.bi.bi-caret-right-fill {
+  color: #FAC014; }
+
 button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
   position: relative;
   display: inline-block;
   z-index: 2; }
 
 @media only screen and (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: column; }
   .nav-link.active {
     border-radius: 1rem 0 0 1rem; }
   button[data-bs-toggle='tab'].active:before {
@@ -7648,19 +7650,5 @@ button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
   letter-spacing: -3px;
   color: rgba(0, 0, 0, 0.25); }
 
-a:hover ~ span.red-arrows i.bi.bi-caret-right:first-child:before {
-  animation: flash 1s 1; }
-
-a:hover ~ span.red-arrows i.bi.bi-caret-right:nth-child(2):before {
-  animation: flash 0.7s 1;
-  animation-delay: 0.2s; }
-
-a:hover ~ span.red-arrows i.bi.bi-caret-right:last-child:before {
-  animation: flash 0.4s 1;
-  animation-delay: 0.35s; }
-
-@keyframes flash {
-  from {
-    color: rgba(0, 0, 0, 0.25); }
-  to {
-    color: #c3142d; } }
+a:hover, link:hover {
+  color: #c3142d !important; }
