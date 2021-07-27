@@ -11,21 +11,27 @@
     });
   </script>
   <!-- Show user's subject menu (mobile version) -->
+
   <nav class="d-block d-lg-none mb-4 bg-white ">
-    <button class="btn btn-dark float-end shadow-sm" type="button" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <div class="row">
+    <h1 class="h3 text-wrap text-center col-10 mt-2">Hello, <%= user.casData.givenName %>
+    </h1>
+    <button class="btn btn-dark float-end shadow-sm col-1 flex-grow-1" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="max-width: 50px; min-width: 40px">
       <span class="navbar-toggler-icon">
         <i class="bi bi-list"></i>
       </span>
     </button>
+  </div>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="card flex-column border-0">
         <div class="card-header p-2 shadow-sm">
           <div class="offcanvas-header col-12">
-            <h1 class="h3 text-wrap mt-2 text-center col-11 ps-4">Hello,</br>
-              <%= user.casData.givenName %>
-            </h1>
+            <div class="m-2">
+              <a class="navbar-brand" href="https://www.lib.miamioh.edu"><img class="img-fluid w-75"
+                  src="/img/logo-lightbg.png" alt="MU Libraries"></a>
+            </div>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
               aria-label="Close"></button>
           </div>
@@ -59,10 +65,6 @@
                   <span class="glyphicon glyphicon-log-out"></span>
                   <i class="bi bi-power me-2 shadow"></i>Log out</button>
               </a>
-            </div>
-            <div class="mt-5 mb-3">
-              <a class="navbar-brand p-0" href="https://www.lib.miamioh.edu"><img class="img-fluid"
-                  src="https://www.lib.miamioh.edu/images/FSL_REV_186KW_UNLBRYS.png" alt="MU Libraries"></a>
             </div>
           </div>
 
@@ -110,7 +112,7 @@
         </div>
         <div class="mt-5 mb-3">
           <a class="navbar-brand p-0" href="https://www.lib.miamioh.edu"><img class="img-fluid"
-              src="https://www.lib.miamioh.edu/images/FSL_REV_186KW_UNLBRYS.png" alt="MU Libraries"></a>
+              src="/img/logo-darkbg.png" alt="MU Libraries"></a>
         </div>
 
       </div>
