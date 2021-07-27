@@ -115,7 +115,7 @@
   }
 
   li.nav-item:hover{
-    button.nav-link{
+    button.nav-link:not(.active){
     color: #FAC014 !important;
     text-decoration-line: underline;
     }

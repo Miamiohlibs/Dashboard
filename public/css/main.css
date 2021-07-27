@@ -7582,7 +7582,7 @@ button#logout {
 li.nav-item:hover i.bi.bi-caret-right-fill, li.nav-item > button.active i.bi.bi-caret-right-fill {
   color: #c3142d; }
 
-li.nav-item:hover button.nav-link {
+li.nav-item:hover button.nav-link:not(.active) {
   color: #FAC014 !important;
   text-decoration-line: underline; }
 
