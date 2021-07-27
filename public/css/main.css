@@ -7527,10 +7527,6 @@ nav.navbar.col-xl-2 {
   top: -4.6rem;
   max-width: 350px; }
 
-@media only screen and (min-width: 768px) {
-  .card {
-    max-width: 450px; } }
-
 a, link {
   color: #343a40 !important; }
 
@@ -7586,6 +7582,10 @@ button#logout {
 li.nav-item:hover i.bi.bi-caret-right-fill, li.nav-item > button.active i.bi.bi-caret-right-fill {
   color: #c3142d; }
 
+li.nav-item:hover button.nav-link {
+  color: #FAC014 !important;
+  text-decoration-line: underline; }
+
 li.nav-item:hover i.bi.bi-caret-right-fill {
   color: #FAC014; }
 
@@ -7593,6 +7593,25 @@ button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
   position: relative;
   display: inline-block;
   z-index: 2; }
+
+.red-arrows {
+  min-width: 35px; }
+
+.bi-caret-right:before {
+  font-size: small;
+  letter-spacing: -3px;
+  color: rgba(0, 0, 0, 0.25); }
+
+a:hover, link:hover {
+  color: #c3142d !important;
+  text-decoration-line: none; }
+
+a:hover ~ span.red-arrows i.bi.bi-caret-right:before {
+  color: #c3142d; }
+
+@media only screen and (min-width: 768px) {
+  .card {
+    max-width: 450px; } }
 
 @media only screen and (min-width: 992px) {
   .navbar-expand-lg .navbar-nav {
@@ -7641,14 +7660,3 @@ button[data-bs-toggle='tab'].active, li.nav-item.li-gray {
     height: 100%;
     background: white;
     z-index: 1; } }
-
-.red-arrows {
-  min-width: 35px; }
-
-.bi-caret-right:before {
-  font-size: small;
-  letter-spacing: -3px;
-  color: rgba(0, 0, 0, 0.25); }
-
-a:hover, link:hover {
-  color: #c3142d !important; }
