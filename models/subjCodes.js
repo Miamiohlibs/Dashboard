@@ -350,7 +350,7 @@ const subjCodes = [
     name: 'Art/Arch Library',
     deptCode: 'ula',
     deptName: 'Art/Arch Library',
-    libguides: ['Art and Architecture'],
+    libguides: ['Art and Architecture', 'Library'],
   },
   {
     name: 'Arts Management',
@@ -2918,6 +2918,7 @@ const subjCodes = [
     name: 'Library',
     deptCode: 'ulb',
     deptName: 'Library',
+    libguides: ['Library'],
   },
   {
     name: 'Library - HC',
@@ -3315,7 +3316,7 @@ const subjCodes = [
     name: 'Music Library',
     deptCode: 'ulm',
     deptName: 'Music Library',
-    libguides: ['Music'],
+    libguides: ['Music', 'Library'],
   },
   {
     name: 'Music Performance',
