@@ -28,6 +28,9 @@ module.exports = async (req) => {
   if (user.majors && user.majors.includes('Non-Matriculated')) {
     user.majors = user.majors.filter((item) => item != 'Non-Matriculated');
   }
+  if (user.majorCodes && user.majorCodes.includes('0000')) {
+    user.majorCodes = user.majorCodes.filter((item) => item != '0000');
+  }
 
   const userInfo = getUserInfo(user);
   try {
