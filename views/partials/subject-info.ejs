@@ -22,6 +22,33 @@
           <div class="col-md-4 col-12">
             <div class="card mb-3 shadow-sm">
               <div class="card-header px-4 py-3 shadow-sm">
+                <% let numLibns = subj.resources.metadata.sizeof.librarians %>
+                <% if (numLibns > 1 ) { %>
+                  <% multipleLibns = true; %>
+                  <% libnText = "My Librarians"; %>
+                <% } else { %>
+                  <% multipleLibns=false %>
+                  <% libnText = "My Librarian" %>
+                <% } %>
+                <h4 class="mb-0"><i class="bi bi-person me-2 shadow"></i>&nbsp;<%- libnText %></h4>
+              </div>
+              <div class="card-body list-unstyled">
+                
+
+                <% if ( numLibns > 0) { %>
+
+                  <% subj.resources.librarians.forEach((libn, index) => { %>
+                  <%- include('librarian', {libn: libn ,multipleLibns: multipleLibns, index: index, subj: subj.name}) %>
+                  <% }) %>
+                  %>
+                    <% } %>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 col-12">
+            <div class="card mb-3 shadow-sm">
+              <div class="card-header px-4 py-3 shadow-sm">
                 <h4 class="mb-0"><i class="bi bi-lightbulb me-2 shadow"></i>&nbsp;Subject Guides</h4>
               </div>
               <div class="card-body list-unstyled">
@@ -53,32 +80,6 @@
             </div>
           </div>
 
-          <div class="col-md-4 col-12">
-            <div class="card mb-3 shadow-sm">
-              <div class="card-header px-4 py-3 shadow-sm">
-                <% let numLibns = subj.resources.metadata.sizeof.librarians %>
-                <% if (numLibns > 1 ) { %>
-                  <% multipleLibns = true; %>
-                  <% libnText = "My Librarians"; %>
-                <% } else { %>
-                  <% multipleLibns=false %>
-                  <% libnText = "My Librarian" %>
-                <% } %>
-                <h4 class="mb-0"><i class="bi bi-person me-2 shadow"></i>&nbsp;<%- libnText %></h4>
-              </div>
-              <div class="card-body list-unstyled">
-                
-
-                <% if ( numLibns > 0) { %>
-
-                  <% subj.resources.librarians.forEach((libn, index) => { %>
-                  <%- include('librarian', {libn: libn ,multipleLibns: multipleLibns, index: index, subj: subj.name}) %>
-                  <% }) %>
-                  %>
-                    <% } %>
-              </div>
-            </div>
-          </div>
           <% } %>
 
 
