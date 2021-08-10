@@ -25,6 +25,7 @@ async function getData(userId = conf.defaultUser) {
       patronId: res.data.id,
       display: {
         moneyOwed: res.data.moneyOwed,
+        accountLink: 'https://' + conf.server + '/patroninfo.html',
       },
     };
     let resCheckouts = await sierra.patronQuery('checkouts', user.patronId);
