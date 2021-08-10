@@ -58,7 +58,7 @@ a[data-bs-toggle='collapse'].collapsed + .folding-arrows i {
   display: inline-block;
 }
 
-a[data-bs-toggle='collapse']. + .folding-arrows i {
+a[data-bs-toggle='collapse'] + .folding-arrows i {
   transition: 0.2s transform ease-in-out;
 }
 
@@ -222,5 +222,11 @@ a:hover ~ span.red-arrows {
     height: 100%;
     background: white;
     z-index: 1;
+  }
+}
+
+#sierra-account-link {
+  a.btn-primary {
+    color: #fff !important;
   }
 }
