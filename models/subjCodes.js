@@ -2129,6 +2129,11 @@ const subjCodes = [
     name: 'Fostering Just Communities',
     majorCode: 'EA4C',
     majorName: 'Fostering Just Communities',
+    libguides: [
+      'Civic and Regional Development',
+      'Geography',
+      'Political Science',
+    ],
   },
   {
     name: 'Foundations of Analytics',
@@ -2349,11 +2354,13 @@ const subjCodes = [
     name: 'Global Initiatives',
     deptCode: 'gli',
     deptName: 'Global Initiatives',
+    libguides: ['Political Science'],
   },
   {
     name: 'Global Readiness',
     majorCode: 'AS2C',
     majorName: 'Global Readiness',
+    libguides: ['Political Science'],
   },
   {
     name: 'Goggin Ice Center',
@@ -4196,6 +4203,7 @@ const subjCodes = [
     majorName: 'Social Justice Studies',
     regCode: 'SJS',
     regName: 'Social Justice Studies',
+    libguides: ['Political Science'],
   },
   {
     name: 'Social Science - AA',
@@ -4480,6 +4488,7 @@ const subjCodes = [
     name: 'Student Life',
     deptCode: 'vps',
     deptName: 'Student Life',
+    libguides: ['Educational Leadership'],
   },
   {
     name: 'Student Services - MC',
@@ -4755,6 +4764,7 @@ const subjCodes = [
     name: 'Wmub',
     deptCode: 'mub',
     deptName: 'Wmub',
+    libguides: ['Media, Journalism, and Film'],
   },
   {
     name: "Women's Center",
