@@ -46,6 +46,7 @@ const f = new Ladf();
 const MiamiSubject = require(rootdir + '/classes/MiamiSubject');
 const ms = new MiamiSubject(subjCodes);
 const flags = process.argv.slice(2)[0];
+
 let summary = '';
 let jsonOutput = {};
 let verbose = false;
@@ -284,6 +285,17 @@ if (outputReportFiles) {
   });
 }
 
+// get list of custom subjects from cache
+const customPath = path.join(__dirname, '..', 'cache', 'custom');
+const customDir = fs.readdirSync(customPath);
+let customSubjects = [];
+customDir.forEach((filename) => {
+  if (filename.includes('.json')) {
+    let subject = filename.replace('.json', '');
+    customSubjects.push(subject);
+  }
+});
+
 let libguideNameErrors = [];
 ms.subjects.forEach((e) => {
   if (e.hasOwnProperty('libguides')) {
@@ -291,7 +303,7 @@ ms.subjects.forEach((e) => {
     if (e.libguides instanceof Array) {
       e.libguides.forEach((s) => {
         let res = f.findSubjectByName(lgSubjects, [s]);
-        if (res[0] == undefined) {
+        if ((res[0] == undefined) & !customSubjects.includes(s)) {
           libguideNameErrors.push('No libguide subject for: "' + s + '"');
         }
       });
