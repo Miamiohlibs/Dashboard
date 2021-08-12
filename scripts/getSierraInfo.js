@@ -1,8 +1,14 @@
 const SierraApi = require('../classes/SierraApi');
 const conf = require('../config/sierraConf');
 const sierra = new SierraApi(conf);
+const fakeUserConf = require('../config/fakeUser.json');
 
 async function getData(userId = conf.defaultUser) {
+  // if using fake circ data, just return it now
+  if (fakeUserConf.useFakeCirc == true) {
+    return fakeUserConf.fakeCircData;
+  }
+
   //default to ken info if no userid given (test accts)
   try {
     let token = await sierra.getToken();

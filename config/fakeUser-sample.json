@@ -1,5 +1,11 @@
 {
     "useFakeUser": true,
+    "useFakeCirc": true,
+    "fakeCircData": {
+        "moneyOwed": "$1.00",
+        "numHolds": "4",
+        "numCheckouts": "4"
+    },
     "fakeUserId": "0",
     "fakeUsers": [
         "3822.json",
