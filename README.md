@@ -32,14 +32,17 @@ To use this repo as-is, with fake/modified data from Miami University's initial 
 5. `cp config/default-sample.json config/default.json`
 6. `cp samples/fakeusers/* fakeUsers/`
 7. `cp config/fakeUser-sample.json config/fakeUser.json`
+8. `cp config/sierraConf-sample.json config/sierraConf.json`
+9. edit the config files with the values you choose; you will need infomation about your CAS instance, LibGuides & Sierra API keys
 
 ### generate cached subject files
 
-8. `./compileSubjectCache.sh (ignore “no such file” warning)`
+9. `./getData.sh`
+10. `./compileSubjectCache.sh` -- (ignore “no such file” warning)
 
 ### start the app
 
-9. `./restart` -- the app should be running on localhost:9999, and logging errors to `logs/app.log`
+11. `./restart` -- the app should be running on localhost:9999, and logging errors to `logs/app.log`
 
 ## Full Setup
 
