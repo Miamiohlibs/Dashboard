@@ -64,7 +64,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', async (req, res) => {
   var userInfo = await handleRequest(req);
-  res.render('dashboard', { user: userInfo });
+  let settings = {};
+  if (config.has('feedbackForm')) {
+    settings.feedbackForm = config.get('feedbackForm');
+  }
+  res.render('dashboard', { user: userInfo, settings: settings });
 });
 
 app.get('/json', async (req, res) => {
