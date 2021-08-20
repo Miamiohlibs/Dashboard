@@ -1,4 +1,5 @@
 {
+    "mode": "use 'prod' or 'dev': dev logs more personal user data",
     "app": {
         "port": "9999",
         "allowed_group_ids": [
