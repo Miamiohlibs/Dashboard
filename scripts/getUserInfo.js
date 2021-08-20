@@ -9,19 +9,28 @@ const logger = require('logger').createLogger(missingLog);
 const codeMap = require('../models/codeMap');
 const MiamiSubject = require('../classes/MiamiSubject');
 const ms = new MiamiSubject(subjCodes);
+const config = require('config');
+let mode;
+if (config.has('mode')) {
+  mode = config.get('mode');
+} else {
+  mode == 'undefined';
+}
 
 module.exports = (user) => {
   u = new UserInfo();
   u.primaryAffiliation = user.primaryAffiliation;
   /* for dev purposes, write the original user input to a file */
-  try {
-    const data = fs.writeFileSync(
-      '../logs/userInput.json',
-      JSON.stringify(user, null, 2)
-    );
-    //file written successfully
-  } catch (err) {
-    console.error(err);
+  if (mode == 'dev') {
+    try {
+      const data = fs.writeFileSync(
+        path.join(__dirname, '..', 'logs', 'userInput.json'),
+        JSON.stringify(user, null, 2)
+      );
+      //file written successfully
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   // associations will have properties for reg, dept, major codes
