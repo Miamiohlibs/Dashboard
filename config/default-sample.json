@@ -11,5 +11,9 @@
         "secret": "This is not really my secret key",
         "servicePrefix": "https://yourapp.yourdomain.tld:9999",
         "serverPath": "https://youCAS.yourdomain.tld"
+    },
+    "feedbackForm": {
+        "url": "https://yoursite/path/to/feedback/form",
+        "linkText": "Email us with questions or comments"
     }
 }
