@@ -104,14 +104,16 @@ module.exports = (user) => {
   }
 
   /* for dev purposes, write the output to a file */
-  try {
-    const data = fs.writeFileSync(
-      '/Users/irwinkr/Documents/GitHub/Dashboard/logs/userOutput.json',
-      JSON.stringify(u, null, 2)
-    );
-    //file written successfully
-  } catch (err) {
-    console.error(err);
+  if (mode == 'dev') {
+    try {
+      const data = fs.writeFileSync(
+        path.join(__dirname, '..', 'logs', 'userOutput.json'),
+        JSON.stringify(u, null, 2)
+      );
+      //file written successfully
+    } catch (err) {
+      console.error(err);
+    }
   }
   return u;
 };

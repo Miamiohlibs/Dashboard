@@ -2,6 +2,13 @@ const MiamiUser = require('../classes/MiamiUser');
 const getUserInfo = require('../scripts/getUserInfo');
 const getSierraInfo = require('../scripts/getSierraInfo');
 const fakeUserConfig = require('../config/fakeUser.json');
+const config = require('config');
+let mode;
+if (config.has('mode')) {
+  mode = config.get('mode');
+} else {
+  mode == 'undefined';
+}
 
 module.exports = async (req) => {
   var user;
@@ -36,7 +43,13 @@ module.exports = async (req) => {
   try {
     console.log('userId:', user.uid);
     const sierraInfo = await getSierraInfo(user.uid);
-    console.log('Sierra info: ', sierraInfo);
+    if (mode == 'dev') {
+      console.log('Sierra info: ', sierraInfo);
+    } else {
+      console.log(
+        'Sierra info received: ' + Object.getOwnPropertyNames(sierraInfo)
+      );
+    }
     userInfo.sierraInfo = sierraInfo;
   } catch (err) {
     console.error('Failed to get Sierra data:', err);
