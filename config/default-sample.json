@@ -2,6 +2,10 @@
     "mode": "use 'prod' or 'dev': dev logs more personal user data",
     "app": {
         "port": "9999",
+        "server": {
+            "key": "/path/to/ssl/certs/keyname.key",
+            "cert": "/path/to/ssl/certs/certname.key"
+        },
         "allowed_group_ids": [
             "0"
         ],
