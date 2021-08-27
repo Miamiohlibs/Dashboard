@@ -14,9 +14,9 @@ const createFakeSubjUser = require('./scripts/createFakeSubjUser');
 var bodyParser = require('body-parser');
 var path = require('path');
 
-// console.log(process.env.HOSTNAME); // ulblwebt03.lib.miamioh.edu = prod
-if (process.env.HOSTNAME === 'ulblwebt03.lib.miamioh.edu') {
-  global.onServer = true;
+// console.log(process.env.HOSTNAME); // ulblwebp11.lib.miamioh.edu = prod
+if (process.env.ON_SERVER) {
+  global.onServer = process.env.ON_SERVER;
 } else {
   global.onServer = false;
 }
@@ -101,10 +101,11 @@ if (global.onServer === true) {
 const PORT = process.env.PORT || config.get('app.port');
 
 if (global.onServer === true) {
-  const server = {
-    key: '/etc/ssl/certs/ulblwebt03.lib.miamioh.edu.key',
-    cert: '/etc/ssl/certs/ulblwebt03.lib.miamioh.edu.crt',
-  };
+  try {
+    const server = config.get('app.server');
+  } catch (err) {
+    console.log('Server config (key & cert) not defined in config.default');
+  }
 
   https
     .createServer(

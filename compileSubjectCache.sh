@@ -22,7 +22,10 @@ rm ./cache/subjects/*.json
 node ./utilities/updateSubjectCache
 
 # copy custom subjects to subject cache
-cp ./cache/custom/*.json ./cache/subjects
+if [[ $(find ./cache/custom/ -name '*.json' | wc -l) -gt 0 ]]
+then
+  cp ./cache/custom/*.json ./cache/subjects
+fi
 
 # delete and populate tagged guide cache
 rm ./cache/taggedGuides/*
