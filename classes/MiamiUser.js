@@ -10,6 +10,9 @@ module.exports = class MiamiUser {
     } else {
       this.casObject = casData;
       let attr = this.casObject.attributes;
+//      console.log(attr);
+//      return;
+try {
       this.setIfExists('uid', attr.uid[0]); // string
       this.setIfExists('majors', attr.muohioeduMajor); // array
       this.setIfExists('majorCodes', attr.muohioeduMajorCode); // array
@@ -57,6 +60,9 @@ module.exports = class MiamiUser {
       if (attr.muohioeduClass !== undefined) {
         this.class = attr.muohioeduClass[0]; //string
       }
+} catch (err) {
+    console.log('some cas data missing:',err);
+}
     }
   }
 
