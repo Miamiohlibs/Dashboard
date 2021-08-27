@@ -24,7 +24,7 @@ To use this repo as-is, with fake/modified data from Miami University's initial 
 ### setup environment
 
 2. `touch .env`
-3. edit the .env file to include a version of this text `ALLOWED_USERS=‘yourusername,root'` (include the names of the users who should be permitted to start the app from the command line; this is more important in a server environment)
+3. edit the .env file to include a version of this text `ALLOWED_USERS=‘yourusername,root'` (include the names of the users who should be permitted to start the app from the command line; this is more important in a server environment). If you're installing the Dashboard on a server, set `ON_SERVER=true`; otherwise use `ON_SERVER=false`
 
 ### copy sample files to their locations
 
@@ -81,6 +81,7 @@ PORT=4000
 SITE_ID=007
 KEY=asdfasdfasdfasdfasdfasdfasd
 ALLOWED_USERS='root,someuser'
+ON_SERVER=true
 ```
 
 - PORT : the port the app will run on
