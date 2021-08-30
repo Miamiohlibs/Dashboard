@@ -101,11 +101,7 @@ if (global.onServer === true) {
 const PORT = process.env.PORT || config.get('app.port');
 
 if (global.onServer === true) {
-  try {
-    const server = config.get('app.server');
-  } catch (err) {
-    console.log('Server config (key & cert) not defined in config.default');
-  }
+  const server = config.get('app.server');
 
   https
     .createServer(
@@ -117,13 +113,13 @@ if (global.onServer === true) {
     )
     .listen(PORT, function () {
       console.log(
-        `Example app listening on port ${PORT}! Go to https://localhost:${PORT}/`
+        `Server app listening on port ${PORT}! Go to https://${process.env.HOSTNAME}:${PORT}/`
       );
     });
 } else {
   app.listen(PORT, function () {
     console.log(
-      `Example app listening on port ${PORT}! Go to http://localhost:${PORT}/`
+      `Localhost app listening on port ${PORT}! Go to http://localhost:${PORT}/`
     );
   });
 }
