@@ -15,8 +15,8 @@ var bodyParser = require('body-parser');
 var path = require('path');
 
 // console.log(process.env.HOSTNAME); // ulblwebp11.lib.miamioh.edu = prod
-if (process.env.ON_SERVER) {
-  global.onServer = process.env.ON_SERVER;
+if (process.env.ON_SERVER === 'true') {
+  global.onServer = true;
 } else {
   global.onServer = false;
 }
