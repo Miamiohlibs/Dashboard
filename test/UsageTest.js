@@ -37,3 +37,36 @@ describe('Usage: getFirstDate', () => {
     expect(firstDate).to.equal(expectedFirstDate);
   });
 });
+
+describe('Usage: filterDataByDate', () => {
+  it('Should return two entries for 31 Aug 2021', () => {
+    let filtered = usage.filterDataByDate(testData, '2021-08-31');
+    expect(filtered.length).to.equal(2);
+  });
+  it('Should return three entries for 1 Sept 2021', () => {
+    let filtered = usage.filterDataByDate(testData, '2021-09-01');
+    expect(filtered.length).to.equal(3);
+  });
+});
+
+describe('Usage: filterDataByMonth', () => {
+  it('Should return three entries for Aug 2021', () => {
+    let filtered = usage.filterDataByMonth(testData, '2021-08');
+    expect(filtered.length).to.equal(3);
+  });
+  it('Should return three entries for Sept 2021', () => {
+    let filtered = usage.filterDataByMonth(testData, 'Sep 2021');
+    expect(filtered.length).to.equal(3);
+  });
+});
+
+describe('Usage: filterDataByYear', () => {
+  it('Should return six entries for 2021', () => {
+    let filtered = usage.filterDataByYear(testData, '2021');
+    expect(filtered.length).to.equal(6);
+  });
+  it('Should return zero entries for 2020', () => {
+    let filtered = usage.filterDataByYear(testData, '2020');
+    expect(filtered.length).to.equal(0);
+  });
+});

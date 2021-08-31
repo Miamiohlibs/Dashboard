@@ -34,7 +34,7 @@ module.exports = [
   {
     time: '2021-09-01T13:28:01-04:00',
     user: '3611b939ec779f3029e5d798ad36081b5238231635cb13b7ea139a8ef5e290cb',
-    courseDepts: ['Library'],
+    courseDepts: ['English'],
     majors: [],
     subjects: ['English'],
     primaryAffiliation: 'student',
@@ -42,7 +42,7 @@ module.exports = [
   {
     time: '2021-09-01T13:28:36-04:00',
     user: '3611b939ec779f3029e5d798ad36081b5238231635cb13b7ea139a8ef5e290cb',
-    courseDepts: ['Library'],
+    courseDepts: ['Biology'],
     majors: [],
     subjects: ['Biology'],
     primaryAffiliation: 'student',

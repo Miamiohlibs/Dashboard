@@ -12,11 +12,17 @@ module.exports = class Usage {
     let dates = this.getDates(data);
     return dayjs(dates[0]).format('YYYY-MM-DD');
   }
-  filterDataByDate(data) {
-    return false;
+  filterDataByDate(data, date) {
+    let dateStr = dayjs(date).format('YYYY-MM-DD');
+    return data.filter((i) => i.time.includes(dateStr));
   }
-  filterDataByMonth(data) {
-    return false;
+  filterDataByMonth(data, month) {
+    let dateStr = dayjs(month).format('YYYY-MM');
+    return data.filter((i) => i.time.includes(dateStr));
+  }
+  filterDataByYear(data, year) {
+    let dateStr = dayjs(year).format('YYYY');
+    return data.filter((i) => i.time.includes(dateStr));
   }
   filterDataByUsertype(data) {
     return false;
