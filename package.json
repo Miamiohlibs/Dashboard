@@ -8,6 +8,7 @@
     "server": "node app --name=Dashboard > logs/app.log 2>&1 &",
     "dev": "nodemon --exec './restart'",
     "test": "mocha || true",
+    "testone": "mocha --grep",
     "check": "node ./utilities/preflightCheck",
     "scss": "node-sass scss/main.scss public/css/main.css -w"
   },
