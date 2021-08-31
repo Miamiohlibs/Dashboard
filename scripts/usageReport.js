@@ -4,7 +4,6 @@ const readline = require('readline');
 const Usage = require('../classes/Usage');
 const usage = new Usage();
 const flags = process.argv.slice(2);
-console.log(flags);
 
 let limitByUserType = false;
 if (flags.includes('--student') || flags.includes('--students')) {
@@ -53,7 +52,7 @@ file.on('close', function () {
   console.log('Distinct Users:', usage.distinctUsers(data));
   console.log('Start Date: ', firstDate);
   console.log('\n' + 'Monthly Stats:');
-  months = usage.eachMonthSince(firstDate, 'Sep 2021');
+  months = usage.eachMonthSince(firstDate);
   for (month in months) {
     let monthData = usage.filterDataByMonth(data, months[month]);
     let monthUses = monthData.length;
