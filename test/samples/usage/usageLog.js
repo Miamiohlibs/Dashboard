@@ -1,7 +1,7 @@
 module.exports = [
   {
     time: '2021-08-31T13:28:01-04:00',
-    user: '3611b939ec779f3029e5d798ad36081b5238231635cb13b7ea139a8ef5e290cb',
+    user: 'userone',
     courseDepts: ['Library'],
     majors: [],
     subjects: ['Library'],
@@ -9,7 +9,7 @@ module.exports = [
   },
   {
     time: '2021-08-30T11:59:11-04:00',
-    user: '3611b939ec779f3029e5d798ad36081b5238231635cb13b7ea139a8ef5e290cb',
+    user: 'usertwo',
     courseDepts: ['Library'],
     majors: [],
     subjects: ['Library'],
@@ -17,7 +17,7 @@ module.exports = [
   },
   {
     time: '2021-08-31T13:28:36-04:00',
-    user: '3611b939ec779f3029e5d798ad36081b5238231635cb13b7ea139a8ef5e290cb',
+    user: 'userone',
     courseDepts: ['Library'],
     majors: [],
     subjects: ['Library'],
@@ -25,7 +25,7 @@ module.exports = [
   },
   {
     time: '2021-09-01T11:59:11-04:00',
-    user: 'a611b939ec779f3029e5d798ad36081b5238231635cb13b7ea139a8ef5e290cb',
+    user: 'userthree',
     courseDepts: ['Library'],
     majors: [],
     subjects: ['Library'],
@@ -33,7 +33,7 @@ module.exports = [
   },
   {
     time: '2021-09-01T13:28:01-04:00',
-    user: '3611b939ec779f3029e5d798ad36081b5238231635cb13b7ea139a8ef5e290cb',
+    user: 'studentone',
     courseDepts: ['English'],
     majors: [],
     subjects: ['English'],
@@ -41,7 +41,7 @@ module.exports = [
   },
   {
     time: '2021-09-01T13:28:36-04:00',
-    user: '3611b939ec779f3029e5d798ad36081b5238231635cb13b7ea139a8ef5e290cb',
+    user: 'studenttwo',
     courseDepts: ['Biology'],
     majors: [],
     subjects: ['Biology'],

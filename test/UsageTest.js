@@ -70,3 +70,42 @@ describe('Usage: filterDataByYear', () => {
     expect(filtered.length).to.equal(0);
   });
 });
+
+describe('Usage: filterDataByUsertype', () => {
+  it('Should return four entries for staff', () => {
+    let filtered = usage.filterDataByUsertype(testData, 'staff');
+    expect(filtered.length).to.equal(4);
+  });
+  it('Should return two entries for student', () => {
+    let filtered = usage.filterDataByUsertype(testData, 'student');
+    expect(filtered.length).to.equal(2);
+  });
+});
+
+describe('Usage: distinctUsers', () => {
+  it('Should find five distinct users', () => {
+    let filtered = usage.distinctUsers(testData);
+    expect(filtered).to.equal(5);
+  });
+});
+
+describe('Usage: eachMonthSince', () => {
+  it('Should find eight months from Jan-Aug 2021', () => {
+    let months = usage.eachMonthSince('Jan 2021', 'Aug 2021');
+    expect(months.length).to.equal(8);
+    expect(months[0]).to.equal('2021-01');
+    expect(months[3]).to.equal('2021-04');
+    expect(months[7]).to.equal('2021-08');
+  });
+
+  it('Should find one month from Aug 2021 to Aug 2021', () => {
+    let months = usage.eachMonthSince('2021-08', '2021-08');
+    expect(months.length).to.equal(1);
+    expect(months[0]).to.equal('2021-08');
+  });
+
+  it('Should return an empty set when the end comes before the beginning', () => {
+    let months = usage.eachMonthSince('August 2028', 'Aug 2020');
+    expect(months.length).to.equal(0);
+  });
+});
