@@ -13,6 +13,7 @@ const handleRequest = require('./scripts/handleRequest');
 const createFakeSubjUser = require('./scripts/createFakeSubjUser');
 var bodyParser = require('body-parser');
 var path = require('path');
+const usageLog = require('./scripts/usageLog');
 
 // console.log(process.env.HOSTNAME); // ulblwebp11.lib.miamioh.edu = prod
 if (process.env.ON_SERVER === 'true') {
@@ -69,6 +70,7 @@ app.get('/', async (req, res) => {
     settings.feedbackForm = config.get('feedbackForm');
   }
   res.render('dashboard', { user: userInfo, settings: settings });
+  usageLog(userInfo);
 });
 
 app.get('/json', async (req, res) => {
