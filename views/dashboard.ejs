@@ -14,9 +14,6 @@
 
   <nav class="d-block d-lg-none mb-4 bg-white ">
     <div class="row">
-      <img src="/img/mg-logo.svg" alt="MyGuide" style="max-height: 100px; padding-bottom: 1em">
-    </div>
-    <div class="row">
     <h1 class="h3 text-wrap text-center col-10 mt-2">Hello, <%= user.casData.givenName %>
     </h1>
     <button class="btn btn-dark float-end shadow-sm col-1 flex-grow-1" type="button" data-bs-toggle="offcanvas"
@@ -81,7 +78,6 @@
   <nav class="navbar col-xl-2 col-lg-3 d-lg-block d-none p-0">
     <div class="card flex-column mt-4 text-center shadow-sm">
       <div class="card-header p-2">
-        <img src="/img/mg-logo.svg" alt="MyGuide" style="margin: 0px 1.2em">
         <h1 class="h3 text-wrap mt-2">Hello,</br>
           <%= user.casData.givenName %>
         </h1>
@@ -137,7 +133,10 @@
 
   <!-- Show user's library account and featured content -->
   <div class="col-xl-2 col-lg-9 offset-lg-3 offset-xl-0">
-    <div class="mt-xl-5 d-md-inline-flex flex-xl-column">
+    <div class="d-flex justify-content-center">
+      <img src="/img/mg-logo.svg" alt="MyGuide" class="w-100" style="max-width: 200px;">
+    </div>
+    <div class="mt-xl-1 d-md-inline-flex flex-xl-column">
       <div class="card mx-md-3 mx-xl-2 my-2">
         <div class="card-header px-4 py-3 d-flex">
           <a class="libraryAcc collapsed flex-grow-1" data-bs-toggle="collapse" href="#collapseCirc"

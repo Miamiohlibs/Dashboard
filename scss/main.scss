@@ -159,6 +159,12 @@ a:hover ~ span.red-arrows {
   }
 }
 
+@media only screen and (max-width: 992px) {
+  div.bg-gray-800 {
+    border-radius: 0;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .card {
     max-width: 450px;
