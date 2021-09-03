@@ -57,32 +57,33 @@ module.exports = (user) => {
   });
 
   // add in librarian liaison areas
-  let userEmail = 'gibsonke@miamioh.edu';
-  u.liaisons = libns.getSubjectsByEmail(userEmail);
-  u.liaisons.forEach((subjName) => {
-    var filename = path.join(
-      __dirname,
-      '..',
-      'cache',
-      'subjects',
-      f.safeFilename(subjName) + '.json'
-    );
-    try {
-      var fileContents = JSON.parse(
-        String(fs.readFileSync(filename, (err) => {}))
+  u.liaisons = libns.getSubjectsByEmail(user.email);
+  if (u.liaisons) {
+    u.liaisons.forEach((subjName) => {
+      var filename = path.join(
+        __dirname,
+        '..',
+        'cache',
+        'subjects',
+        f.safeFilename(subjName) + '.json'
       );
-    } catch (err) {
-      if (err.code == 'ENOENT') {
-        var msg = 'File not found: ' + filename + ' ' + JSON.stringify(user);
-        console.log(msg);
-        logger.error(msg);
-      } else {
-        console.log('Error:', err);
+      try {
+        var fileContents = JSON.parse(
+          String(fs.readFileSync(filename, (err) => {}))
+        );
+      } catch (err) {
+        if (err.code == 'ENOENT') {
+          var msg = 'File not found: ' + filename + ' ' + JSON.stringify(user);
+          console.log(msg);
+          logger.error(msg);
+        } else {
+          console.log('Error:', err);
+        }
+        var fileContents = {};
       }
-      var fileContents = {};
-    }
-    u.addSubject('liaison', subjName, fileContents);
-  });
+      u.addSubject('liaison', subjName, fileContents);
+    });
+  }
 
   // now that we have a full list of codes listed by type, get names and libguides for each
 

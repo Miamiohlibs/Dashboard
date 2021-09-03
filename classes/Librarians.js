@@ -13,9 +13,9 @@ module.exports = class Librarians {
 
   getSubjectsByEmail(email) {
     let user = this.getLibrarianByEmail(email);
-    if (user !== undefined) {
+    if (user !== undefined && user.hasOwnProperty('subjects')) {
       return user.subjects.map((i) => i.name);
     }
-    return false;
+    return [];
   }
 };
