@@ -11,6 +11,7 @@ module.exports = class UserInfo {
     this.courseDepts = [];
     this.majors = [];
     this.depts = [];
+    this.liaisons = [];
     this.subjectData = [];
   }
   addSubject(subjType, subject, resources) {
@@ -25,6 +26,8 @@ module.exports = class UserInfo {
       case 'reg':
         this.courseDepts.push(subject);
         break;
+      case 'liaison':
+        this.liaisons.push(subject);
     }
   }
 };
