@@ -8,7 +8,7 @@ These cached subject files are the main data used by the Dashboard.
 Note: this file should be refactored. Right now we compile all the Miami subject
 areas, and then also create single-subject files for all the liaison areas. They
 mostly use the same code, but right now it's repeated with only slight variations. 
-Do better! -kri, 2021-09-03
+Do better! -kri, 2021-09-0
 */
 
 const fs = require('fs');
@@ -71,7 +71,7 @@ subjCodes.forEach((m) => {
             if (err) throw err;
           }
         );
-        console.log(filename);
+        // console.log(filename);
       }
     });
   }
@@ -79,6 +79,7 @@ subjCodes.forEach((m) => {
 
 // and then do it again for liaison subjects that don't already have a file:
 // come up with a list of all the libguide subject areas
+let lgshNames = subjects.map((i) => i.name);
 lgshNames.forEach((subjectName) => {
   // for each one that doesn't already have a file
   // create an array of one, e.g. ['Area Studies']
