@@ -3,6 +3,7 @@
   <script>
     $(document).ready(function () {
       $('.collapse').collapse('hide');
+      $('button[role="tab"]').on('click', function() { window.scrollTo(0,0)})
       $('button.librarian-info-toggle').click(function () {
         $(this).text(function (i, old) {
           return old == 'More' ? 'Less' : 'More';

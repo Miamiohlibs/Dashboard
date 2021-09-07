@@ -14,6 +14,7 @@ module.exports = class MiamiUser {
         this.setIfExists('uid', attr.uid[0]); // string
         this.setIfExists('majors', attr.muohioeduMajor); // array
         this.setIfExists('majorCodes', attr.muohioeduMajorCode); // array
+        this.setIfExists('email', attr.eduPersonPrincipalName[0]); //string
         this.setIfExists(
           'courseNumbers',
           attr.muohioeduCurrentCourseSubjectNumber

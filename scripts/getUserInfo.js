@@ -10,6 +10,10 @@ const codeMap = require('../models/codeMap');
 const MiamiSubject = require('../classes/MiamiSubject');
 const ms = new MiamiSubject(subjCodes);
 const config = require('config');
+const libnData = require('../cache/Librarians');
+const Librarians = require('../classes/Librarians');
+const libns = new Librarians(libnData);
+
 let mode;
 if (config.has('mode')) {
   mode = config.get('mode');
@@ -52,6 +56,35 @@ module.exports = (user) => {
     });
   });
 
+  // add in librarian liaison areas
+  u.liaisons = libns.getSubjectsByEmail(user.email);
+  if (u.liaisons) {
+    u.liaisons.forEach((subjName) => {
+      var filename = path.join(
+        __dirname,
+        '..',
+        'cache',
+        'subjects',
+        f.safeFilename(subjName) + '.json'
+      );
+      try {
+        var fileContents = JSON.parse(
+          String(fs.readFileSync(filename, (err) => {}))
+        );
+      } catch (err) {
+        if (err.code == 'ENOENT') {
+          var msg = 'File not found: ' + filename + ' ' + JSON.stringify(user);
+          console.log(msg);
+          logger.error(msg);
+        } else {
+          console.log('Error:', err);
+        }
+        var fileContents = {};
+      }
+      u.addSubject('liaison', subjName, fileContents);
+    });
+  }
+
   // now that we have a full list of codes listed by type, get names and libguides for each
 
   codeTypes.forEach((type) => {
@@ -88,11 +121,13 @@ module.exports = (user) => {
       });
     }
   });
+
   let allSubjects = u.majors.concat(u.courseDepts).sort();
   if (u.primaryAffiliation != 'student') {
     // only add department stuff for non-students
     // otherwise they get junk for their work-study job
     allSubjects = allSubjects.concat(u.depts);
+    allSubjects = allSubjects.concat(u.liaisons);
   }
   u.uniqueSubjects = allSubjects.filter((item, index) => {
     return allSubjects.indexOf(item) === index;
