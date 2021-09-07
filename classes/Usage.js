@@ -30,6 +30,24 @@ module.exports = class Usage {
   distinctUsers(data) {
     return [...new Set(data.map((i) => i.user))].length;
   }
+  eachDaySince(startDate, endDate = undefined) {
+    if (dayjs(endDate) < dayjs(startDate)) {
+      return [];
+    }
+    let endDay = dayjs(endDate).format('YYYY-MM-DD'); //defaults to now if not specified
+    let day = dayjs(startDate).format('YYYY-MM-DD'); //start with input date's month
+    let done = false;
+    let days = [];
+    while (done == false) {
+      days.push(day);
+      if (day == endDay) {
+        done = true;
+      } else {
+        day = dayjs(day).add(1, 'day').format('YYYY-MM-DD');
+      }
+    }
+    return days;
+  }
   eachMonthSince(startDate, endDate = undefined) {
     if (dayjs(endDate) < dayjs(startDate)) {
       return [];

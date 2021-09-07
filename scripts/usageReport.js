@@ -4,6 +4,7 @@ const readline = require('readline');
 const Usage = require('../classes/Usage');
 const usage = new Usage();
 const flags = process.argv.slice(2);
+console.log(flags);
 
 let limitByUserType = false;
 if (flags.includes('--student') || flags.includes('--students')) {
@@ -43,15 +44,7 @@ file.on('line', (line) => {
   } catch (err) {}
 });
 
-file.on('close', function () {
-  let firstDate = usage.getFirstDate(data); // do this before applying filters
-  if (limitByUserType) {
-    data = usage.filterDataByUsertype(data, limitByUserType);
-  }
-  console.log('Total Usage:', data.length);
-  console.log('Distinct Users:', usage.distinctUsers(data));
-  console.log('Start Date: ', firstDate);
-  console.log('\n' + 'Monthly Stats:');
+function printMonthlyStats(firstDate, endDate = undefined) {
   months = usage.eachMonthSince(firstDate);
   for (month in months) {
     let monthData = usage.filterDataByMonth(data, months[month]);
@@ -66,4 +59,36 @@ file.on('close', function () {
         ('Distinct users: ' + distinctUsers)
     );
   }
+}
+
+function printDailyStats(firstDate, endDate = undefined) {
+  days = usage.eachDaySince(firstDate);
+  for (day in days) {
+    let dayData = usage.filterDataByDate(data, days[day]);
+    let dayUses = dayData.length;
+    let distinctUsers = usage.distinctUsers(dayData);
+    console.log(
+      '* ' +
+        days[day] +
+        ': ' +
+        dayUses +
+        '\t' +
+        ('Distinct users: ' + distinctUsers)
+    );
+  }
+}
+
+file.on('close', function () {
+  let firstDate = usage.getFirstDate(data); // do this before applying filters
+  if (limitByUserType) {
+    data = usage.filterDataByUsertype(data, limitByUserType);
+  }
+  console.log('Total Usage:', data.length);
+  console.log('Distinct Users:', usage.distinctUsers(data));
+  console.log('Start Date: ', firstDate);
+  console.log('\n' + 'Monthly Stats:');
+  printMonthlyStats(firstDate);
+
+  console.log('\n' + 'Daily Stats:');
+  printDailyStats(firstDate);
 });
