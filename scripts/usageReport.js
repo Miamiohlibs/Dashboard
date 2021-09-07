@@ -60,4 +60,8 @@ file.on('close', function () {
   console.log('\n' + 'Monthly Stats:');
   let monthlyStats = usage.getStatsByTimePeriod('month', data, firstDate);
   console.log(monthlyStats);
+
+  console.log('\n' + 'Yearly Stats:');
+  let yearlyStats = usage.getStatsByTimePeriod('year', data, firstDate);
+  console.log(yearlyStats);
 });

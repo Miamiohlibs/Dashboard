@@ -12,16 +12,9 @@ module.exports = class Usage {
     let dates = this.getDates(data);
     return dayjs(dates[0]).format('YYYY-MM-DD');
   }
-  filterDataByDate(data, date) {
-    let dateStr = dayjs(date).format('YYYY-MM-DD');
-    return data.filter((i) => i.time.includes(dateStr));
-  }
-  filterDataByMonth(data, month) {
-    let dateStr = dayjs(month).format('YYYY-MM');
-    return data.filter((i) => i.time.includes(dateStr));
-  }
-  filterDataByYear(data, year) {
-    let dateStr = dayjs(year).format('YYYY');
+  filterDataByDate(data, date, unit) {
+    let dateFormat = this.getDateFormatForUnit(unit);
+    let dateStr = dayjs(date).format(dateFormat);
     return data.filter((i) => i.time.includes(dateStr));
   }
   filterDataByUsertype(data, usertype) {
@@ -67,9 +60,9 @@ module.exports = class Usage {
   getStatsByTimePeriod(unit, data, startDate, endDate = undefined) {
     let periods = this.eachTimePeriodSince(unit, startDate);
     let output = [];
-    console.log(periods.length);
+
     for (let period in periods) {
-      let periodData = this.filterDataByDate(data, periods[period]);
+      let periodData = this.filterDataByDate(data, periods[period], unit);
       let periodUses = periodData.length;
       let periodDistinctUsers = this.distinctUsers(periodData);
       let entry = {
