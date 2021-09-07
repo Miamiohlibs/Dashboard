@@ -10,7 +10,8 @@
     "test": "mocha || true",
     "testone": "mocha --grep",
     "check": "node ./utilities/preflightCheck",
-    "scss": "node-sass scss/main.scss public/css/main.css -w"
+    "scss": "node-sass scss/main.scss public/css/main.css -w",
+    "stats": "node ./scripts/usageReport"
   },
   "author": "",
   "license": "ISC",
