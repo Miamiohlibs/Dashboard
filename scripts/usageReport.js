@@ -44,40 +44,6 @@ file.on('line', (line) => {
   } catch (err) {}
 });
 
-function printMonthlyStats(firstDate, endDate = undefined) {
-  months = usage.eachMonthSince(firstDate);
-  for (month in months) {
-    let monthData = usage.filterDataByMonth(data, months[month]);
-    let monthUses = monthData.length;
-    let distinctUsers = usage.distinctUsers(monthData);
-    console.log(
-      '* ' +
-        months[month] +
-        ': ' +
-        monthUses +
-        '\t' +
-        ('Distinct users: ' + distinctUsers)
-    );
-  }
-}
-
-function printDailyStats(firstDate, endDate = undefined) {
-  days = usage.eachDaySince(firstDate);
-  for (day in days) {
-    let dayData = usage.filterDataByDate(data, days[day]);
-    let dayUses = dayData.length;
-    let distinctUsers = usage.distinctUsers(dayData);
-    console.log(
-      '* ' +
-        days[day] +
-        ': ' +
-        dayUses +
-        '\t' +
-        ('Distinct users: ' + distinctUsers)
-    );
-  }
-}
-
 file.on('close', function () {
   let firstDate = usage.getFirstDate(data); // do this before applying filters
   if (limitByUserType) {
@@ -86,9 +52,12 @@ file.on('close', function () {
   console.log('Total Usage:', data.length);
   console.log('Distinct Users:', usage.distinctUsers(data));
   console.log('Start Date: ', firstDate);
-  console.log('\n' + 'Monthly Stats:');
-  printMonthlyStats(firstDate);
 
   console.log('\n' + 'Daily Stats:');
-  printDailyStats(firstDate);
+  let dailyStats = usage.getStatsByTimePeriod('day', data, firstDate);
+  console.log(dailyStats);
+
+  console.log('\n' + 'Monthly Stats:');
+  let monthlyStats = usage.getStatsByTimePeriod('month', data, firstDate);
+  console.log(monthlyStats);
 });
