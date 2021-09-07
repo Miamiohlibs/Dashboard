@@ -5,6 +5,7 @@ const readline = require('readline');
 const Usage = require('../classes/Usage');
 const usage = new Usage();
 const flags = process.argv.slice(2);
+const dayjs = require('dayjs');
 console.log(flags);
 
 let limitByUserType = false;
@@ -27,6 +28,16 @@ if (flags.includes('--day-only')) {
 } else if (flags.includes('--year-only')) {
   statsIncrements = ['year'];
 }
+
+let startDate;
+// Find startDate and endDate flags if any
+let res = flags.findIndex((i) => i.includes('--startDate='));
+if (res >= 0) {
+  startFlag = flags[res];
+  startArr = startFlag.split('=');
+  startDate = startArr[1];
+}
+console.log('startDate:' + startDate);
 
 // Creating a readable stream from file
 // readline module reads line by line
@@ -56,6 +67,12 @@ file.on('line', (line) => {
 
 file.on('close', function () {
   let firstDate = usage.getFirstDate(data); // do this before applying filters
+
+  // allow user defined startDate if it's greater than first available date
+  if ((startDate !== undefined) & (dayjs(startDate) > dayjs(firstDate))) {
+    firstDate = startDate;
+  }
+
   if (limitByUserType) {
     data = usage.filterDataByUsertype(data, limitByUserType);
   }
