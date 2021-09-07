@@ -1,4 +1,3 @@
-const { DH_CHECK_P_NOT_SAFE_PRIME } = require('constants');
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
