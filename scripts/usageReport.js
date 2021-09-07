@@ -39,6 +39,16 @@ if (res >= 0) {
 }
 console.log('startDate:' + startDate);
 
+let endDate;
+// Find endDate and endDate flags if any
+res = flags.findIndex((i) => i.includes('--endDate='));
+if (res >= 0) {
+  startFlag = flags[res];
+  startArr = startFlag.split('=');
+  endDate = startArr[1];
+}
+console.log('endDate:' + endDate);
+
 // Creating a readable stream from file
 // readline module reads line by line
 // but from a readable stream only.
@@ -69,16 +79,18 @@ file.on('close', function () {
   let firstDate = usage.getFirstDate(data); // do this before applying filters
 
   // allow user defined startDate if it's greater than first available date
-  if ((startDate !== undefined) & (dayjs(startDate) > dayjs(firstDate))) {
+  if ((startDate != undefined) & (dayjs(startDate) > dayjs(firstDate))) {
     firstDate = startDate;
   }
 
   if (limitByUserType) {
     data = usage.filterDataByUsertype(data, limitByUserType);
   }
+  data = usage.filterByDataByDateRange(data, firstDate, endDate);
   console.log('Total Usage:', data.length);
   console.log('Distinct Users:', usage.distinctUsers(data));
   console.log('Start Date: ', firstDate);
+  console.log('End Date: ', endDate);
 
   for (increment in statsIncrements) {
     incrementName = statsIncrements[increment];
@@ -86,7 +98,8 @@ file.on('close', function () {
     let statsResults = usage.getStatsByTimePeriod(
       incrementName,
       data,
-      firstDate
+      firstDate,
+      endDate
     );
     console.log(statsResults);
   }

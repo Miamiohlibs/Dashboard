@@ -12,6 +12,11 @@ module.exports = class Usage {
     let dates = this.getDates(data);
     return dayjs(dates[0]).format('YYYY-MM-DD');
   }
+  filterByDataByDateRange(data, startDate, endDate = undefined) {
+    startDate = dayjs(startDate).startOf().format();
+    endDate = dayjs(endDate).add(1, 'day').startOf().format();
+    return data.filter((i) => i.time > startDate && i.time < endDate);
+  }
   filterDataByDate(data, date, unit) {
     let dateFormat = this.getDateFormatForUnit(unit);
     let dateStr = dayjs(date).format(dateFormat);
@@ -58,7 +63,7 @@ module.exports = class Usage {
     return entries;
   }
   getStatsByTimePeriod(unit, data, startDate, endDate = undefined) {
-    let periods = this.eachTimePeriodSince(unit, startDate);
+    let periods = this.eachTimePeriodSince(unit, startDate, endDate);
     let output = [];
 
     for (let period in periods) {
