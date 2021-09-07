@@ -6,7 +6,7 @@ const Usage = require('../classes/Usage');
 const usage = new Usage();
 const flags = process.argv.slice(2);
 const dayjs = require('dayjs');
-console.log(flags);
+// console.log(flags);
 
 let limitByUserType = false;
 if (flags.includes('--student') || flags.includes('--students')) {
@@ -31,23 +31,21 @@ if (flags.includes('--day-only')) {
 
 let startDate;
 // Find startDate and endDate flags if any
-let res = flags.findIndex((i) => i.includes('--startDate='));
+let res = flags.findIndex((i) => i.includes('--start-date='));
 if (res >= 0) {
   startFlag = flags[res];
   startArr = startFlag.split('=');
   startDate = startArr[1];
 }
-console.log('startDate:' + startDate);
 
 let endDate;
 // Find endDate and endDate flags if any
-res = flags.findIndex((i) => i.includes('--endDate='));
+res = flags.findIndex((i) => i.includes('--end-date='));
 if (res >= 0) {
   startFlag = flags[res];
   startArr = startFlag.split('=');
   endDate = startArr[1];
 }
-console.log('endDate:' + endDate);
 
 // Creating a readable stream from file
 // readline module reads line by line
