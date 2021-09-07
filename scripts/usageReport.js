@@ -1,3 +1,4 @@
+const { DH_CHECK_P_NOT_SAFE_PRIME } = require('constants');
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
@@ -16,6 +17,15 @@ if (flags.includes('--student') || flags.includes('--students')) {
 }
 if (limitByUserType) {
   console.log('Limiting Data to User Type: ' + limitByUserType);
+}
+
+let statsIncrements = ['day', 'month', 'year'];
+if (flags.includes('--day-only')) {
+  statsIncrements = ['day'];
+} else if (flags.includes('--month-only')) {
+  statsIncrements = ['month'];
+} else if (flags.includes('--year-only')) {
+  statsIncrements = ['year'];
 }
 
 // Creating a readable stream from file
@@ -53,15 +63,14 @@ file.on('close', function () {
   console.log('Distinct Users:', usage.distinctUsers(data));
   console.log('Start Date: ', firstDate);
 
-  console.log('\n' + 'Daily Stats:');
-  let dailyStats = usage.getStatsByTimePeriod('day', data, firstDate);
-  console.log(dailyStats);
-
-  console.log('\n' + 'Monthly Stats:');
-  let monthlyStats = usage.getStatsByTimePeriod('month', data, firstDate);
-  console.log(monthlyStats);
-
-  console.log('\n' + 'Yearly Stats:');
-  let yearlyStats = usage.getStatsByTimePeriod('year', data, firstDate);
-  console.log(yearlyStats);
+  for (increment in statsIncrements) {
+    incrementName = statsIncrements[increment];
+    console.log('\n' + `Stats by ${incrementName}:`);
+    let statsResults = usage.getStatsByTimePeriod(
+      incrementName,
+      data,
+      firstDate
+    );
+    console.log(statsResults);
+  }
 });
