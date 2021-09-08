@@ -12,16 +12,14 @@ module.exports = class Usage {
     let dates = this.getDates(data);
     return dayjs(dates[0]).format('YYYY-MM-DD');
   }
-  filterDataByDate(data, date) {
-    let dateStr = dayjs(date).format('YYYY-MM-DD');
-    return data.filter((i) => i.time.includes(dateStr));
+  filterByDataByDateRange(data, startDate, endDate = undefined) {
+    startDate = dayjs(startDate).startOf().format();
+    endDate = dayjs(endDate).add(1, 'day').startOf().format();
+    return data.filter((i) => i.time > startDate && i.time < endDate);
   }
-  filterDataByMonth(data, month) {
-    let dateStr = dayjs(month).format('YYYY-MM');
-    return data.filter((i) => i.time.includes(dateStr));
-  }
-  filterDataByYear(data, year) {
-    let dateStr = dayjs(year).format('YYYY');
+  filterDataByDate(data, date, unit) {
+    let dateFormat = this.getDateFormatForUnit(unit);
+    let dateStr = dayjs(date).format(dateFormat);
     return data.filter((i) => i.time.includes(dateStr));
   }
   filterDataByUsertype(data, usertype) {
@@ -30,22 +28,55 @@ module.exports = class Usage {
   distinctUsers(data) {
     return [...new Set(data.map((i) => i.user))].length;
   }
-  eachMonthSince(startDate, endDate = undefined) {
+  getDateFormatForUnit(unit) {
+    let dateFormat;
+    switch (unit) {
+      case 'day':
+        dateFormat = 'YYYY-MM-DD';
+        break;
+      case 'month':
+        dateFormat = 'YYYY-MM';
+        break;
+      case 'year':
+        dateFormat = 'YYYY';
+        break;
+    }
+    return dateFormat;
+  }
+  eachTimePeriodSince(unit, startDate, endDate = undefined) {
     if (dayjs(endDate) < dayjs(startDate)) {
       return [];
     }
-    let endMonth = dayjs(endDate).format('YYYY-MM'); //defaults to now if not specified
-    let month = dayjs(startDate).format('YYYY-MM'); //start with input date's month
+    let dateFormat = this.getDateFormatForUnit(unit);
+    let endTimePeriod = dayjs(endDate).format(dateFormat); //defaults to now if not specified
+    let timePeriod = dayjs(startDate).format(dateFormat); //start with input date's month
     let done = false;
-    let months = [];
+    let entries = [];
     while (done == false) {
-      months.push(month);
-      if (month == endMonth) {
+      entries.push(timePeriod);
+      if (timePeriod == endTimePeriod) {
         done = true;
       } else {
-        month = dayjs(month).add(1, 'month').format('YYYY-MM');
+        timePeriod = dayjs(timePeriod).add(1, unit).format(dateFormat);
       }
     }
-    return months;
+    return entries;
+  }
+  getStatsByTimePeriod(unit, data, startDate, endDate = undefined) {
+    let periods = this.eachTimePeriodSince(unit, startDate, endDate);
+    let output = [];
+
+    for (let period in periods) {
+      let periodData = this.filterDataByDate(data, periods[period], unit);
+      let periodUses = periodData.length;
+      let periodDistinctUsers = this.distinctUsers(periodData);
+      let entry = {
+        period: periods[period],
+        periodUses: periodUses,
+        periodDistinctUsers: periodDistinctUsers,
+      };
+      output.push(entry);
+    }
+    return output;
   }
 };

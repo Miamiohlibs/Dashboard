@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# runs the usageReport script
+# and passes args/flags to it
+
+function join_by { local d=${1-} f=${2-}; if shift 2; then printf %s "$f" "${@/#/$d}"; fi; }
+
+#get args as string
+args=`join_by ' ' "$@"`
+
+node ./scripts/usageReport $args
