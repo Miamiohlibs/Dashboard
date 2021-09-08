@@ -590,7 +590,7 @@ const subjCodes = [
     name: 'Business Legal Studies',
     regCode: 'BLS',
     regName: 'Business Legal Studies',
-    libguides: ['Business', 'Government and Law'],
+    libguides: ['Business Legal Studies', 'Business', 'Government and Law'],
   },
   {
     name: 'Business Management',
