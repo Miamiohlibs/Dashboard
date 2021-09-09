@@ -45,12 +45,13 @@
             <ul class="navbar-nav nav nav-tabs pb-3" id="myTab" role="tablist">
               <% if (user.uniqueSubjects) { %>
                 <% user.uniqueSubjects.forEach((s)=> { %>
+                  <% displaySubject = s.replace('B.E.S.T. Library','Library') %>
                   <li class="nav-item m-2" role="presentation">
                     <% let tabId=s.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
                       <button class="text-start nav-link text-light ps-3 border-0" id="<%= tabId %>-tab"
                         data-bs-toggle="tab" data-bs-target="#<%= tabId %>" role="tab" aria-controls="<%= s %>">
                         <i class="bi bi-caret-right-fill mr-1"></i>
-                        <%= s %>
+                        <%= displaySubject %>
                       </button>
                   </li>
                   <% }); %>
@@ -89,12 +90,14 @@
         <ul class="navbar-nav nav nav-tabs pb-3" id="myTab" role="tablist">
           <% if (user.uniqueSubjects) { %>
             <% user.uniqueSubjects.forEach((s)=> { %>
+              <% displaySubject = s.replace('B.E.S.T. Library','Library') %>
+              <!-- Subject: <%=s %> -->
               <li class="nav-item m-2" role="presentation">
                 <% let tabId=s.replace( /[^a-zA-Z0-9]+/g, '_' ); %>
                   <button class="text-start nav-link text-light ps-3 border-0" id="<%= tabId %>-tab"
                     data-bs-toggle="tab" data-bs-target="#<%= tabId %>" role="tab" aria-controls="<%= s %>">
                     <i class="bi bi-caret-right-fill mr-1"></i>
-                    <%= s %>
+                    <%= displaySubject %>
                   </button>
               </li>
               <% }); %>
