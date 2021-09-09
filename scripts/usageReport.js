@@ -1,10 +1,11 @@
-const fs = require('fs');
-const path = require('path');
-const readline = require('readline');
+// const fs = require('fs');
+// const path = require('path');
+// const readline = require('readline');
 const Usage = require('../classes/Usage');
 const usage = new Usage();
 const flags = process.argv.slice(2);
 const dayjs = require('dayjs');
+const getUsageData = require('./getUsageData');
 // console.log(flags);
 
 let limitByUserType = false;
@@ -46,58 +47,32 @@ if (res >= 0) {
   endDate = startArr[1];
 }
 
-// Creating a readable stream from file
-// readline module reads line by line
-// but from a readable stream only.
-const file = readline.createInterface({
-  input: fs.createReadStream(
-    path.join(__dirname, '..', 'logs', 'usageLog.txt')
-  ),
-  output: process.stdout,
-  terminal: false,
-});
+let data = getUsageData();
 
-// Printing the content of file line by
-//  line to console by listening on the
-// line event which will triggered
-// whenever a new line is read from
-// the stream
+let firstDate = usage.getFirstDate(data); // do this before applying filters
 
-let data = [];
+// allow user defined startDate if it's greater than first available date
+if ((startDate != undefined) & (dayjs(startDate) > dayjs(firstDate))) {
+  firstDate = startDate;
+}
 
-file.on('line', (line) => {
-  try {
-    let obj = JSON.parse(line);
-    data.push(obj);
-  } catch (err) {}
-});
+if (limitByUserType) {
+  data = usage.filterDataByUsertype(data, limitByUserType);
+}
+data = usage.filterByDataByDateRange(data, firstDate, endDate);
+console.log('Total Usage:', data.length);
+console.log('Distinct Users:', usage.distinctUsers(data));
+console.log('Start Date: ', firstDate);
+console.log('End Date: ', endDate);
 
-file.on('close', function () {
-  let firstDate = usage.getFirstDate(data); // do this before applying filters
-
-  // allow user defined startDate if it's greater than first available date
-  if ((startDate != undefined) & (dayjs(startDate) > dayjs(firstDate))) {
-    firstDate = startDate;
-  }
-
-  if (limitByUserType) {
-    data = usage.filterDataByUsertype(data, limitByUserType);
-  }
-  data = usage.filterByDataByDateRange(data, firstDate, endDate);
-  console.log('Total Usage:', data.length);
-  console.log('Distinct Users:', usage.distinctUsers(data));
-  console.log('Start Date: ', firstDate);
-  console.log('End Date: ', endDate);
-
-  for (increment in statsIncrements) {
-    incrementName = statsIncrements[increment];
-    console.log('\n' + `Stats by ${incrementName}:`);
-    let statsResults = usage.getStatsByTimePeriod(
-      incrementName,
-      data,
-      firstDate,
-      endDate
-    );
-    console.log(statsResults);
-  }
-});
+for (increment in statsIncrements) {
+  incrementName = statsIncrements[increment];
+  console.log('\n' + `Stats by ${incrementName}:`);
+  let statsResults = usage.getStatsByTimePeriod(
+    incrementName,
+    data,
+    firstDate,
+    endDate
+  );
+  console.log(statsResults);
+}
