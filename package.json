@@ -35,6 +35,7 @@
     "js-base64": "^2.6.4",
     "jsdom": "^16.5.1",
     "logger": "0.0.1",
+    "n-readlines": "^1.0.1",
     "node-cas-client": "^1.0.0",
     "node-inspect": "^1.11.6",
     "node-sass": "^6.0.1",
