@@ -97,12 +97,10 @@ app.get('/preview', async (req, res) => {
 
 app.get('/stats', async (req, res) => {
   data = getUsageData();
-  res.send('length: ' + data.length);
-  // usage = getStats();
-  // res.render('stats', {
-  //   stats: JSON.stringify(usage),
-  // });
-  // console.log(usage.length);
+  const usageReport = require('./scripts/usageReport2');
+  let dayStats = usageReport(data, 'day', { startDate: '2021-09-02' });
+  let monthStats = usageReport(data, 'month', { startDate: '2021-09-02' });
+  res.send({ monthStats, dayStats });
 });
 
 if (global.onServer === true) {
