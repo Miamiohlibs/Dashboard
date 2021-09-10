@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyGuide Stats</title>
-</head>
-<body>
+<%- include ('header') %>
     <h1>MyGuide Stats</h1>
     <h2>Monthly</h2>
     <pre>
@@ -16,5 +8,8 @@
     <pre>
         <%= dayStats %>
     </pre>
-</body>
-</html>
+    <h2>Daily (Student only)</h2>
+    <pre>
+        <%= dayStuStats %>
+    </pre>
+    <%- include ('footer') %>
