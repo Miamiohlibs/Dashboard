@@ -100,6 +100,10 @@ app.get('/stats', async (req, res) => {
   const usageReport = require('./scripts/usageReport2');
   let dayStats = usageReport(data, 'day', { startDate: '2021-09-02' });
   let monthStats = usageReport(data, 'month', { startDate: '2021-09-02' });
+  let monthStuStats = usageReport(data, 'month', {
+    startDate: '2021-09-02',
+    population: 'student',
+  });
   let dayStuStats = usageReport(data, 'day', {
     startDate: '2021-09-02',
     population: 'student',
@@ -107,6 +111,7 @@ app.get('/stats', async (req, res) => {
   res.render('stats', {
     monthStats: JSON.stringify(monthStats.details),
     dayStats: JSON.stringify(dayStats.details, null, 2),
+    monthStuStats: JSON.stringify(monthStuStats.details),
     dayStuStats: JSON.stringify(dayStuStats.details, null, 2),
   });
 });
