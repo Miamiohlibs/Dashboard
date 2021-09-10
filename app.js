@@ -14,6 +14,7 @@ const createFakeSubjUser = require('./scripts/createFakeSubjUser');
 var bodyParser = require('body-parser');
 var path = require('path');
 const usageLog = require('./scripts/usageLog');
+getUsageData = require('./scripts/getUsageData');
 
 // console.log(process.env.HOSTNAME); // ulblwebp11.lib.miamioh.edu = prod
 if (process.env.ON_SERVER === 'true') {
@@ -95,12 +96,13 @@ app.get('/preview', async (req, res) => {
 });
 
 app.get('/stats', async (req, res) => {
-  getStats = require('./scripts/stats');
-  usage = getStats();
-  res.render('stats', {
-    stats: JSON.stringify(usage),
-  });
-  console.log(usage.length);
+  data = getUsageData();
+  res.send('length: ' + data.length);
+  // usage = getStats();
+  // res.render('stats', {
+  //   stats: JSON.stringify(usage),
+  // });
+  // console.log(usage.length);
 });
 
 if (global.onServer === true) {

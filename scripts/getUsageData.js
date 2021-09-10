@@ -1,27 +1,16 @@
 const fs = require('fs');
 const path = require('path');
-const filepath = path.join(__dirname, '..', 'logs', 'usageLog.txt');
-const lineByLine = require('n-readlines');
-const liner = new lineByLine(filepath);
+const logfile = path.join(__dirname, '..', 'logs', 'usageLog.txt');
 
 getUsageData = function () {
-  let line;
-  let lineNumber = 0;
   let data = [];
-  let output;
-
-  while ((line = liner.next())) {
-    //   output = 'Line ' + lineNumber + ': ' + line.toString('ascii');
-    let json = line.toString('ascii');
-    if (json.length > 0) {
-      let obj = JSON.parse(json);
-      // console.log(obj);
-      if (obj) {
-        data.push(obj);
-      }
+  let content = fs.readFileSync(logfile, { flag: 'r' }).toString();
+  let strArr = content.split('\n');
+  strArr.forEach((i) => {
+    if (i.length > 0) {
+      data.push(JSON.parse(i));
     }
-  }
-  //   liner.close();
+  });
   return data;
 };
 
