@@ -21,6 +21,7 @@ getUsageData = function () {
       }
     }
   }
+  //   liner.close();
   return data;
 };
 

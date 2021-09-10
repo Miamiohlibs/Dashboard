@@ -94,6 +94,15 @@ app.get('/preview', async (req, res) => {
   }
 });
 
+app.get('/stats', async (req, res) => {
+  getStats = require('./scripts/stats');
+  usage = getStats();
+  res.render('stats', {
+    stats: JSON.stringify(usage),
+  });
+  console.log(usage.length);
+});
+
 if (global.onServer === true) {
   app.get('/logout', function (req, res, next) {
     // Do whatever you like here, then call the logout middleware
