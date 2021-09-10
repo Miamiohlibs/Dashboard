@@ -100,7 +100,10 @@ app.get('/stats', async (req, res) => {
   const usageReport = require('./scripts/usageReport2');
   let dayStats = usageReport(data, 'day', { startDate: '2021-09-02' });
   let monthStats = usageReport(data, 'month', { startDate: '2021-09-02' });
-  res.send({ monthStats, dayStats });
+  res.render('stats', {
+    monthStats: JSON.stringify(monthStats.details),
+    dayStats: JSON.stringify(dayStats.details, null, 2),
+  });
 });
 
 if (global.onServer === true) {
