@@ -14,6 +14,7 @@ const createFakeSubjUser = require('./scripts/createFakeSubjUser');
 var bodyParser = require('body-parser');
 var path = require('path');
 const usageLog = require('./scripts/usageLog');
+getUsageData = require('./scripts/getUsageData');
 
 // console.log(process.env.HOSTNAME); // ulblwebp11.lib.miamioh.edu = prod
 if (process.env.ON_SERVER === 'true') {
@@ -92,6 +93,27 @@ app.get('/preview', async (req, res) => {
     oxfordSubj = subjects.filter((s) => s.regional != true);
     res.render('preview', { subjects: oxfordSubj });
   }
+});
+
+app.get('/stats', async (req, res) => {
+  data = getUsageData();
+  const usageReport = require('./scripts/usageReport2');
+  let dayStats = usageReport(data, 'day', { startDate: '2021-09-02' });
+  let monthStats = usageReport(data, 'month', { startDate: '2021-09-02' });
+  let monthStuStats = usageReport(data, 'month', {
+    startDate: '2021-09-02',
+    population: 'student',
+  });
+  let dayStuStats = usageReport(data, 'day', {
+    startDate: '2021-09-02',
+    population: 'student',
+  });
+  res.render('stats', {
+    monthStats: JSON.stringify(monthStats.details),
+    dayStats: JSON.stringify(dayStats.details, null, 2),
+    monthStuStats: JSON.stringify(monthStuStats.details),
+    dayStuStats: JSON.stringify(dayStuStats.details, null, 2),
+  });
 });
 
 if (global.onServer === true) {
