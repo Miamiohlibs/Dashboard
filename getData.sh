@@ -74,3 +74,4 @@ echo "module.exports = databases;" >> $FILE
 ./compileSubjectCache.sh
 
 node ./utilities/compareLGSubjects.js
+node ./utilities/checkSubjectCodes.js
