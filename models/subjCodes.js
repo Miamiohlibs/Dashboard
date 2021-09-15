@@ -4668,13 +4668,13 @@ const subjCodes = [
     name: 'Undeclared - Business',
     majorCode: 'BU56',
     majorName: 'Undeclared - Business',
-    libguides: null,
+    libguides: ['Business'],
   },
   {
     name: 'Undeclared - Education',
     majorCode: 'EA56',
     majorName: 'Undeclared - Education',
-    libguides: null,
+    libguides: ['Education'],
   },
   {
     name: 'University Advancement',
