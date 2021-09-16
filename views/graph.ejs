@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MyGuide Usage</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="/js/createBarChart.js"></script>
     <style>
         .bar { fill: steelblue}
     </style>
 </head>
-<body>
+<body class="container">
+    <h1>MyGuide Usage</h1>
+    <div id="options">
+        <ul id="increment-selector">
+            <li class="btn btn-primary" data-increment="day">Daily</li>
+            <li class="btn btn-outline selected" data-increment="month">Monthly</li>
+            <li class="btn btn-outline" data-increment="year">Yearly</li>
+        </ul>
+    </div>
     <svg height="500" width="1000"></svg>
     <script>
             window.onload = function() { 
-            jQuery.getJSON('./usageData', function(data) {
+            let incr = jQuery('#increment-selector li.selected').data('increment');
+            console.log('increment:'+incr)
+            newChart({incr});
+            function newChart(o) {
+                jQuery.getJSON('./usageData?increment='+o.incr, function(data) {
                 console.log(data);
                 let options = {
                     margin: 200,    
@@ -24,10 +38,12 @@
                     xAxisLabel: 'Date',
                     yValueProp: 'periodUses',
                     yAxisLabel: 'Uses',
-                    chartTitle: 'MyGuide Usage'
+                    chartTitle: 'MyGuide Usage by ' + data.increment + ': ' + data.startDate + ' - ' + data.endDate
                 }
                 createBarChart(data.details, options);
     });
+            }
+
 }
     </script>
 </body>
