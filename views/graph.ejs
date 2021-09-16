@@ -40,7 +40,13 @@
             <li class="btn btn-primary" data-population="staff">Staff</li>
         </ul>
 
-        <div class="col-lg-6">
+
+        <ul id="dataLevel-selector" class="btn-group col-lg-4">
+            <li CLASS="btn disabled">Data Level:</li>
+            <li class="btn btn-primary active" data-level="periodUses">Total Uses</li>
+            <li class="btn btn-primary " data-level="periodDistinctUsers">Distinct Users</li>
+        </ul>
+        <div class="col-lg-4">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <label for="startDate" class="input-group-text">Start date:</label>
@@ -51,7 +57,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-4">
         <div class="input-group">
             <div class="input-group-prepend">
                 <label for="endDate" class="input-group-text">End date:</label>
@@ -90,16 +96,17 @@
 
             function updateChart() {
                 let activeIncrBtn = $('#increment-selector li.active');
-                // activeIncrBtn.removeClass('btn-outline').addClass('btn-primary');
                 let increment = activeIncrBtn.data('increment');
 
                 let activePopBtn = $('#population-selector li.active');
-                // activePopBtn.removeClass('btn-outline').addClass('btn-primary');
                 let population = activePopBtn.data('population')
+
+                let activeLevelBtn = $('#dataLevel-selector li.active');
+                let dataLevel = activeLevelBtn.data('level');
 
                 let startDate=$('#startDate').val() || '2019-08-15';
                 let endDate=$('#endDate').val() || today;
-                doChart({increment, population, startDate, endDate});
+                doChart({increment, population, startDate, endDate, dataLevel});
             }
 
 
@@ -108,12 +115,16 @@
                 console.log($.param(o) )
                 jQuery.getJSON('./usageData?'+$.param(o), function(data) {
                 console.log(data);
+                let levelLabels = {
+                    'periodUses': 'Uses',
+                    'periodDistinctUsers': 'Distinct Users'
+                }
                 let options = {
                     margin: 200,    
                     xValueProp: 'period', // this is the data[xValueLabel] property with data in it
                     xAxisLabel: 'Date',
-                    yValueProp: 'periodUses',
-                    yAxisLabel: 'Uses',
+                    yValueProp: o.dataLevel,
+                    yAxisLabel: levelLabels[o.dataLevel],
                     chartTitle: 'MyGuide Usage by ' + data.increment + ': ' + data.startDate + ' - ' + data.endDate
                 }
                 createBarChart(data.details, options);
