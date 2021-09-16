@@ -44,6 +44,7 @@ getStats = function (data, increment, options = {}) {
     startDate: firstDate,
     endDate: endDate,
     increment: increment,
+    population: limitByUserType,
     totalUses: data.length,
     distinctUsers: usage.distinctUsers(data),
     details: statsResults,
