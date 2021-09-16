@@ -34,9 +34,14 @@
     <svg height="500" width="1000"></svg>
     <script>
         var d = new Date();
-        var today = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
-        console.log(today)
+        console.log('month'+d.getMonth())
+        if (d.getMonth() < 9) { monthPadding = '0'; } else { monthPadding = ''}
+        var today = d.getFullYear() + "-" + monthPadding +  (d.getMonth()+1) + "-" + d.getDate();
             $(document).ready(function() {
+                $('.dateField').each(function() {
+                    $(this).attr('max',today);
+                });
+                $('#endDate').attr('value',today);
                 updateChart();
                 $('.btn').click(function() {
                     clkBtn = $(this);
