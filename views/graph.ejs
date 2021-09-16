@@ -22,9 +22,20 @@
             <li class="btn btn-outline " data-increment="month">Monthly</li>
             <li class="btn btn-outline" data-increment="year">Yearly</li>
         </ul>
+        <label for="startDate">Start date:</label>
+        <input type="date" class="dateField" id="startDate" name="startDate" value="2021-08-31"
+       min="2021-08-31">
+
+       <label for="endDate">End date:</label>
+       <input type="date" class="dateField" id="endDate" name="endDate" value=""
+      min="2021-08-31">
+
     </div>
     <svg height="500" width="1000"></svg>
     <script>
+        var d = new Date();
+        var today = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+        console.log(today)
             $(document).ready(function() {
                 updateChart();
                 $('.btn').click(function() {
@@ -34,22 +45,26 @@
                     });
                     clkBtn.addClass('selected'); // primary will be added by updateChart
                     updateChart();
-
+                });
+                $('.dateField').change(function() {
+                    updateChart();
                 })
             });
 
             function updateChart() {
                 let activeBtn = jQuery('#increment-selector li.selected');
                 activeBtn.removeClass('btn-outline').addClass('btn-primary');
-                let incr = activeBtn.data('increment');
-                console.log('increment:'+incr)
-                doChart({incr});
+                let increment = activeBtn.data('increment');
+                let startDate=$('#startDate').val() || '2019-08-15';
+                let endDate=$('#endDate').val() || today;
+                doChart({increment, startDate, endDate});
             }
 
 
             function doChart(o) {
                 $('svg').empty();
-                jQuery.getJSON('./usageData?increment='+o.incr, function(data) {
+                console.log($.param(o) )
+                jQuery.getJSON('./usageData?'+$.param(o), function(data) {
                 console.log(data);
                 let options = {
                     margin: 200,    
