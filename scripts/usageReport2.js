@@ -12,7 +12,7 @@ getStats = function (data, increment, options = {}) {
   // * endDate: defaults to today
 
   let firstDate = usage.getFirstDate(data); // do this before applying filters
-  let endDate = dayjs().format('YYYY-MM-DD');
+  let endDate = options.endDate || dayjs().format('YYYY-MM-DD');
   let limitByUserType, startDate;
 
   if (options.hasOwnProperty('population')) {
