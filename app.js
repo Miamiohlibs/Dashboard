@@ -100,11 +100,18 @@ app.get('/graph', (req, res) => {
 });
 
 app.get('/usageData', async (req, res) => {
+  // set default params
+  let increment = req.query.increment || 'month';
+  if (!req.query.startDate) {
+    req.query.startDate = '2021-09-02';
+  }
+
+  // get data
   data = getUsageData();
   const usageReport = require('./scripts/usageReport2');
-  let dayStats = usageReport(data, 'day', { startDate: '2021-09-02' });
+  let stats = usageReport(data, increment, req.query);
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(dayStats));
+  res.end(JSON.stringify(stats));
 });
 
 app.get('/stats', async (req, res) => {
