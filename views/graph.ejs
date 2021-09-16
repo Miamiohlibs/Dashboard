@@ -32,6 +32,7 @@
 
     </div>
     <svg height="500" width="1000"></svg>
+    <div id="rawData"></div>
     <script>
         var d = new Date();
         console.log('month'+d.getMonth())
@@ -80,6 +81,7 @@
                     chartTitle: 'MyGuide Usage by ' + data.increment + ': ' + data.startDate + ' - ' + data.endDate
                 }
                 createBarChart(data.details, options);
+                $('#rawData').html('<pre>' + JSON.stringify(data,null,2) + '</pre>')
                 });
             }
     </script>
