@@ -15,7 +15,7 @@ getStats = function (data, increment, options = {}) {
   let endDate = options.endDate || dayjs().format('YYYY-MM-DD');
   let limitByUserType, startDate;
 
-  if (options.hasOwnProperty('population')) {
+  if (options.hasOwnProperty('population') && options.population != 'all') {
     limitByUserType = options.population;
   }
 
