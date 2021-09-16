@@ -18,18 +18,37 @@
     <h1>MyGuide Usage</h1>
     <div id="options">
         <ul id="increment-selector">
-            <li class="btn btn-primary" data-increment="day">Daily</li>
-            <li class="btn btn-outline selected" data-increment="month">Monthly</li>
+            <li class="btn btn-outline selected" data-increment="day">Daily</li>
+            <li class="btn btn-outline " data-increment="month">Monthly</li>
             <li class="btn btn-outline" data-increment="year">Yearly</li>
         </ul>
     </div>
     <svg height="500" width="1000"></svg>
     <script>
-            window.onload = function() { 
-            let incr = jQuery('#increment-selector li.selected').data('increment');
-            console.log('increment:'+incr)
-            newChart({incr});
-            function newChart(o) {
+            $(document).ready(function() {
+                updateChart();
+                $('.btn').click(function() {
+                    clkBtn = $(this);
+                    $('.btn-primary').each(function(i) {
+                        $(this).addClass('btn-outline').removeClass('btn-primary').removeClass('selected');
+                    });
+                    clkBtn.addClass('selected'); // primary will be added by updateChart
+                    updateChart();
+
+                })
+            });
+
+            function updateChart() {
+                let activeBtn = jQuery('#increment-selector li.selected');
+                activeBtn.removeClass('btn-outline').addClass('btn-primary');
+                let incr = activeBtn.data('increment');
+                console.log('increment:'+incr)
+                doChart({incr});
+            }
+
+
+            function doChart(o) {
+                $('svg').empty();
                 jQuery.getJSON('./usageData?increment='+o.incr, function(data) {
                 console.log(data);
                 let options = {
@@ -41,10 +60,8 @@
                     chartTitle: 'MyGuide Usage by ' + data.increment + ': ' + data.startDate + ' - ' + data.endDate
                 }
                 createBarChart(data.details, options);
-    });
+                });
             }
-
-}
     </script>
 </body>
 </html>
