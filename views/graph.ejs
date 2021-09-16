@@ -17,27 +17,43 @@
 <body class="container">
     <h1>MyGuide Usage</h1>
     <div id="options">
-        <ul id="increment-selector">
-            <li class="btn btn-outline selected" data-increment="day">Daily</li>
-            <li class="btn btn-outline " data-increment="month">Monthly</li>
-            <li class="btn btn-outline" data-increment="year">Yearly</li>
+        <div class="row">
+
+
+        <ul id="increment-selector" class="btn-group col-lg-6">
+            <li class="btn btn-primary active" data-increment="day">Daily</li>
+            <li class="btn btn-primary " data-increment="month">Monthly</li>
+            <li class="btn btn-primary" data-increment="year">Yearly</li>
         </ul>
 
-        <ul id="population-selector">
-            <li class="btn btn-outline selected" data-population="all">All Users</li>
-            <li class="btn btn-outline " data-population="student">Student</li>
-            <li class="btn btn-outline" data-population="faculty">Faculty</li>
-            <li class="btn btn-outline" data-population="staff">Staff</li>
+        <ul id="population-selector" class="btn-group col-lg-6">
+            <li class="btn btn-primary active" data-population="all">All Users</li>
+            <li class="btn btn-primary " data-population="student">Student</li>
+            <li class="btn btn-primary" data-population="faculty">Faculty</li>
+            <li class="btn btn-primary" data-population="staff">Staff</li>
         </ul>
 
-        <label for="startDate">Start date:</label>
-        <input type="date" class="dateField" id="startDate" name="startDate" value="2021-08-31"
-       min="2021-08-31">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label for="startDate" class="input-group-text">Start date:</label>
+                </div>
+               
+                <input type="date" class="form-control dateField" id="startDate" name="startDate" value="2021-08-31"
+               min="2021-08-31">
+            </div>
+        </div>
 
-       <label for="endDate">End date:</label>
-       <input type="date" class="dateField" id="endDate" name="endDate" value=""
+        <div class="col-lg-6">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <label for="endDate" class="input-group-text">End date:</label>
+            </div>
+            <input type="date" class="form-control dateField" id="endDate" name="endDate" value=""
       min="2021-08-31">
-
+      </div>
+      </div>
+    </div>
     </div>
     <svg height="500" width="1000"></svg>
     <div id="rawData"></div>
@@ -54,10 +70,10 @@
                 updateChart();
                 $('.btn').click(function() {
                     clkBtn = $(this);
-                    clkBtn.parent().children('.btn-primary').each(function(i) {
-                        $(this).addClass('btn-outline').removeClass('btn-primary').removeClass('selected');
+                    clkBtn.parent().children('.btn').each(function(i) {
+                        $(this).removeClass('active');
                     });
-                    clkBtn.addClass('selected'); // primary will be added by updateChart
+                    clkBtn.addClass('active'); // primary will be added by updateChart
                     updateChart();
                 });
                 $('.dateField').change(function() {
@@ -66,12 +82,12 @@
             });
 
             function updateChart() {
-                let activeIncrBtn = $('#increment-selector li.selected');
-                activeIncrBtn.removeClass('btn-outline').addClass('btn-primary');
+                let activeIncrBtn = $('#increment-selector li.active');
+                // activeIncrBtn.removeClass('btn-outline').addClass('btn-primary');
                 let increment = activeIncrBtn.data('increment');
 
-                let activePopBtn = $('#population-selector li.selected');
-                activePopBtn.removeClass('btn-outline').addClass('btn-primary');
+                let activePopBtn = $('#population-selector li.active');
+                // activePopBtn.removeClass('btn-outline').addClass('btn-primary');
                 let population = activePopBtn.data('population')
 
                 let startDate=$('#startDate').val() || '2019-08-15';
