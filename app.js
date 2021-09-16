@@ -95,6 +95,18 @@ app.get('/preview', async (req, res) => {
   }
 });
 
+app.get('/graph', (req, res) => {
+  res.render('graph');
+});
+
+app.get('/usageData', async (req, res) => {
+  data = getUsageData();
+  const usageReport = require('./scripts/usageReport2');
+  let dayStats = usageReport(data, 'day', { startDate: '2021-09-02' });
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify(dayStats));
+});
+
 app.get('/stats', async (req, res) => {
   data = getUsageData();
   const usageReport = require('./scripts/usageReport2');

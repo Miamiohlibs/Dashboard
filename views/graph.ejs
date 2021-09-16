@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="/js/createBarChart.js"></script>
+    <style>
+        .bar { fill: steelblue}
+    </style>
+</head>
+<body>
+    <svg height="500" width="1000"></svg>
+    <script>
+            window.onload = function() { 
+            jQuery.getJSON('./usageData', function(data) {
+                console.log(data);
+                let options = {
+                    margin: 200,    
+                    xValueProp: 'period', // this is the data[xValueLabel] property with data in it
+                    xAxisLabel: 'Date',
+                    yValueProp: 'periodUses',
+                    yAxisLabel: 'Uses',
+                    chartTitle: 'MyGuide Usage'
+                }
+                createBarChart(data.details, options);
+    });
+}
+    </script>
+</body>
+</html>
