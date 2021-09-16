@@ -12,6 +12,11 @@
     <script src="/js/createBarChart.js"></script>
     <style>
         .bar { fill: steelblue}
+        .btn.disabled {     
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            color: #000 !important;  
+        } 
     </style>
 </head>
 <body class="container">
@@ -21,12 +26,14 @@
 
 
         <ul id="increment-selector" class="btn-group col-lg-6">
+            <li class="btn disabled">Time Frame:</li>
             <li class="btn btn-primary active" data-increment="day">Daily</li>
             <li class="btn btn-primary " data-increment="month">Monthly</li>
             <li class="btn btn-primary" data-increment="year">Yearly</li>
         </ul>
 
         <ul id="population-selector" class="btn-group col-lg-6">
+            <li CLASS="btn disabled">Population:</li>
             <li class="btn btn-primary active" data-population="all">All Users</li>
             <li class="btn btn-primary " data-population="student">Student</li>
             <li class="btn btn-primary" data-population="faculty">Faculty</li>
