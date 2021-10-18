@@ -8,9 +8,11 @@ config/sierraConf.js
 node_modules/
 misc/
 _site/
+views/partials/custom*
 dash_coverage*
 .DS_Store
 SAMPLE_USERS.txt
 temp.json
 test.js
+
 # include the logs, cache, and cache/subjects dir, but ignore their contents with their own logs/.gitignore
