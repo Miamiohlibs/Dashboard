@@ -38,35 +38,35 @@ describe('Usage: getFirstDate', () => {
   });
 });
 
-describe('Usage: filterDataByDate', () => {
+describe('Usage: filterDataByDate (Day)', () => {
   it('Should return two entries for 31 Aug 2021', () => {
-    let filtered = usage.filterDataByDate(testData, '2021-08-31');
+    let filtered = usage.filterDataByDate(testData, '2021-08-31', 'day');
     expect(filtered.length).to.equal(2);
   });
   it('Should return three entries for 1 Sept 2021', () => {
-    let filtered = usage.filterDataByDate(testData, '2021-09-01');
+    let filtered = usage.filterDataByDate(testData, '2021-09-01', 'day');
     expect(filtered.length).to.equal(3);
   });
 });
 
-describe('Usage: filterDataByMonth', () => {
+describe('Usage: filterDataByDate (Month)', () => {
   it('Should return three entries for Aug 2021', () => {
-    let filtered = usage.filterDataByMonth(testData, '2021-08');
+    let filtered = usage.filterDataByDate(testData, '2021-08', 'month');
     expect(filtered.length).to.equal(3);
   });
   it('Should return three entries for Sept 2021', () => {
-    let filtered = usage.filterDataByMonth(testData, 'Sep 2021');
+    let filtered = usage.filterDataByDate(testData, 'Sep 2021', 'month');
     expect(filtered.length).to.equal(3);
   });
 });
 
-describe('Usage: filterDataByYear', () => {
+describe('Usage: filterDataByDate (Year)', () => {
   it('Should return six entries for 2021', () => {
-    let filtered = usage.filterDataByYear(testData, '2021');
+    let filtered = usage.filterDataByDate(testData, '2021', 'year');
     expect(filtered.length).to.equal(6);
   });
   it('Should return zero entries for 2020', () => {
-    let filtered = usage.filterDataByYear(testData, '2020');
+    let filtered = usage.filterDataByDate(testData, '2020', 'year');
     expect(filtered.length).to.equal(0);
   });
 });
@@ -89,9 +89,9 @@ describe('Usage: distinctUsers', () => {
   });
 });
 
-describe('Usage: eachMonthSince', () => {
+describe('Usage: eachTimePeriodSince (month)', () => {
   it('Should find eight months from Jan-Aug 2021', () => {
-    let months = usage.eachMonthSince('Jan 2021', 'Aug 2021');
+    let months = usage.eachTimePeriodSince('month', 'Jan 2021', 'Aug 2021');
     expect(months.length).to.equal(8);
     expect(months[0]).to.equal('2021-01');
     expect(months[3]).to.equal('2021-04');
@@ -99,13 +99,13 @@ describe('Usage: eachMonthSince', () => {
   });
 
   it('Should find one month from Aug 2021 to Aug 2021', () => {
-    let months = usage.eachMonthSince('2021-08', '2021-08');
+    let months = usage.eachTimePeriodSince('month', '2021-08', '2021-08');
     expect(months.length).to.equal(1);
     expect(months[0]).to.equal('2021-08');
   });
 
   it('Should return an empty set when the end comes before the beginning', () => {
-    let months = usage.eachMonthSince('August 2028', 'Aug 2020');
+    let months = usage.eachTimePeriodSince('month', 'August 2028', 'Aug 2020');
     expect(months.length).to.equal(0);
   });
 });
