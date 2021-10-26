@@ -121,3 +121,21 @@ describe('countRepeatUsers', () => {
     expect(counts.studenttwo.n).to.equal(1);
   });
 });
+
+describe('truncateUser', () => {
+  it('should trim long usernames to 10 char by default', () => {
+    let user = 'abcdefghijklmnop';
+    let output = usage.truncateUser(user);
+    expect(output).to.equal('abcdefghij');
+  });
+  it('should not trim short usernames', () => {
+    let user = 'abcdefghi';
+    let output = usage.truncateUser(user);
+    expect(output).to.equal('abcdefghi');
+  });
+  it('should trim long usernames to 5 when passed a second arg of 5', () => {
+    let user = 'abcdefghijklmnop';
+    let output = usage.truncateUser(user, 5);
+    expect(output).to.equal('abcde');
+  });
+});

@@ -95,4 +95,8 @@ module.exports = class Usage {
     });
     return counts;
   }
+
+  truncateUser(input, length = 10) {
+    return input.substring(0, length);
+  }
 };
