@@ -86,14 +86,22 @@ module.exports = class Usage {
     let output = [];
     let counts = {};
     let addedFields = {};
+    if (opts.hasOwnProperty('truncateKeyTo')) {
+      let truncated = [];
+      data.forEach((entry) => {
+        let shortenedKey = this.truncateUser(entry[key], opts.truncateKeyTo);
+        entry[key] = shortenedKey;
+        truncated.push(entry);
+      });
+      data = truncated;
+    }
     data.forEach((i) => {
-      let keyToken = i[key];
+      let keyToken = i[key].toString();
       if (Object.getOwnPropertyNames(counts).includes(keyToken)) {
         counts[keyToken]++;
       } else {
         counts[keyToken] = 1;
         fieldsToRetain.forEach((f) => {
-          console.log(f, keyToken);
           let obj = {};
           obj[f] = i[f];
           addedFields[keyToken] = obj;

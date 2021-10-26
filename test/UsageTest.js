@@ -146,6 +146,32 @@ describe('countEntriesByProperty', () => {
     expect(output[4]).to.haveOwnProperty('primaryAffiliation');
     expect(output[4].primaryAffiliation).to.equal('student');
   });
+
+  it('should support the option to truncate the key', () => {
+    let opts = { truncateKeyTo: 9 };
+    let output = usage.countEntriesByProperty(testData, 'user', opts);
+    expect(output.length).to.equal(5);
+    expect(output[4].user).to.equal('studenttw');
+    expect(output[4].count).to.equal(1);
+  });
+
+  it('should treat numerical keys as text and count instances correctly', () => {
+    let numericalData = [
+      { user: '3611b939ec', n: 15 },
+      { user: 'a611b939ec', n: 1 },
+      { user: 'af73571945', n: 22 },
+      { user: 'fa3810f4bd', n: 1 },
+    ];
+    let opts = { stringifyKey: true };
+    let output = usage.countEntriesByProperty(numericalData, 'n', opts);
+    expect(output.length).to.equal(3);
+    expect(output[0].n).to.equal('1');
+    expect(output[0].count).to.equal(2);
+    expect(output[1].n).to.equal('15');
+    expect(output[1].count).to.equal(1);
+    expect(output[2].n).to.equal('22');
+    expect(output[2].count).to.equal(1);
+  });
 });
 
 // describe('countRepeatUsers', () => {
