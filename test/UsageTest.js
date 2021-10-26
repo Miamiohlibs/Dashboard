@@ -1,6 +1,8 @@
+const deepEqualInAnyOrder = require('deep-equal-in-any-order');
 const chai = require('chai');
+chai.use(deepEqualInAnyOrder);
 const assert = require('chai').assert;
-const expect = require('chai').expect;
+const { expect } = chai;
 const should = require('chai').should;
 const testData = require('./samples/usage/usageLog');
 const Usage = require('../classes/Usage');
@@ -120,6 +122,19 @@ describe('countRepeatUsers', () => {
     expect(counts.studentone.n).to.equal(1);
     expect(counts.studenttwo.n).to.equal(1);
   });
+});
+
+describe('arrayFromRepeatUsers', () => {
+  input = {
+    userone: { user: 'userone', n: 4, primaryAffiliation: 'student' },
+    usertwo: { user: 'usertwo', n: 3, primaryAffiliation: 'staff' },
+  };
+  desired = [
+    { user: 'userone', n: 4, primaryAffiliation: 'student' },
+    { user: 'usertwo', n: 3, primaryAffiliation: 'staff' },
+  ];
+  let output = usage.arrayFromRepeatUsers(input);
+  expect(output).to.deep.equalInAnyOrder(desired);
 });
 
 describe('truncateUser', () => {
