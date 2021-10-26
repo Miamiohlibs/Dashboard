@@ -83,7 +83,7 @@ module.exports = class Usage {
   countRepeatUsers(data) {
     const counts = {};
     data.forEach((entry) => {
-      let userId = entry.user;
+      let userId = this.truncateUser(entry.user);
       let n;
       if (counts[userId] !== undefined) {
         n = counts[userId]['n'] + 1;
