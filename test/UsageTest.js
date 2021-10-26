@@ -112,30 +112,68 @@ describe('Usage: eachTimePeriodSince (month)', () => {
   });
 });
 
-describe('countRepeatUsers', () => {
-  it('should correctly count repeat users in test file', () => {
-    let counts = usage.countRepeatUsers(testData);
-    expect(Object.keys(counts).length).to.equal(5);
-    expect(counts.userone.n).to.equal(2);
-    expect(counts.usertwo.n).to.equal(1);
-    expect(counts.userthree.n).to.equal(1);
-    expect(counts.studentone.n).to.equal(1);
-    expect(counts.studenttwo.n).to.equal(1);
+describe('countEntriesByProperty', () => {
+  it('should correctly sum the number of same keys in an array of objects', () => {
+    let output = usage.countEntriesByProperty(testData, 'user');
+    expect(output.length).to.equal(5);
+    expect(output[0].user).to.equal('userone');
+    expect(output[0].count).to.equal(2);
+    expect(output[1].user).to.equal('usertwo');
+    expect(output[1].count).to.equal(1);
+    expect(output[2].user).to.equal('userthree');
+    expect(output[2].count).to.equal(1);
+    expect(output[3].user).to.equal('studentone');
+    expect(output[3].count).to.equal(1);
+    expect(output[4].user).to.equal('studenttwo');
+    expect(output[4].count).to.equal(1);
+  });
+
+  it('should accept an alternate label for the count property', () => {
+    let opts = { countLabel: 'n' };
+    let output = usage.countEntriesByProperty(testData, 'user', opts);
+    expect(output.length).to.equal(5);
+    expect(output[0].user).to.equal('userone');
+    expect(output[0].n).to.equal(2);
+    expect(output[4].n).to.equal(1);
   });
 });
 
-describe('arrayFromRepeatUsers', () => {
-  input = {
-    userone: { user: 'userone', n: 4, primaryAffiliation: 'student' },
-    usertwo: { user: 'usertwo', n: 3, primaryAffiliation: 'staff' },
-  };
-  desired = [
-    { user: 'userone', n: 4, primaryAffiliation: 'student' },
-    { user: 'usertwo', n: 3, primaryAffiliation: 'staff' },
-  ];
-  let output = usage.arrayFromRepeatUsers(input);
-  expect(output).to.deep.equalInAnyOrder(desired);
-});
+// describe('countRepeatUsers', () => {
+//   it('should correctly count repeat users in test file', () => {
+//     let counts = usage.countRepeatUsers(testData);
+//     expect(Object.keys(counts).length).to.equal(5);
+//     expect(counts.userone.n).to.equal(2);
+//     expect(counts.usertwo.n).to.equal(1);
+//     expect(counts.userthree.n).to.equal(1);
+//     expect(counts.studentone.n).to.equal(1);
+//     expect(counts.studenttwo.n).to.equal(1);
+//   });
+// });
+
+// describe('arrayFromRepeatUsers', () => {
+//   input = {
+//     userone: { user: 'userone', n: 4, primaryAffiliation: 'student' },
+//     usertwo: { user: 'usertwo', n: 3, primaryAffiliation: 'staff' },
+//   };
+//   desired = [
+//     { user: 'userone', n: 4, primaryAffiliation: 'student' },
+//     { user: 'usertwo', n: 3, primaryAffiliation: 'staff' },
+//   ];
+//   let output = usage.arrayFromRepeatUsers(input);
+//   expect(output).to.deep.equalInAnyOrder(desired);
+// });
+
+// describe('countDistinctValuesByProperty', () => {
+//   it('should return the correct number of ', () => {
+//     let testInput = [
+//       { n: 1, user: 'testone' },
+//       { n: 1, user: 'testtwo' },
+//       { n: 3, user: 'testthree' },
+//       { n: 6, user: 'testfour' },
+//       { n: 3, user: 'testfive' },
+//     ];
+//   });
+// });
 
 describe('truncateUser', () => {
   it('should trim long usernames to 10 char by default', () => {

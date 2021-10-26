@@ -80,29 +80,61 @@ module.exports = class Usage {
     return output;
   }
 
-  countRepeatUsers(data) {
-    const counts = {};
-    data.forEach((entry) => {
-      let userId = this.truncateUser(entry.user);
-      let n;
-      if (counts[userId] !== undefined) {
-        n = counts[userId]['n'] + 1;
-      } else {
-        n = 1;
-      }
-      let affil = entry.primaryAffiliation;
-      counts[userId] = { user: userId, n: n, primaryAffiliation: affil };
-    });
-    return counts;
-  }
-
-  arrayFromRepeatUsers(data) {
+  countEntriesByProperty(data, key, opts = {}) {
+    let fieldsToRetain = opts.fieldsToRetain || [];
+    let countLabel = opts.countLabel || 'count';
     let output = [];
-    Object.getOwnPropertyNames(data).forEach((i) => {
-      output.push(data[i]);
+    let counts = {};
+    let addedFields = {};
+    data.forEach((i) => {
+      let keyToken = i[key];
+      if (Object.getOwnPropertyNames(counts).includes(keyToken)) {
+        counts[keyToken]++;
+      } else {
+        counts[keyToken] = 1;
+        fieldsToRetain.forEach((f) => {
+          console.log(f, keyToken);
+          let obj = {};
+          obj[f] = i[f];
+          addedFields[keyToken] = obj;
+        });
+      }
     });
+
+    for (var i in counts) {
+      let obj = {};
+      obj[key] = i;
+      obj[countLabel] = counts[i];
+      let added = addedFields[i];
+      obj = { ...obj, ...added };
+      output.push(obj);
+    }
     return output;
   }
+
+  // countRepeatUsers(data) {
+  //   const counts = {};
+  //   data.forEach((entry) => {
+  //     let userId = this.truncateUser(entry.user);
+  //     let n;
+  //     if (counts[userId] !== undefined) {
+  //       n = counts[userId]['n'] + 1;
+  //     } else {
+  //       n = 1;
+  //     }
+  //     let affil = entry.primaryAffiliation;
+  //     counts[userId] = { user: userId, n: n, primaryAffiliation: affil };
+  //   });
+  //   return counts;
+  // }
+
+  // arrayFromRepeatUsers(data) {
+  //   let output = [];
+  //   Object.getOwnPropertyNames(data).forEach((i) => {
+  //     output.push(data[i]);
+  //   });
+  //   return output;
+  // }
 
   truncateUser(input, length = 10) {
     return input.substring(0, length);
