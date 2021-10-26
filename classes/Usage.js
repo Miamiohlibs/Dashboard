@@ -79,4 +79,20 @@ module.exports = class Usage {
     }
     return output;
   }
+
+  countRepeatUsers(data) {
+    const counts = {};
+    data.forEach((entry) => {
+      let userId = entry.user;
+      let n;
+      if (counts[userId] !== undefined) {
+        n = counts[userId]['n'] + 1;
+      } else {
+        n = 1;
+      }
+      let affil = entry.primaryAffiliation;
+      counts[userId] = { user: userId, n: n, primaryAffiliation: affil };
+    });
+    return counts;
+  }
 };

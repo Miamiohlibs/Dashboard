@@ -109,3 +109,15 @@ describe('Usage: eachMonthSince', () => {
     expect(months.length).to.equal(0);
   });
 });
+
+describe('countRepeatUsers', () => {
+  it('should correctly count repeat users in test file', () => {
+    let counts = usage.countRepeatUsers(testData);
+    expect(Object.keys(counts).length).to.equal(5);
+    expect(counts.userone.n).to.equal(2);
+    expect(counts.usertwo.n).to.equal(1);
+    expect(counts.userthree.n).to.equal(1);
+    expect(counts.studentone.n).to.equal(1);
+    expect(counts.studenttwo.n).to.equal(1);
+  });
+});
