@@ -136,6 +136,16 @@ describe('countEntriesByProperty', () => {
     expect(output[0].n).to.equal(2);
     expect(output[4].n).to.equal(1);
   });
+
+  it('should include additional fields when specified in opts', () => {
+    let opts = { fieldsToRetain: ['primaryAffiliation'] };
+    let output = usage.countEntriesByProperty(testData, 'user', opts);
+    expect(output.length).to.equal(5);
+    expect(output[0]).to.haveOwnProperty('primaryAffiliation');
+    expect(output[0].primaryAffiliation).to.equal('staff');
+    expect(output[4]).to.haveOwnProperty('primaryAffiliation');
+    expect(output[4].primaryAffiliation).to.equal('student');
+  });
 });
 
 // describe('countRepeatUsers', () => {
