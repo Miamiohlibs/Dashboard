@@ -44,7 +44,6 @@ if (global.onServer === true) {
 
 const casClient = require('./middleware/cas-client');
 const { Html5Entities } = require('html-entities');
-const { userInfo } = require('os');
 app.locals.encoder = new encoder();
 
 if (global.onServer === true) {
