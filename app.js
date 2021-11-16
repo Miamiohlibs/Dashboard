@@ -68,6 +68,7 @@ app.get('/', async (req, res) => {
   let settings = {};
   if (config.has('feedbackForm')) {
     settings.feedbackForm = config.get('feedbackForm');
+    settings.helpLink = config.get('helpLink');
   }
   res.render('dashboard', { user: userInfo, settings: settings });
   usageLog(userInfo);

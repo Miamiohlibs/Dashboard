@@ -19,6 +19,10 @@
     },
     "feedbackForm": {
         "url": "https://yoursite/path/to/feedback/form",
-        "linkText": "Email us with questions or comments"
+        "linkText": "Email us with questions or comments about this service"
+    },
+    "helpLink": {
+        "url": "https://yoursite/path/to/help/form",
+        "linkText": "Need help? Contact us."
     }
 }
