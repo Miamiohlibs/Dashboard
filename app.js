@@ -94,6 +94,8 @@ app.get('/preview', async (req, res) => {
   }
 });
 
+/* Graphing and stats Routes */
+
 app.get('/graph', (req, res) => {
   res.render('graph');
 });
@@ -111,6 +113,33 @@ app.get('/usageData', async (req, res) => {
   let stats = usageReport(data, increment, req.query);
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(stats));
+});
+
+app.get('/repeatUsers', async (req, res) => {
+  data = getUsageData();
+  const repeatUsers = require('./scripts/repeatUsers');
+  let allSummary = repeatUsers(data, { startDate: '2021-09-02' });
+  let facSummary = repeatUsers(data, {
+    population: 'faculty',
+    startDate: '2021-09-02',
+  });
+  let staffSummary = repeatUsers(data, {
+    population: 'staff',
+    startDate: '2021-09-02',
+  });
+  let stuSummary = repeatUsers(data, {
+    population: 'student',
+    startDate: '2021-09-02',
+  });
+  res.setHeader('Content-Type', 'application/json');
+  res.end(
+    JSON.stringify({
+      student: stuSummary,
+      faculty: facSummary,
+      staff: staffSummary,
+      all: allSummary,
+    })
+  );
 });
 
 app.get('/stats', async (req, res) => {
