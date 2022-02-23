@@ -1659,7 +1659,7 @@ const subjCodes = [
     regName: 'Engineering Technology',
     deptCode: 'rent',
     deptName: 'Engineering Technology',
-    libguides: ['Engineering'],
+    libguides: [],
   },
   {
     name: 'Engineering Technology - HC',
