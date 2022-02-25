@@ -36,6 +36,7 @@
     "js-base64": "^2.6.4",
     "jsdom": "^16.5.1",
     "logger": "0.0.1",
+    "memorystore": "^1.6.7",
     "n-readlines": "^1.0.1",
     "node-cas-client": "^1.0.0",
     "node-inspect": "^1.11.6",
@@ -44,9 +45,7 @@
     "path": "^0.12.7",
     "percentage-encode-char": "^0.1.0",
     "popper.js": "^1.16.1",
-    "session-memory-store": "^1.0.0",
-    "sha256": "^0.2.0",
-    "whoami-exec": "^1.2.2"
+    "sha256": "^0.2.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",

@@ -26,7 +26,7 @@ console.log(`On Server? : ${global.onServer}`);
 
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const MemoryStore = require('session-memory-store')(session);
+const MemoryStore = require('memorystore')(session);
 
 const app = express();
 
