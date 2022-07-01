@@ -19,7 +19,9 @@
         } 
     </style>
 </head>
-<body class="container">
+<body>
+    <%- include('./partials/stats-nav.ejs', { page: page } ) %>
+    <div class="container">
     <h1>MyGuide Usage</h1>
     <div id="options">
         <div class="row">
@@ -70,6 +72,7 @@
     </div>
     <svg height="500" width="1000"></svg>
     <div id="rawData"></div>
+    </div>
     <script>
         var d = new Date();
         console.log('month'+d.getMonth())
