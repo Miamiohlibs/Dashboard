@@ -186,6 +186,7 @@ const majorCodes = {
     { code: 'ASML', description: 'Medical Laboratory Science' },
     { code: 'ASNS', description: 'Neuroscience' },
     { code: 'ASOL', description: 'Organizational Leadership' },
+    { code: 'ASPA', description: 'Physician Associate Studies' },
     { code: 'ASPH', description: 'Public Health' },
     { code: 'ASPJ', description: 'Pre Journalism' },
     { code: 'ASPM', description: 'Premedical Studies' },
