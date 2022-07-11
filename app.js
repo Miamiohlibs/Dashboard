@@ -97,11 +97,16 @@ app.get('/preview', async (req, res) => {
 
 /* Graphing and stats Routes */
 
-app.get('/graph', (req, res) => {
-  res.render('graph');
+app.get('/stats/graph', (req, res) => {
+  res.render('graph', { page: 'graph' });
 });
 
-app.get('/usageData', async (req, res) => {
+app.get('/stats/repeatUsers', (req, res) => {
+  res.render('stats-graphRepeats', { page: 'repeatUsers' });
+  // res.send('stats-graphRepeats');
+});
+
+app.get('/stats/usageData', async (req, res) => {
   // set default params
   let increment = req.query.increment || 'month';
   if (!req.query.startDate) {
@@ -116,7 +121,7 @@ app.get('/usageData', async (req, res) => {
   res.end(JSON.stringify(stats));
 });
 
-app.get('/repeatUsers', async (req, res) => {
+app.get('/stats/repeatData', async (req, res) => {
   data = getUsageData();
   const repeatUsers = require('./scripts/repeatUsers');
   let allSummary = repeatUsers(data, { startDate: '2021-09-02' });
