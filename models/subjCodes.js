@@ -3696,7 +3696,7 @@ const subjCodes = [
     majorCode: 'ASPA',
     majorName: 'Physician Associate Studies',
     libguides: ['Physician Associate Studies'],
-  },
+  },q
   {
     name: 'Physics',
     majorCode: 'AS45',
