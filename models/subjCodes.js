@@ -3692,6 +3692,12 @@ const subjCodes = [
     libguides: ['Kinesiology, Nutrition, and Health'],
   },
   {
+    name: 'Physician Associate Studies',
+    majorCode: 'ASPA',
+    majorName: 'Physician Associate Studies',
+    libguides: ['Physician Associate Studies'],
+  },
+  {
     name: 'Physics',
     majorCode: 'AS45',
     majorName: 'Physics',
