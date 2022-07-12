@@ -124,18 +124,24 @@ app.get('/stats/usageData', async (req, res) => {
 app.get('/stats/repeatData', async (req, res) => {
   data = getUsageData();
   const repeatUsers = require('./scripts/repeatUsers');
-  let allSummary = repeatUsers(data, { startDate: '2021-09-02' });
+  let allSummary = repeatUsers(data, {
+    startDate: '2021-09-02',
+    breakpoint: 10,
+  });
   let facSummary = repeatUsers(data, {
     population: 'faculty',
     startDate: '2021-09-02',
+    breakpoint: 10,
   });
   let staffSummary = repeatUsers(data, {
     population: 'staff',
     startDate: '2021-09-02',
+    breakpoint: 10,
   });
   let stuSummary = repeatUsers(data, {
     population: 'student',
     startDate: '2021-09-02',
+    breakpoint: 10,
   });
   res.setHeader('Content-Type', 'application/json');
   res.end(
